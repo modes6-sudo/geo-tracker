@@ -1,0 +1,175 @@
+/* style.css — Geopolitical Intelligence Dashboard Design Tokens */
+
+/* ============================================
+   TYPE SCALE (fluid clamp)
+   ============================================ */
+:root {
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.9rem  + 0.5vw,  1.125rem);
+  --text-lg:   clamp(1.125rem, 0.95rem + 0.85vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1rem    + 1.5vw,  2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+
+  /* 4px SPACING SYSTEM */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* RADIUS */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* TRANSITIONS */
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* CONTENT WIDTHS */
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1280px;
+  --content-full: 100%;
+
+  /* FONTS */
+  --font-display: 'Source Serif 4', 'Georgia', serif;
+  --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+}
+
+/* ============================================
+   DARK MODE (DEFAULT) — Intelligence Briefing
+   Warm charcoal surfaces, deep teal accent,
+   amber warnings, crimson critical.
+   ============================================ */
+:root, [data-theme="dark"] {
+  /* --- Surfaces (warm charcoal, NOT pure black) --- */
+  --color-bg:             #1a1917;
+  --color-surface:        #211f1d;
+  --color-surface-2:      #282624;
+  --color-surface-offset: #1e1d1b;
+  --color-surface-offset-2: #252320;
+  --color-surface-dynamic: #302e2b;
+  --color-divider:        #3a3835;
+  --color-border:         #454240;
+
+  /* --- Text (warm neutrals) --- */
+  --color-text:           #d4d1cc;
+  --color-text-muted:     #8a8782;
+  --color-text-faint:     #5e5c58;
+  --color-text-inverse:   #1a1917;
+
+  /* --- Primary Accent (Deep Teal) --- */
+  --color-primary:        #4a9ba5;
+  --color-primary-hover:  #5bb0bb;
+  --color-primary-active: #3a8590;
+  --color-primary-highlight: #2a3a3d;
+
+  /* --- Semantic: Warning (Amber/Gold) --- */
+  --color-warning:        #d4a03a;
+  --color-warning-hover:  #e0b24e;
+  --color-warning-active: #b8882a;
+  --color-warning-highlight: #3d3628;
+
+  /* --- Semantic: Critical (Crimson) --- */
+  --color-critical:       #c44040;
+  --color-critical-hover: #d45555;
+  --color-critical-active:#a83030;
+  --color-critical-highlight: #3d2828;
+
+  /* --- Semantic: Error (for forms etc) --- */
+  --color-error:          #c44040;
+  --color-error-hover:    #d45555;
+  --color-error-active:   #a83030;
+  --color-error-highlight: #3d2828;
+
+  /* --- Accent: Success (muted green) --- */
+  --color-success:        #5a9a4a;
+  --color-success-hover:  #6aaa5a;
+  --color-success-active: #4a8a3a;
+  --color-success-highlight: #2a3a28;
+
+  /* --- Accent: Info (soft blue) --- */
+  --color-blue:           #5590c0;
+  --color-blue-hover:     #6aa0d0;
+  --color-blue-active:    #4580b0;
+  --color-blue-highlight: #283540;
+
+  /* --- Shadows (softened for dark surfaces) --- */
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.3);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.4);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.5);
+}
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+[data-theme="light"] {
+  /* --- Surfaces (warm cream/paper) --- */
+  --color-bg:             #f5f3ee;
+  --color-surface:        #faf9f6;
+  --color-surface-2:      #ffffff;
+  --color-surface-offset: #edeae4;
+  --color-surface-offset-2: #e6e3dc;
+  --color-surface-dynamic: #dddad3;
+  --color-divider:        #d0cdc6;
+  --color-border:         #c5c2ba;
+
+  /* --- Text --- */
+  --color-text:           #24221d;
+  --color-text-muted:     #6e6b65;
+  --color-text-faint:     #aaa8a2;
+  --color-text-inverse:   #f5f3ee;
+
+  /* --- Primary Accent (Deep Teal) --- */
+  --color-primary:        #0e6b73;
+  --color-primary-hover:  #095560;
+  --color-primary-active: #074048;
+  --color-primary-highlight: #d0e5e7;
+
+  /* --- Semantic: Warning (Amber/Gold) --- */
+  --color-warning:        #9a7018;
+  --color-warning-hover:  #7d5a10;
+  --color-warning-active: #604508;
+  --color-warning-highlight: #f0e5c8;
+
+  /* --- Semantic: Critical (Crimson) --- */
+  --color-critical:       #a82828;
+  --color-critical-hover: #8e1e1e;
+  --color-critical-active:#741616;
+  --color-critical-highlight: #f0d0d0;
+
+  /* --- Semantic: Error --- */
+  --color-error:          #a82828;
+  --color-error-hover:    #8e1e1e;
+  --color-error-active:   #741616;
+  --color-error-highlight: #f0d0d0;
+
+  /* --- Accent: Success --- */
+  --color-success:        #3a7828;
+  --color-success-hover:  #2a6018;
+  --color-success-active: #1e4a10;
+  --color-success-highlight: #d8ecd0;
+
+  /* --- Accent: Info --- */
+  --color-blue:           #1a6090;
+  --color-blue-hover:     #104a70;
+  --color-blue-active:    #0a3555;
+  --color-blue-highlight: #d0e0f0;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+}

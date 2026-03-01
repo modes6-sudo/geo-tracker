@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO-INTEL — Iran-US-Israel-GCC Crisis Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./base.css">
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="./dashboard.css">
+<link rel="stylesheet" href="./psyops.css">
+</head>
+<body>
+<div id="app" class="app-container">
+<!-- HEADER -->
+<header class="app-header">
+<div class="header-left">
+<div class="logo-block">
+<svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="20" cy="20" r="18" stroke="var(--accent-primary)" stroke-width="1.5"/>
+<circle cx="20" cy="20" r="12" stroke="var(--accent-primary)" stroke-width="1" stroke-dasharray="2 3"/>
+<circle cx="20" cy="20" r="3" fill="var(--accent-primary)"/>
+<line x1="20" y1="2" x2="20" y2="38" stroke="var(--accent-primary)" stroke-width="0.5" stroke-dasharray="2 4"/>
+<line x1="2" y1="20" x2="38" y2="20" stroke="var(--accent-primary)" stroke-width="0.5" stroke-dasharray="2 4"/>
+<circle cx="20" cy="8" r="1.5" fill="var(--accent-secondary)"/>
+<circle cx="32" cy="20" r="1.5" fill="var(--accent-secondary)"/>
+<circle cx="20" cy="32" r="1.5" fill="var(--accent-secondary)"/>
+<circle cx="8" cy="20" r="1.5" fill="var(--accent-secondary)"/>
+</svg>
+<div class="logo-text">
+<span class="logo-primary">GEO-INTEL</span>
+<span class="logo-sub">CRISIS TRACKER</span>
+</div>
+</div>
+</div>
+<div class="header-center">
+<div class="threat-ticker">
+<span class="ticker-label">LIVE THREAT FEED</span>
+<div class="ticker-scroll">
+<span class="ticker-item critical">⚡ CRITICAL: Israeli F-35 sorties over Lebanon airspace</span>
+<span class="ticker-item high">▲ HIGH: IRGC Quds Force repositioning in Syria</span>
+<span class="ticker-item medium">● MEDIUM: US carrier strike group enters Persian Gulf</span>
+<span class="ticker-item high">▲ HIGH: Iranian ballistic missile test — Shahab-3 variant</span>
+<span class="ticker-item critical">⚡ CRITICAL: Hezbollah cross-border rocket barrage</span>
+<span class="ticker-item medium">● MEDIUM: Saudi ARAMCO heightens security posture</span>
+<span class="ticker-item low">◆ LOW: UAE diplomatic back-channel activated</span>
+<span class="ticker-item high">▲ HIGH: IDF Northern Command elevated to DEFCON-2 equivalent</span>
+</div>
+</div>
+</div>
+<div class="header-right">
+<div class="status-indicators">
+<div class="status-pill active" id="live-indicator">
+<span class="pulse-dot"></span>
+<span>LIVE</span>
+</div>
+<div class="status-pill">
+<span class="clock" id="utc-clock">--:--:-- UTC</span>
+</div>
+<div class="threat-level-badge" id="global-threat-badge">
+<span class="badge-label">THREAT</span>
+<span class="badge-value" id="threat-value">CRITICAL</span>
+</div>
+</div>
+</div>
+</header>
+<!-- NAVIGATION -->
+<nav class="dashboard-nav">
+<button class="nav-tab active" data-panel="overview">OVERVIEW</button>
+<button class="nav-tab" data-panel="military">MILITARY OPS</button>
+<button class="nav-tab" data-panel="intelligence">INTELLIGENCE</button>
+<button class="nav-tab" data-panel="psyops">PSYOPS ANALYSIS</button>
+<button class="nav-tab" data-panel="economic">ECONOMIC WARFARE</button>
+<button class="nav-tab" data-panel="timeline">TIMELINE</button>
+</nav>
+<!-- MAIN CONTENT -->
+<main class="dashboard-main">
+<!-- PANEL: OVERVIEW -->
+<section class="panel" id="panel-overview" aria-label="Overview Panel">
+<div class="panel-grid overview-grid">
+<!-- KPI ROW -->
+<div class="kpi-strip">
+<div class="kpi-card" data-severity="critical">
+<div class="kpi-icon">🎯</div>
+<div class="kpi-content">
+<div class="kpi-value" data-counter="247">247</div>
+<div class="kpi-label">Active Incidents</div>
+<div class="kpi-delta up">+18 (24h)</div>
+</div>
+</div>
+<div class="kpi-card" data-severity="high">
+<div class="kpi-icon">✈️</div>
+<div class="kpi-content">
+<div class="kpi-value" data-counter="89">89</div>
+<div class="kpi-label">Airspace Violations</div>
+<div class="kpi-delta up">+7 (24h)</div>
+</div>
+</div>
+<div class="kpi-card" data-severity="high">
+<div class="kpi-icon">🚢</div>
+<div class="kpi-content">
+<div class="kpi-value" data-counter="34">34</div>
+<div class="kpi-label">Naval Deployments</div>
+<div class="kpi-delta neutral">±0 (24h)</div>
+</div>
+</div>
+<div class="kpi-card" data-severity="medium">
+<div class="kpi-icon">💣</div>
+<div class="kpi-content">
+<div class="kpi-value" data-counter="156">156</div>
+<div class="kpi-label">Munitions Expended</div>
+<div class="kpi-delta up">+23 (24h)</div>
+</div>
+</div>
+<div class="kpi-card" data-severity="critical">
+<div class="kpi-icon">☢️</div>
+<div class="kpi-content">
+<div class="kpi-value" data-counter="3">3</div>
+<div class="kpi-label">Nuclear Readiness Events</div>
+<div class="kpi-delta up">+1 (24h)</div>
+</div>
+</div>
+<div class="kpi-card" data-severity="medium">
+<div class="kpi-icon">📡</div>
+<div class="kpi-content">
+<div class="kpi-value" data-counter="412">412</div>
+<div class="kpi-label">SIGINT Intercepts</div>
+<div class="kpi-delta up">+67 (24h)</div>
+</div>
+</div>
+</div>
+<!-- THREAT MAP -->
+<div class="map-card card">
+<div class="card-header">
+<h2 class="card-title">OPERATIONAL THEATER — MIDDLE EAST</h2>
+<div class="card-actions">
+<button class="btn-icon" title="Expand">⤢</button>
+<button class="btn-icon" title="Filter">⊞</button>
+</div>
+</div>
+<div class="map-container" id="theater-map" role="img" aria-label="Middle East operational theater map">
+<svg class="map-svg" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+<!-- Background grid -->
+<defs>
+<pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+<path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(0,255,65,0.06)" stroke-width="0.5"/>
+</pattern>
+<filter id="glow">
+<feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+<feMerge>
+<feMergeNode in="coloredBlur"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+</filter>
+<filter id="glow-strong">
+<feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+<feMerge>
+<feMergeNode in="coloredBlur"/>
+<feMergeNode in="SourceGraphic"/>
+</feMerge>
+</filter>
+<radialGradient id="radarPulse" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.3"/>
+<stop offset="100%" stop-color="var(--accent-primary)" stop-opacity="0"/>
+</radialGradient>
+</defs>
+<rect width="900" height="500" fill="#050a0e"/>
+<rect width="900" height="500" fill="url(#grid)"/>
+<!-- Country shapes (simplified) -->
+<!-- Iran -->
+<polygon points="580,80 640,70 700,90 720,130 710,170 680,190 660,210 620,200 580,180 560,150 555,120" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.6)" stroke-width="1.5" class="country iran-territory"/>
+<text x="635" y="150" fill="#ff3c3c" font-size="11" font-family="var(--font-mono)" text-anchor="middle" font-weight="700">IRAN</text>
+<!-- Iraq -->
+<polygon points="520,100 560,90 580,80 580,180 560,210 530,220 505,200 490,170 500,130" fill="rgba(255,140,0,0.1)" stroke="rgba(255,140,0,0.4)" stroke-width="1"/>
+<text x="532" y="155" fill="#ff8c00" font-size="10" font-family="var(--font-mono)" text-anchor="middle">IRAQ</text>
+<!-- Syria -->
+<polygon points="460,80 510,75 520,100 500,130 490,140 460,130 440,110" fill="rgba(255,200,0,0.08)" stroke="rgba(255,200,0,0.3)" stroke-width="1"/>
+<text x="480" y="110" fill="#ffc800" font-size="9" font-family="var(--font-mono)" text-anchor="middle">SYRIA</text>
+<!-- Lebanon -->
+<polygon points="450,110 460,108 465,130 455,135 445,120" fill="rgba(0,200,255,0.1)" stroke="rgba(0,200,255,0.4)" stroke-width="1"/>
+<text x="455" y="125" fill="#00c8ff" font-size="7" font-family="var(--font-mono)" text-anchor="middle">LB</text>
+<!-- Israel -->
+<polygon points="440,130 453,128 455,155 445,165 432,155 430,140" fill="rgba(0,120,255,0.15)" stroke="rgba(0,120,255,0.7)" stroke-width="1.5" class="israel-territory"/>
+<text x="443" y="150" fill="#0078ff" font-size="8" font-family="var(--font-mono)" text-anchor="middle" font-weight="700">ISR</text>
+<!-- Saudi Arabia -->
+<polygon points="490,200 530,220 560,210 620,200 660,210 680,260 650,320 580,350 520,340 480,300 465,250" fill="rgba(0,255,150,0.06)" stroke="rgba(0,255,150,0.2)" stroke-width="1"/>
+<text x="565" y="275" fill="#00ff96" font-size="11" font-family="var(--font-mono)" text-anchor="middle">SAUDI ARABIA</text>
+<!-- UAE -->
+<polygon points="690,220 720,210 730,230 710,245 695,240" fill="rgba(0,255,150,0.08)" stroke="rgba(0,255,150,0.3)" stroke-width="1"/>
+<text x="710" y="233" fill="#00ff96" font-size="7" font-family="var(--font-mono)" text-anchor="middle">UAE</text>
+<!-- Yemen -->
+<polygon points="520,340 580,350 650,320 670,370 620,410 540,400 490,380 490,350" fill="rgba(255,60,60,0.08)" stroke="rgba(255,60,60,0.25)" stroke-width="1"/>
+<text x="575" y="375" fill="#ff6060" font-size="9" font-family="var(--font-mono)" text-anchor="middle">YEMEN</text>
+<!-- Persian Gulf -->
+<ellipse cx="680" cy="195" rx="35" ry="12" fill="rgba(0,100,200,0.15)" stroke="rgba(0,150,255,0.3)" stroke-width="0.5"/>
+<text x="680" y="199" fill="rgba(0,150,255,0.7)" font-size="7" font-family="var(--font-mono)" text-anchor="middle">PERSIAN GULF</text>
+<!-- Mediterranean -->
+<ellipse cx="390" cy="100" rx="45" ry="20" fill="rgba(0,80,180,0.2)" stroke="rgba(0,120,255,0.2)" stroke-width="0.5"/>
+<text x="390" y="104" fill="rgba(0,120,255,0.6)" font-size="7" font-family="var(--font-mono)" text-anchor="middle">MEDITERRANEAN</text>
+<!-- Red Sea -->
+<ellipse cx="470" cy="300" rx="18" ry="55" fill="rgba(0,80,180,0.15)" stroke="rgba(0,120,255,0.2)" stroke-width="0.5"/>
+<!-- MILITARY ASSETS -->
+<!-- US Carrier Strike Group -->
+<g class="asset-marker" data-type="naval" data-nation="us">
+<circle cx="380" cy="160" r="10" fill="rgba(0,120,255,0.2)" stroke="#0078ff" stroke-width="1.5" filter="url(#glow)"/>
+<circle cx="380" cy="160" r="4" fill="#0078ff"/>
+<text x="380" y="145" fill="#0078ff" font-size="8" font-family="var(--font-mono)" text-anchor="middle">CSG-12</text>
+<animateTransform attributeName="transform" type="translate" values="0,0; 2,1; 0,0" dur="4s" repeatCount="indefinite"/>
+</g>
+<!-- Israeli Air Sorties -->
+<g class="asset-marker" data-type="air" data-nation="israel">
+<polygon points="445,135 450,120 455,135 450,133" fill="#0078ff" stroke="#0078ff" stroke-width="0.5"/>
+<text x="445" y="118" fill="#0078ff" font-size="7" font-family="var(--font-mono)">F-35s</text>
+</g>
+<!-- IRGC Forces -->
+<g class="asset-marker" data-type="ground" data-nation="iran">
+<rect x="590" y="155" width="12" height="10" fill="rgba(255,60,60,0.3)" stroke="#ff3c3c" stroke-width="1"/>
+<text x="604" y="163" fill="#ff3c3c" font-size="7" font-family="var(--font-mono)">IRGC</text>
+</g>
+<!-- Iranian Missile Sites -->
+<g filter="url(#glow)">
+<polygon points="650,100 655,88 660,100" fill="#ff3c3c" stroke="none"/>
+<polygon points="680,110 685,98 690,110" fill="#ff3c3c" stroke="none"/>
+<polygon points="700,140 705,128 710,140" fill="#ff3c3c" stroke="none"/>
+</g>
+<!-- Strike vectors -->
+<line x1="448" y1="140" x2="590" y2="165" stroke="rgba(255,200,0,0.4)" stroke-width="1" stroke-dasharray="4 3">
+<animate attributeName="stroke-dashoffset" values="0;-14" dur="1s" repeatCount="indefinite"/>
+</line>
+<line x1="380" y1="160" x2="448" y2="135" stroke="rgba(0,120,255,0.5)" stroke-width="1" stroke-dasharray="3 3">
+<animate attributeName="stroke-dashoffset" values="0;-12" dur="1.5s" repeatCount="indefinite"/>
+</line>
+<!-- Hezbollah positions -->
+<g>
+<circle cx="453" cy="118" r="5" fill="rgba(255,60,60,0.3)" stroke="rgba(255,60,60,0.8)" stroke-width="1"/>
+<text x="462" y="116" fill="rgba(255,60,60,0.9)" font-size="6" font-family="var(--font-mono)">HZB</text>
+</g>
+<!-- Radar sweeps -->
+<circle cx="635" cy="148" r="30" fill="none" stroke="rgba(255,60,60,0.1)" stroke-width="0.5">
+<animate attributeName="r" values="5;50" dur="3s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.6;0" dur="3s" repeatCount="indefinite"/>
+</circle>
+<circle cx="443" cy="147" r="25" fill="none" stroke="rgba(0,120,255,0.1)" stroke-width="0.5">
+<animate attributeName="r" values="5;40" dur="2.5s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.6;0" dur="2.5s" repeatCount="indefinite"/>
+</circle>
+<!-- Legend -->
+<g transform="translate(20,420)">
+<rect width="250" height="60" rx="4" fill="rgba(0,0,0,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+<circle cx="15" cy="15" r="5" fill="#0078ff"/>
+<text x="25" y="19" fill="#aaa" font-size="9" font-family="var(--font-mono)">US Navy (CSG)</text>
+<polygon points="15,35 20,25 25,35" fill="#ff3c3c"/>
+<text x="30" y="34" fill="#aaa" font-size="9" font-family="var(--font-mono)">Iranian Missiles</text>
+<rect x="10" y="43" width="10" height="8" fill="rgba(255,60,60,0.3)" stroke="#ff3c3c"/>
+<text x="25" y="50" fill="#aaa" font-size="9" font-family="var(--font-mono)">IRGC Ground Forces</text>
+</g>
+<!-- Scale bar -->
+<g transform="translate(750,460)">
+<line x1="0" y1="0" x2="100" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+<line x1="0" y1="-5" x2="0" y2="5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+<line x1="100" y1="-5" x2="100" y2="5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+<text x="50" y="-8" fill="rgba(255,255,255,0.5)" font-size="8" font-family="var(--font-mono)" text-anchor="middle">500 KM</text>
+</g>
+</svg>
+</div>
+</div>
+<!-- ACTOR STATUS CARDS -->
+<div class="actors-grid">
+<div class="actor-card" data-nation="iran">
+<div class="actor-header">
+<div class="actor-flag iran-flag"></div>
+<div class="actor-info">
+<h3 class="actor-name">ISLAMIC REPUBLIC OF IRAN</h3>
+<div class="actor-role">Primary Adversary</div>
+</div>
+<div class="actor-threat-meter">
+<div class="meter-bar" style="--fill: 92%" data-value="92"></div>
+<span class="meter-value">92/100</span>
+</div>
+</div>
+<div class="actor-stats">
+<div class="stat-item">
+<span class="stat-label">IRGC Status</span>
+<span class="stat-value critical">ELEVATED</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Nuclear Program</span>
+<span class="stat-value critical">90% ENRICHMENT</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Proxy Activation</span>
+<span class="stat-value high">HEZBOLLAH / HAMAS / PMF</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Missile Readiness</span>
+<span class="stat-value critical">LAUNCH-READY</span>
+</div>
+</div>
+<div class="actor-recent">
+<div class="recent-label">Latest Intel</div>
+<div class="recent-item">Shahab-3 test firing — Semnan Province (18h ago)</div>
+<div class="recent-item">IRGC Quds Force redeployment — Syria border (6h ago)</div>
+</div>
+</div>
+<div class="actor-card" data-nation="us">
+<div class="actor-header">
+<div class="actor-flag us-flag"></div>
+<div class="actor-info">
+<h3 class="actor-name">UNITED STATES</h3>
+<div class="actor-role">Primary Deterrent Actor</div>
+</div>
+<div class="actor-threat-meter">
+<div class="meter-bar" style="--fill: 78%" data-value="78"></div>
+<span class="meter-value">78/100</span>
+</div>
+</div>
+<div class="actor-stats">
+<div class="stat-item">
+<span class="stat-label">CENTCOM Posture</span>
+<span class="stat-value high">FORCE PROTECTION CHARLIE</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Naval Presence</span>
+<span class="stat-value high">2× CSG IN-THEATER</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Air Assets</span>
+<span class="stat-value medium">B-52 DETACHMENT — DIEGO GARCIA</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Diplomatic Channel</span>
+<span class="stat-value medium">BACK-CHANNEL ACTIVE (OMAN)</span>
+</div>
+</div>
+<div class="actor-recent">
+<div class="recent-label">Latest Intel</div>
+<div class="recent-item">USS Gerald R. Ford enters Arabian Sea (12h ago)</div>
+<div class="recent-item">CENTCOM issues updated ROE guidance (3h ago)</div>
+</div>
+</div>
+<div class="actor-card" data-nation="israel">
+<div class="actor-header">
+<div class="actor-flag israel-flag"></div>
+<div class="actor-info">
+<h3 class="actor-name">STATE OF ISRAEL</h3>
+<div class="actor-role">Co-Protagonist / Ally</div>
+</div>
+<div class="actor-threat-meter">
+<div class="meter-bar" style="--fill: 88%" data-value="88"></div>
+<span class="meter-value">88/100</span>
+</div>
+</div>
+<div class="actor-stats">
+<div class="stat-item">
+<span class="stat-label">IDF Northern Command</span>
+<span class="stat-value critical">DEFCON-2 EQUIVALENT</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Air Force Sorties</span>
+<span class="stat-value critical">14 TODAY (LEBANON)</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Iron Dome Status</span>
+<span class="stat-value high">ACTIVE — NORTHERN GRID</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Dimona Facility</span>
+<span class="stat-value high">HEIGHTENED SECURITY</span>
+</div>
+</div>
+<div class="actor-recent">
+<div class="recent-label">Latest Intel</div>
+<div class="recent-item">F-35I sorties over southern Lebanon (2h ago)</div>
+<div class="recent-item">IDF reserves activation order issued (8h ago)</div>
+</div>
+</div>
+<div class="actor-card" data-nation="gcc">
+<div class="actor-header">
+<div class="actor-flag gcc-flag"></div>
+<div class="actor-info">
+<h3 class="actor-name">GCC COALITION</h3>
+<div class="actor-role">Regional Stakeholders</div>
+</div>
+<div class="actor-threat-meter">
+<div class="meter-bar" style="--fill: 65%" data-value="65"></div>
+<span class="meter-value">65/100</span>
+</div>
+</div>
+<div class="actor-stats">
+<div class="stat-item">
+<span class="stat-label">Saudi Posture</span>
+<span class="stat-value high">ARAMCO SECURITY ELEVATED</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">UAE Diplomacy</span>
+<span class="stat-value medium">BACK-CHANNEL ACTIVE</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Kuwait / Bahrain</span>
+<span class="stat-value medium">US BASE LOCKDOWN</span>
+</div>
+<div class="stat-item">
+<span class="stat-label">Strait of Hormuz</span>
+<span class="stat-value critical">NAVIGATION WARNINGS</span>
+</div>
+</div>
+<div class="actor-recent">
+<div class="recent-label">Latest Intel</div>
+<div class="recent-item">Saudi Patriot batteries repositioned (24h ago)</div>
+<div class="recent-item">UAE activates diplomatic back-channel to Iran (5h ago)</div>
+</div>
+</div>
+</div>
+<!-- ALERT FEED -->
+<div class="alert-feed card">
+<div class="card-header">
+<h2 class="card-title">INTELLIGENCE ALERT FEED</h2>
+<div class="feed-controls">
+<button class="filter-btn active" data-filter="all">ALL</button>
+<button class="filter-btn" data-filter="critical">CRITICAL</button>
+<button class="filter-btn" data-filter="high">HIGH</button>
+<button class="filter-btn" data-filter="medium">MEDIUM</button>
+</div>
+</div>
+<div class="alert-list" id="alert-list" role="feed" aria-live="polite">
+<div class="alert-item" data-severity="critical">
+<div class="alert-severity-tag critical">CRITICAL</div>
+<div class="alert-content">
+<div class="alert-title">IRGC Aerospace Force — ICBM-class vehicle spotted at Shahrud Space Center</div>
+<div class="alert-meta">
+<span class="alert-source">SOURCE: NSA SIGINT / GEOINT CROSSREF</span>
+<span class="alert-time">00:42 UTC</span>
+<span class="alert-conf">CONFIDENCE: HIGH</span>
+</div>
+</div>
+<div class="alert-actions">
+<button class="btn-tag">TAG</button>
+<button class="btn-expand">↗</button>
+</div>
+</div>
+<div class="alert-item" data-severity="critical">
+<div class="alert-severity-tag critical">CRITICAL</div>
+<div class="alert-content">
+<div class="alert-title">Hezbollah anti-air battery activation — 3 Kornet ATGM teams confirmed northern Israel border</div>
+<div class="alert-meta">
+<span class="alert-source">SOURCE: IDF NORTHERN CMD / SATELLITE</span>
+<span class="alert-time">01:17 UTC</span>
+<span class="alert-conf">CONFIDENCE: CONFIRMED</span>
+</div>
+</div>
+<div class="alert-actions">
+<button class="btn-tag">TAG</button>
+<button class="btn-expand">↗</button>
+</div>
+</div>
+<div class="alert-item" data-severity="high">
+<div class="alert-severity-tag high">HIGH</div>
+<div class="alert-content">
+<div class="alert-title">Strait of Hormuz — Iranian IRGCN fast boat swarm exercises (12 vessels, simulated blocking maneuver)</div>
+<div class="alert-meta">
+<span class="alert-source">SOURCE: US 5TH FLEET HUMINT</span>
+<span class="alert-time">02:05 UTC</span>
+<span class="alert-conf">CONFIDENCE: HIGH</span>
+</div>
+</div>
+<div class="alert-actions">
+<button class="btn-tag">TAG</button>
+<button class="btn-expand">↗</button>
+</div>
+</div>
+<div class="alert-item" data-severity="high">
+<div class="alert-severity-tag high">HIGH</div>
+<div class="alert-content">
+<div class="alert-title">US Senate Armed Services — closed session convened on Iran nuclear threshold assessment</div>
+<div class="alert-meta">
+<span class="alert-source">SOURCE: CONGRESSIONAL HUMINT</span>
+<span class="alert-time">03:30 UTC</span>
+<span class="alert-conf">CONFIDENCE: MEDIUM</span>
+</div>
+</div>
+<div class="alert-actions">
+<button class="btn-tag">TAG</button>
+<button class="btn-expand">↗</button>
+</div>
+</div>
+<div class="alert-item" data-severity="medium">
+<div class="alert-severity-tag medium">MEDIUM</div>
+<div class="alert-content">
+<div class="alert-title">Israeli PM security cabinet emergency session — agenda classified, duration 4h+</div>
+<div class="alert-meta">
+<span class="alert-source">SOURCE: MOSSAD LIAISON / OPEN SOURCE</span>
+<span class="alert-time">04:15 UTC</span>
+<span class="alert-conf">CONFIDENCE: CONFIRMED</span>
+</div>
+</div>
+<div class="alert-actions">
+<button class="btn-tag">TAG</button>
+<button class="btn-expand">↗</button>
+</div>
+</div>
+<div class="alert-item" data-severity="medium">
+<div class="alert-severity-tag medium">MEDIUM</div>
+<div class="alert-content">
+<div class="alert-title">Cyberspace — Iranian APT42 phishing campaign targeting IAEA inspectors (33 attempts blocked)</div>
+<div class="alert-meta">
+<span class="alert-source">SOURCE: CISA / CYBERCOM JOINT</span>
+<span class="alert-time">05:00 UTC</span>
+<span class="alert-conf">CONFIDENCE: HIGH</span>
+</div>
+</div>
+<div class="alert-actions">
+<button class="btn-tag">TAG</button>
+<button class="btn-expand">↗</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PANEL: MILITARY OPS -->
+<section class="panel hidden" id="panel-military" aria-label="Military Operations Panel">
+<div class="panel-grid military-grid">
+<div class="card order-of-battle">
+<div class="card-header">
+<h2 class="card-title">ORDER OF BATTLE — ACTIVE FORCES</h2>
+</div>
+<div class="oob-table-wrap">
+<table class="oob-table">
+<thead>
+<tr>
+<th>UNIT</th>
+<th>NATION</th>
+<th>TYPE</th>
+<th>LOCATION</th>
+<th>STATUS</th>
+<th>READINESS</th>
+</tr>
+</thead>
+<tbody>
+<tr data-severity="critical">
+<td class="unit-name">IRGC Aerospace Force — Ballistic Div.</td>
+<td><span class="flag-tag iran">IR</span></td>
+<td>Missile</td>
+<td>Shahrud / Tabriz</td>
+<td class="status-cell critical">LAUNCH-READY</td>
+<td><div class="readiness-bar" style="--pct:95"></div></td>
+</tr>
+<tr data-severity="critical">
+<td class="unit-name">IDF 162nd Armored Division</td>
+<td><span class="flag-tag israel">IL</span></td>
+<td>Armored</td>
+<td>Northern Israel</td>
+<td class="status-cell critical">MOBILIZED</td>
+<td><div class="readiness-bar" style="--pct:92"></div></td>
+</tr>
+<tr data-severity="high">
+<td class="unit-name">USS Gerald R. Ford (CVN-78) CSG</td>
+<td><span class="flag-tag us">US</span></td>
+<td>Naval</td>
+<td>Arabian Sea</td>
+<td class="status-cell high">DEPLOYED</td>
+<td><div class="readiness-bar" style="--pct:88"></div></td>
+</tr>
+<tr data-severity="high">
+<td class="unit-name">IAF Squadron 140 (F-35I Adir)</td>
+<td><span class="flag-tag israel">IL</span></td>
+<td>Air</td>
+<td>Nevatim AFB</td>
+<td class="status-cell high">SORTIES ACTIVE</td>
+<td><div class="readiness-bar" style="--pct:85"></div></td>
+</tr>
+<tr data-severity="high">
+<td class="unit-name">USAF B-52H Stratofortress Det.</td>
+<td><span class="flag-tag us">US</span></td>
+<td>Strategic Air</td>
+<td>Diego Garcia</td>
+<td class="status-cell high">ALERT POSTURE</td>
+<td><div class="readiness-bar" style="--pct:80"></div></td>
+</tr>
+<tr data-severity="high">
+<td class="unit-name">Hezbollah Radwan Force</td>
+<td><span class="flag-tag iran">PR</span></td>
+<td>Proxy / SOF</td>
+<td>South Lebanon</td>
+<td class="status-cell high">ACTIVATED</td>
+<td><div class="readiness-bar" style="--pct:75"></div></td>
+</tr>
+<tr data-severity="medium">
+<td class="unit-name">Saudi SANG — Eastern Province</td>
+<td><span class="flag-tag gcc">SA</span></td>
+<td>Guard</td>
+<td>Dhahran / ARAMCO</td>
+<td class="status-cell medium">ELEVATED</td>
+<td><div class="readiness-bar" style="--pct:70"></div></td>
+</tr>
+<tr data-severity="medium">
+<td class="unit-name">USS Dwight D. Eisenhower (CVN-69)</td>
+<td><span class="flag-tag us">US</span></td>
+<td>Naval</td>
+<td>Red Sea / Suez</td>
+<td class="status-cell medium">TRANSITING</td>
+<td><div class="readiness-bar" style="--pct:65"></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="card weapons-panel">
+<div class="card-header">
+<h2 class="card-title">WEAPONS SYSTEMS TRACKER</h2>
+</div>
+<div class="weapons-grid">
+<div class="weapon-card" data-nation="iran">
+<div class="weapon-header">
+<span class="weapon-name">Shahab-3 / Emad</span>
+<span class="weapon-range">1,300–2,000 km</span>
+</div>
+<div class="weapon-specs">
+<div class="spec-row"><span>Type:</span><span>MRBM</span></div>
+<div class="spec-row"><span>Warhead:</span><span>HE / CBW capable</span></div>
+<div class="spec-row"><span>CEP:</span><span>~190m</span></div>
+<div class="spec-row"><span>Status:</span><span class="critical">DEPLOYED</span></div>
+</div>
+<div class="weapon-threat-bar">
+<div class="threat-fill" style="--fill:90%"></div>
+</div>
+</div>
+<div class="weapon-card" data-nation="iran">
+<div class="weapon-header">
+<span class="weapon-name">Fattah-2 Hypersonic</span>
+<span class="weapon-range">1,400 km</span>
+</div>
+<div class="weapon-specs">
+<div class="spec-row"><span>Type:</span><span>HGV</span></div>
+<div class="spec-row"><span>Speed:</span><span>Mach 13–15</span></div>
+<div class="spec-row"><span>Maneuver:</span><span>Terminal phase</span></div>
+<div class="spec-row"><span>Status:</span><span class="high">TESTING</span></div>
+</div>
+<div class="weapon-threat-bar">
+<div class="threat-fill" style="--fill:85%"></div>
+</div>
+</div>
+<div class="weapon-card" data-nation="israel">
+<div class="weapon-header">
+<span class="weapon-name">F-35I Adir</span>
+<span class="weapon-range">2,200 km (ferry)</span>
+</div>
+<div class="weapon-specs">
+<div class="spec-row"><span>Type:</span><span>Multirole Stealth</span></div>
+<div class="spec-row"><span>Payload:</span><span>8,160 kg</span></div>
+<div class="spec-row"><span>IOC:</span><span>2017</span></div>
+<div class="spec-row"><span>Status:</span><span class="critical">ACTIVE SORTIES</span></div>
+</div>
+<div class="weapon-threat-bar">
+<div class="threat-fill" style="--fill:88%"></div>
+</div>
+</div>
+<div class="weapon-card" data-nation="us">
+<div class="weapon-header">
+<span class="weapon-name">GBU-57 MOP</span>
+<span class="weapon-range">B-2 delivered</span>
+</div>
+<div class="weapon-specs">
+<div class="spec-row"><span>Type:</span><span>Bunker Buster</span></div>
+<div class="spec-row"><span>Weight:</span><span>13,600 kg</span></div>
+<div class="spec-row"><span>Penetration:</span><span>60m reinforced</span></div>
+<div class="spec-row"><span>Status:</span><span class="medium">PRE-POSITIONED</span></div>
+</div>
+<div class="weapon-threat-bar">
+<div class="threat-fill" style="--fill:75%"></div>
+</div>
+</div>
+<div class="weapon-card" data-nation="israel">
+<div class="weapon-header">
+<span class="weapon-name">Arrow-3 ABM</span>
+<span class="weapon-range">Exo-atmospheric</span>
+</div>
+<div class="weapon-specs">
+<div class="spec-row"><span>Type:</span><span>Ballistic Missile Defense</span></div>
+<div class="spec-row"><span>Intercept alt:</span><span>>100 km</span></div>
+<div class="spec-row"><span>P(kill):</span><span>~90%</span></div>
+<div class="spec-row"><span>Status:</span><span class="high">ACTIVE</span></div>
+</div>
+<div class="weapon-threat-bar">
+<div class="threat-fill" style="--fill:82%"></div>
+</div>
+</div>
+<div class="weapon-card" data-nation="iran">
+<div class="weapon-header">
+<span class="weapon-name">Shahed-136 UAS</span>
+<span class="weapon-range">2,500 km</span>
+</div>
+<div class="weapon-specs">
+<div class="spec-row"><span>Type:</span><span>Loitering Munition</span></div>
+<div class="spec-row"><span>Warhead:</span><span>50 kg HEAT</span></div>
+<div class="spec-row"><span>Cost:</span><span>~$20,000</span></div>
+<div class="spec-row"><span>Status:</span><span class="critical">PROLIFERATED</span></div>
+</div>
+<div class="weapon-threat-bar">
+<div class="threat-fill" style="--fill:78%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PANEL: INTELLIGENCE -->
+<section class="panel hidden" id="panel-intelligence" aria-label="Intelligence Panel">
+<div class="panel-grid intel-grid">
+<div class="card sigint-card">
+<div class="card-header">
+<h2 class="card-title">SIGINT / HUMINT INTERCEPTS</h2>
+<span class="classification-tag ts-sci">TS//SCI//NOFORN</span>
+</div>
+<div class="intercepts-list">
+<div class="intercept-item" data-class="ts-sci">
+<div class="intercept-header">
+<span class="intercept-id">INT-2026-0247</span>
+<span class="intercept-class ts-sci">TOP SECRET // SCI</span>
+<span class="intercept-time">02:14 UTC</span>
+</div>
+<div class="intercept-body">
+<div class="intercept-summary">IRGC High Command — encrypted comms burst indicating Operational Planning Cycle activation for "Exercise Zulfiqar-9". Assessment: cover designation for offensive pre-positioning.</div>
+<div class="intercept-assessment">ANALYST NOTE: Pattern matches pre-April 2024 attack preparation sequence. Elevated confidence based on 3 corroborating HUMINT sources.</div>
+</div>
+<div class="intercept-conf">
+<div class="conf-bar" style="--conf:85"></div>
+<span>85% confidence</span>
+</div>
+</div>
+<div class="intercept-item" data-class="secret">
+<div class="intercept-header">
+<span class="intercept-id">INT-2026-0251</span>
+<span class="intercept-class secret">SECRET</span>
+<span class="intercept-time">03:45 UTC</span>
+</div>
+<div class="intercept-body">
+<div class="intercept-summary">Israeli Unit 8200 SIGINT — Hezbollah Radwan Force communications indicate cross-border tunnel reconnaissance activity, Metula sector.</div>
+<div class="intercept-assessment">ANALYST NOTE: Consistent with escalation ladder preparation. IDF Northern Command notified. 72h window assessed as critical.</div>
+</div>
+<div class="intercept-conf">
+<div class="conf-bar" style="--conf:78"></div>
+<span>78% confidence</span>
+</div>
+</div>
+<div class="intercept-item" data-class="confidential">
+<div class="intercept-header">
+<span class="intercept-id">INT-2026-0255</span>
+<span class="intercept-class confidential">CONFIDENTIAL</span>
+<span class="intercept-time">05:22 UTC</span>
+</div>
+<div class="intercept-body">
+<div class="intercept-summary">NSA PRISM — Iranian nuclear negotiation backchannel communications. Rouhani-adjacent team discussing "final status" language. Possible diplomatic offramp signal.</div>
+<div class="intercept-assessment">ANALYST NOTE: Low confidence diplomatic signal. May be deliberate disinformation to create space for military action.</div>
+</div>
+<div class="intercept-conf">
+<div class="conf-bar" style="--conf:40"></div>
+<span>40% confidence</span>
+</div>
+</div>
+</div>
+</div>
+<div class="card scenario-card">
+<div class="card-header">
+<h2 class="card-title">SCENARIO PROBABILITY MATRIX</h2>
+</div>
+<div class="scenario-list">
+<div class="scenario-item" data-prob="high">
+<div class="scenario-header">
+<span class="scenario-name">Israeli Preemptive Strike — Iranian Nuclear Sites</span>
+<span class="scenario-prob">68%</span>
+</div>
+<div class="scenario-bar">
+<div class="scenario-fill" style="--prob:68"></div>
+</div>
+<div class="scenario-detail">T-window: 14-21 days. Natanz / Fordow primary targets. Requires US green-light or tacit approval. Arrow-3/David's Sling pre-positioned for Iranian retaliation.</div>
+</div>
+<div class="scenario-item" data-prob="medium">
+<div class="scenario-header">
+<span class="scenario-name">Iranian Proxy Escalation — Multi-Front Attack</span>
+<span class="scenario-prob">54%</span>
+</div>
+<div class="scenario-bar">
+<div class="scenario-fill" style="--prob:54"></div>
+</div>
+<div class="scenario-detail">Hezbollah northern front + Houthi Red Sea + PMF Iraq = coordinated multi-vector. Overwhelm IDF Iron Dome capacity (est. 5,000–8,000 rockets).</div>
+</div>
+<div class="scenario-item" data-prob="medium">
+<div class="scenario-header">
+<span class="scenario-name">US Direct Strike — IRGC Infrastructure</span>
+<span class="scenario-prob">41%</span>
+</div>
+<div class="scenario-bar">
+<div class="scenario-fill" style="--prob:41"></div>
+</div>
+<div class="scenario-detail">Tomahawk + B-2 strike package targeting IRGC command nodes and Shahrud launch infrastructure. Triggered by Iranian crossing of red lines on nuclear threshold.</div>
+</div>
+<div class="scenario-item" data-prob="low">
+<div class="scenario-header">
+<span class="scenario-name">Nuclear Threshold Crossing — Iranian Weaponization</span>
+<span class="scenario-prob">23%</span>
+</div>
+<div class="scenario-bar">
+<div class="scenario-fill" style="--prob:23"></div>
+</div>
+<div class="scenario-detail">Iran achieves sufficient HEU stockpile for device assembly within 90-day window. IAEA safeguards agreement collapse. Triggers automatic Israeli/US military response.</div>
+</div>
+<div class="scenario-item" data-prob="low">
+<div class="scenario-header">
+<span class="scenario-name">Diplomatic Resolution — Renewed JCPOA</span>
+<span class="scenario-prob">12%</span>
+</div>
+<div class="scenario-bar">
+<div class="scenario-fill" style="--prob:12"></div>
+</div>
+<div class="scenario-detail">Oman back-channel produces framework agreement. Requires US sanctions relief concessions. Low probability given current IRGC escalation trajectory.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PANEL: PSYOPS -->
+<section class="panel hidden" id="panel-psyops" aria-label="PSYOPS Analysis Panel">
+<div class="psyops-panel">
+<div class="psyops-header">
+<div class="psyops-title-block">
+<div class="psyops-classification">CLASSIFIED // PSYOPS ANALYSIS UNIT</div>
+<h2 class="psyops-main-title">INFORMATION WARFARE & PSYCHOLOGICAL OPERATIONS TRACKER</h2>
+<div class="psyops-subtitle">Real-time narrative analysis · Influence campaign detection · Counter-narrative assessment</div>
+</div>
+<div class="psyops-threat-meter">
+<div class="psyops-meter-label">INFO-WAR INTENSITY</div>
+<div class="psyops-gauge">
+<div class="gauge-fill" style="--gauge:87"></div>
+<div class="gauge-value">87/100</div>
+</div>
+</div>
+</div>
+<div class="psyops-grid">
+<div class="narrative-wars-card">
+<h3 class="card-section-title">ACTIVE NARRATIVE CAMPAIGNS</h3>
+<div class="narrative-list">
+<div class="narrative-item" data-actor="iran">
+<div class="narrative-header">
+<span class="narrative-actor iran">IRAN / IRGC</span>
+<span class="narrative-intensity critical">CRITICAL INTENSITY</span>
+</div>
+<div class="narrative-title">"Zionist Aggression" Framework — Al-Aqsa Flood Successor Narrative</div>
+<div class="narrative-channels">
+<span class="channel-tag">Press TV</span>
+<span class="channel-tag">Tasnim</span>
+<span class="channel-tag">Telegram</span>
+<span class="channel-tag">X/Twitter bots</span>
+</div>
+<div class="narrative-metrics">
+<div class="metric-item"><span class="metric-label">Reach:</span><span class="metric-value">~180M impressions/day</span></div>
+<div class="metric-item"><span class="metric-label">Velocity:</span><span class="metric-value">+340% (7d)</span></div>
+<div class="metric-item"><span class="metric-label">Sentiment Shift:</span><span class="metric-value critical">−12pts Western sympathy</span></div>
+</div>
+</div>
+<div class="narrative-item" data-actor="us-israel">
+<div class="narrative-header">
+<span class="narrative-actor us-israel">US / ISRAEL</span>
+<span class="narrative-intensity high">HIGH INTENSITY</span>
+</div>
+<div class="narrative-title">"Nuclear Existential Threat" — Preemptive Action Justification</div>
+<div class="narrative-channels">
+<span class="channel-tag">CNN</span>
+<span class="channel-tag">NYT</span>
+<span class="channel-tag">WSJ</span>
+<span class="channel-tag">Israeli state media</span>
+</div>
+<div class="narrative-metrics">
+<div class="metric-item"><span class="metric-label">Reach:</span><span class="metric-value">~450M impressions/day</span></div>
+<div class="metric-item"><span class="metric-label">Policy Impact:</span><span class="metric-value">3 allied nations signaled support</span></div>
+<div class="metric-item"><span class="metric-label">UN Council framing:</span><span class="metric-value high">Favorable for US/IL (+7pts)</span></div>
+</div>
+</div>
+<div class="narrative-item" data-actor="russia-china">
+<div class="narrative-header">
+<span class="narrative-actor russia-china">RUSSIA / CHINA</span>
+<span class="narrative-intensity medium">MEDIUM INTENSITY</span>
+</div>
+<div class="narrative-title">"Western Imperialism" Counter-narrative — BRICS Bloc Solidarity</div>
+<div class="narrative-channels">
+<span class="channel-tag">RT</span>
+<span class="channel-tag">CGTN</span>
+<span class="channel-tag">Global Times</span>
+<span class="channel-tag">Weibo amplification</span>
+</div>
+<div class="narrative-metrics">
+<div class="metric-item"><span class="metric-label">Reach:</span><span class="metric-value">~290M impressions/day</span></div>
+<div class="metric-item"><span class="metric-label">Global South impact:</span><span class="metric-value medium">+18% favorable framing</span></div>
+<div class="metric-item"><span class="metric-label">UN vote influence:</span><span class="metric-value">12 nations shifted</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="deepfake-tracker">
+<h3 class="card-section-title">SYNTHETIC MEDIA / DEEPFAKE INCIDENTS</h3>
+<div class="deepfake-list">
+<div class="deepfake-item critical">
+<div class="deepfake-header">
+<span class="deepfake-id">DF-2026-089</span>
+<span class="deepfake-severity critical">CRITICAL</span>
+<span class="deepfake-time">DETECTED: 6h ago</span>
+</div>
+<div class="deepfake-desc">AI-generated video: Israeli PM Netanyahu ordering "first strike" against Iranian nuclear facilities. Circulating on Telegram with 2.3M views before detection.</div>
+<div class="deepfake-actors">
+<span class="deepfake-source">Origin: Iranian state-adjacent (IP cluster: Tehran)</span>
+<span class="deepfake-status detected">STATUS: DETECTED / FLAGGING IN PROGRESS</span>
+</div>
+</div>
+<div class="deepfake-item high">
+<div class="deepfake-header">
+<span class="deepfake-id">DF-2026-091</span>
+<span class="deepfake-severity high">HIGH</span>
+<span class="deepfake-time">DETECTED: 11h ago</span>
+</div>
+<div class="deepfake-desc">Synthetic audio: US SecDef ordering military strike against Iranian oil infrastructure. Used in Arabic-language Telegram channels targeting GCC audiences.</div>
+<div class="deepfake-actors">
+<span class="deepfake-source">Origin: Unknown (VPN chain — likely Russian infrastructure)</span>
+<span class="deepfake-status investigating">STATUS: INVESTIGATING</span>
+</div>
+</div>
+<div class="deepfake-item medium">
+<div class="deepfake-header">
+<span class="deepfake-id">DF-2026-094</span>
+<span class="deepfake-severity medium">MEDIUM</span>
+<span class="deepfake-time">DETECTED: 18h ago</span>
+</div>
+<div class="deepfake-desc">Fabricated IAEA report claiming Iranian weapons-grade enrichment complete. PDF-format disinformation distributed via academic mailing lists.</div>
+<div class="deepfake-actors">
+<span class="deepfake-source">Origin: Unknown — possibly Israeli op or false flag</span>
+<span class="deepfake-status contained">STATUS: CONTAINED (98% platforms removed)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="influence-network">
+<h3 class="card-section-title">BOT NETWORK ACTIVITY MAP</h3>
+<div class="bot-network-viz" id="bot-network">
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<filter id="node-glow">
+<feGaussianBlur stdDeviation="2" result="blur"/>
+<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+</defs>
+<!-- Network edges -->
+<line x1="300" y1="150" x2="100" y2="80" stroke="rgba(255,60,60,0.3)" stroke-width="1.5"/>
+<line x1="300" y1="150" x2="150" y2="220" stroke="rgba(255,60,60,0.3)" stroke-width="1.5"/>
+<line x1="300" y1="150" x2="500" y2="80" stroke="rgba(0,120,255,0.3)" stroke-width="1.5"/>
+<line x1="300" y1="150" x2="450" y2="230" stroke="rgba(0,120,255,0.3)" stroke-width="1.5"/>
+<line x1="300" y1="150" x2="300" y2="40" stroke="rgba(200,200,200,0.2)" stroke-width="1"/>
+<line x1="100" y1="80" x2="60" y2="140" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
+<line x1="100" y1="80" x2="80" y2="30" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
+<line x1="500" y1="80" x2="560" y2="130" stroke="rgba(0,120,255,0.15)" stroke-width="1"/>
+<line x1="500" y1="80" x2="530" y2="30" stroke="rgba(0,120,255,0.15)" stroke-width="1"/>
+<!-- Main nodes -->
+<circle cx="300" cy="150" r="18" fill="rgba(255,200,0,0.2)" stroke="#ffc800" stroke-width="2" filter="url(#node-glow)"/>
+<text x="300" y="154" fill="#ffc800" font-size="7" text-anchor="middle" font-family="var(--font-mono)">COORD</text>
+<circle cx="100" cy="80" r="14" fill="rgba(255,60,60,0.2)" stroke="#ff3c3c" stroke-width="1.5" filter="url(#node-glow)"/>
+<text x="100" y="84" fill="#ff3c3c" font-size="6" text-anchor="middle" font-family="var(--font-mono)">IR-NET</text>
+<circle cx="500" cy="80" r="14" fill="rgba(0,120,255,0.2)" stroke="#0078ff" stroke-width="1.5" filter="url(#node-glow)"/>
+<text x="500" y="84" fill="#0078ff" font-size="6" text-anchor="middle" font-family="var(--font-mono)">US-NET</text>
+<circle cx="150" cy="220" r="10" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.6)" stroke-width="1"/>
+<circle cx="450" cy="230" r="10" fill="rgba(0,120,255,0.15)" stroke="rgba(0,120,255,0.6)" stroke-width="1"/>
+<circle cx="300" cy="40" r="10" fill="rgba(200,200,200,0.1)" stroke="rgba(200,200,200,0.4)" stroke-width="1"/>
+<text x="300" y="44" fill="rgba(200,200,200,0.7)" font-size="6" text-anchor="middle" font-family="var(--font-mono)">RU/CN</text>
+<!-- Bot nodes -->
+<circle cx="60" cy="140" r="6" fill="rgba(255,60,60,0.3)" stroke="rgba(255,60,60,0.8)" stroke-width="0.5"/>
+<circle cx="80" cy="30" r="6" fill="rgba(255,60,60,0.3)" stroke="rgba(255,60,60,0.8)" stroke-width="0.5"/>
+<circle cx="560" cy="130" r="6" fill="rgba(0,120,255,0.3)" stroke="rgba(0,120,255,0.8)" stroke-width="0.5"/>
+<circle cx="530" cy="30" r="6" fill="rgba(0,120,255,0.3)" stroke="rgba(0,120,255,0.8)" stroke-width="0.5"/>
+<!-- Stats -->
+<text x="10" y="270" fill="rgba(255,60,60,0.8)" font-size="9" font-family="var(--font-mono)">IRAN CLUSTER: 12,400 accounts | 4.2M posts/day</text>
+<text x="10" y="285" fill="rgba(0,120,255,0.8)" font-size="9" font-family="var(--font-mono)">US/IL CLUSTER: 8,700 accounts | 2.8M posts/day</text>
+<text x="10" y="257" fill="rgba(200,200,200,0.5)" font-size="9" font-family="var(--font-mono)">RU/CN AMPLIFIERS: 6,200 accounts | 1.9M posts/day</text>
+</svg>
+</div>
+</div>
+<div class="counter-narrative">
+<h3 class="card-section-title">COUNTER-NARRATIVE EFFECTIVENESS</h3>
+<div class="counter-list">
+<div class="counter-item">
+<div class="counter-header">
+<span class="counter-topic">Nuclear Threat Legitimacy</span>
+<span class="counter-score high">74% effective</span>
+</div>
+<div class="counter-bar"><div class="counter-fill" style="--score:74"></div></div>
+<div class="counter-note">IAEA verification reports cited; Western media coverage consolidated.</div>
+</div>
+<div class="counter-item">
+<div class="counter-header">
+<span class="counter-topic">Civilian Casualty Framing</span>
+<span class="counter-score medium">41% effective</span>
+</div>
+<div class="counter-bar"><div class="counter-fill" style="--score:41"></div></div>
+<div class="counter-note">Losing narrative battle in Global South. Arabic/Farsi reach insufficient.</div>
+</div>
+<div class="counter-item">
+<div class="counter-header">
+<span class="counter-topic">Proxy Attribution (Hezbollah/Houthis)</span>
+<span class="counter-score high">68% effective</span>
+</div>
+<div class="counter-bar"><div class="counter-fill" style="--score:68"></div></div>
+<div class="counter-note">US Treasury designations + financial tracking effective in Western discourse.</div>
+</div>
+<div class="counter-item">
+<div class="counter-header">
+<span class="counter-topic">Deepfake Attribution Campaigns</span>
+<span class="counter-score low">29% effective</span>
+</div>
+<div class="counter-bar"><div class="counter-fill" style="--score:29"></div></div>
+<div class="counter-note">CRITICAL GAP: Attribution too slow. Content spreads before takedowns.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PANEL: ECONOMIC WARFARE -->
+<section class="panel hidden" id="panel-economic" aria-label="Economic Warfare Panel">
+<div class="panel-grid economic-grid">
+<div class="card markets-card">
+<div class="card-header">
+<h2 class="card-title">COMMODITY & MARKET IMPACT</h2>
+</div>
+<div class="markets-grid">
+<div class="market-item" data-trend="up">
+<div class="market-name">Brent Crude</div>
+<div class="market-value">$127.40</div>
+<div class="market-change up">+$8.20 (+6.9%)</div>
+<div class="market-bar"><div class="market-fill" style="--fill:85%"></div></div>
+</div>
+<div class="market-item" data-trend="up">
+<div class="market-name">WTI Crude</div>
+<div class="market-value">$122.15</div>
+<div class="market-change up">+$7.80 (+6.8%)</div>
+<div class="market-bar"><div class="market-fill" style="--fill:82%"></div></div>
+</div>
+<div class="market-item" data-trend="up">
+<div class="market-name">Gold Spot</div>
+<div class="market-value">$3,847</div>
+<div class="market-change up">+$124 (+3.3%)</div>
+<div class="market-bar"><div class="market-fill" style="--fill:90%"></div></div>
+</div>
+<div class="market-item" data-trend="down">
+<div class="market-name">S&P 500</div>
+<div class="market-value">4,892</div>
+<div class="market-change down">−187 (−3.7%)</div>
+<div class="market-bar"><div class="market-fill down" style="--fill:35%"></div></div>
+</div>
+<div class="market-item" data-trend="up">
+<div class="market-name">Natural Gas (Henry Hub)</div>
+<div class="market-value">$9.84</div>
+<div class="market-change up">+$1.12 (+12.8%)</div>
+<div class="market-bar"><div class="market-fill" style="--fill:78%"></div></div>
+</div>
+<div class="market-item" data-trend="down">
+<div class="market-name">EUR/USD</div>
+<div class="market-value">1.0412</div>
+<div class="market-change down">−0.0187 (−1.8%)</div>
+<div class="market-bar"><div class="market-fill down" style="--fill:40%"></div></div>
+</div>
+</div>
+</div>
+<div class="card sanctions-card">
+<div class="card-header">
+<h2 class="card-title">SANCTIONS & FINANCIAL WARFARE</h2>
+</div>
+<div class="sanctions-list">
+<div class="sanction-item" data-severity="critical">
+<div class="sanction-target">IRGC Quds Force Financial Network</div>
+<div class="sanction-type">OFAC SDN Designation</div>
+<div class="sanction-impact">
+<span class="impact-label">Assets Frozen:</span>
+<span class="impact-value">$2.4B</span>
+</div>
+<div class="sanction-status active">ACTIVE — 847 entities</div>
+</div>
+<div class="sanction-item" data-severity="high">
+<div class="sanction-target">Iranian Central Bank SWIFT Exclusion</div>
+<div class="sanction-type">Multilateral Financial</div>
+<div class="sanction-impact">
+<span class="impact-label">Oil Revenue Impact:</span>
+<span class="impact-value">−$45B/year</span>
+</div>
+<div class="sanction-status active">ACTIVE — Coordinated G7</div>
+</div>
+<div class="sanction-item" data-severity="high">
+<div class="sanction-target">Hezbollah Financial Architecture</div>
+<div class="sanction-type">FinCEN / Treasury / EU</div>
+<div class="sanction-impact">
+<span class="impact-label">Disrupted Flows:</span>
+<span class="impact-value">$800M/year est.</span>
+</div>
+<div class="sanction-status active">ACTIVE — partial effectiveness</div>
+</div>
+<div class="sanction-item" data-severity="medium">
+<div class="sanction-target">Iranian Petrochemical Sector</div>
+<div class="sanction-type">Secondary Sanctions</div>
+<div class="sanction-impact">
+<span class="impact-label">Export Reduction:</span>
+<span class="impact-value">−60% volume</span>
+</div>
+<div class="sanction-status partial">PARTIAL — China circumvention ongoing</div>
+</div>
+</div>
+</div>
+<div class="card hormuz-card">
+<div class="card-header">
+<h2 class="card-title">STRAIT OF HORMUZ — CHOKE POINT STATUS</h2>
+</div>
+<div class="hormuz-status">
+<div class="hormuz-stat">
+<div class="h-stat-value">21.5M</div>
+<div class="h-stat-label">bbl/day transiting</div>
+</div>
+<div class="hormuz-stat">
+<div class="h-stat-value">34%</div>
+<div class="h-stat-label">global seaborne oil</div>
+</div>
+<div class="hormuz-threat">
+<div class="threat-label">CLOSURE THREAT LEVEL</div>
+<div class="hormuz-gauge">
+<div class="h-gauge-fill" style="--gauge:78"></div>
+<span class="h-gauge-value">HIGH (78%)</span>
+</div>
+</div>
+<div class="hormuz-scenarios">
+<div class="h-scenario">
+<span class="h-s-name">Partial Closure (mining)</span>
+<span class="h-s-prob">42%</span>
+</div>
+<div class="h-scenario">
+<span class="h-s-name">Full Closure (naval blockade)</span>
+<span class="h-s-prob">18%</span>
+</div>
+<div class="h-scenario">
+<span class="h-s-name">IRGCN Harassment / Seizures</span>
+<span class="h-s-prob">67%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- PANEL: TIMELINE -->
+<section class="panel hidden" id="panel-timeline" aria-label="Crisis Timeline Panel">
+<div class="timeline-panel">
+<div class="timeline-header">
+<h2>CRISIS ESCALATION TIMELINE</h2>
+<div class="timeline-controls">
+<button class="tl-btn active" data-range="30d">30D</button>
+<button class="tl-btn" data-range="90d">90D</button>
+<button class="tl-btn" data-range="1y">1Y</button>
+</div>
+</div>
+<div class="timeline-track">
+<div class="timeline-axis"></div>
+<div class="timeline-events">
+<div class="tl-event" data-severity="critical" data-date="2025-10-07">
+<div class="tl-dot critical"></div>
+<div class="tl-content">
+<div class="tl-date">OCT 7, 2025</div>
+<div class="tl-title">Hamas Second Offensive — Operation Al-Aqsa Storm II</div>
+<div class="tl-detail">Coordinated rocket barrage + ground infiltration attempt. IDF responds with Northern and Southern Front simultaneous operations.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="critical" data-date="2025-10-14">
+<div class="tl-dot critical"></div>
+<div class="tl-content">
+<div class="tl-date">OCT 14, 2025</div>
+<div class="tl-title">Iranian Direct Retaliation — Ballistic Missile Salvo</div>
+<div class="tl-detail">IRGC launches 180+ ballistic missiles toward Israeli territory. Arrow-3 and David's Sling intercept ~94%. 7 impacts — 3 casualties.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="critical" data-date="2025-10-26">
+<div class="tl-dot critical"></div>
+<div class="tl-content">
+<div class="tl-date">OCT 26, 2025</div>
+<div class="tl-title">Israeli Strike — Iranian Air Defense & Drone Infrastructure</div>
+<div class="tl-detail">IAF strikes S-300 sites, Shahed production facilities, and IRGC logistics nodes in 4 Iranian provinces.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="high" data-date="2025-11-03">
+<div class="tl-dot high"></div>
+<div class="tl-content">
+<div class="tl-date">NOV 3, 2025</div>
+<div class="tl-title">US Deploys Second CSG — Deterrence Posture</div>
+<div class="tl-detail">USS Gerald R. Ford carrier strike group ordered to Arabian Sea. USS Eisenhower begins Red Sea transit.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="high" data-date="2025-11-18">
+<div class="tl-dot high"></div>
+<div class="tl-content">
+<div class="tl-date">NOV 18, 2025</div>
+<div class="tl-title">Hezbollah Full Activation — Northern Front</div>
+<div class="tl-detail">Radwan Force cross-border operations. 3,200 rocket barrage into northern Israel. IDF ground incursion into southern Lebanon.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="high" data-date="2025-12-01">
+<div class="tl-dot high"></div>
+<div class="tl-content">
+<div class="tl-date">DEC 1, 2025</div>
+<div class="tl-title">IRGC Announces 90% Uranium Enrichment Achievement</div>
+<div class="tl-detail">IAEA access denied at Fordow facility. Emergency UN Security Council session. US/Israel begin joint planning for nuclear strike option.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="medium" data-date="2026-01-14">
+<div class="tl-dot medium"></div>
+<div class="tl-content">
+<div class="tl-date">JAN 14, 2026</div>
+<div class="tl-title">Oman Back-Channel — First Contact</div>
+<div class="tl-detail">US National Security Advisor meets Iranian Deputy FM in Muscat. No agreement. Both sides use talks to buy time for military positioning.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="critical" data-date="2026-02-22">
+<div class="tl-dot critical"></div>
+<div class="tl-content">
+<div class="tl-date">FEB 22, 2026</div>
+<div class="tl-title">Strait of Hormuz Incident — IRGCN Fast Boat Attack</div>
+<div class="tl-detail">IRGC Navy attacks Marshall Islands-flagged tanker. USS Thomas Hudner DDG responds. 2 IRGCN vessels sunk. Oil price spikes $18/barrel.</div>
+</div>
+</div>
+<div class="tl-event" data-severity="critical" data-date="2026-03-01">
+<div class="tl-dot critical pulse-event"></div>
+<div class="tl-content current-event">
+<div class="tl-date">MAR 1, 2026 — CURRENT</div>
+<div class="tl-title">⚡ ACTIVE: IRGC Zulfiqar-9 Pre-Positioning Detected</div>
+<div class="tl-detail">NSA SIGINT confirms operational planning cycle activation. IDF Northern Command moves to DEFCON-2 equivalent. US National Security Council emergency session convened.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="app-footer">
+<div class="footer-content">
+<div class="footer-left">
+<span class="footer-classification">UNCLASSIFIED // FOR EDUCATIONAL & ANALYTICAL PURPOSES ONLY</span>
+</div>
+<div class="footer-center">
+<span class="footer-brand">GEO-INTEL CRISIS TRACKER v2.4.1</span>
+</div>
+<div class="footer-right">
+<span class="footer-disclaimer">All data is fictional and for simulation/informational purposes only</span>
+</div>
+</div>
+</footer>
+</main>
+<script src="./app.js" defer></script>
+</body>
+</html>

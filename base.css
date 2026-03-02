@@ -76,6 +76,8 @@ button {
   cursor: pointer;
   background: none;
   border: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 table {

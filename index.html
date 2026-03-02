@@ -6,1255 +6,1676 @@
 <title>GEO-INTEL — Iran-US-Israel-GCC Crisis Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./base.css">
 <link rel="stylesheet" href="./style.css">
 <link rel="stylesheet" href="./dashboard.css">
 <link rel="stylesheet" href="./psyops.css">
 </head>
 <body>
-<div id="app" class="app-container">
+<a href="#main-content" class="sr-only" style="position:absolute;top:0;left:0;padding:var(--space-2) var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);z-index:9999;">Skip to content</a>
+
+<!-- BREAKING BANNER -->
+<div class="breaking-banner" role="alert">
+<span class="breaking-dot" aria-hidden="true"></span>
+<span class="breaking-label">DAY 3 — CONFLICT WIDENS</span>
+<span class="breaking-text">Hezbollah opens third front. RAF Cyprus struck. US jets crash in Kuwait. 555 killed in Iran. Trump: '4 weeks or less.' — March 2, 2026</span>
+</div>
+
 <!-- HEADER -->
-<header class="app-header">
+<header class="site-header">
+<div class="header-inner">
 <div class="header-left">
-<div class="logo-block">
-<svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="20" cy="20" r="18" stroke="var(--accent-primary)" stroke-width="1.5"/>
-<circle cx="20" cy="20" r="12" stroke="var(--accent-primary)" stroke-width="1" stroke-dasharray="2 3"/>
-<circle cx="20" cy="20" r="3" fill="var(--accent-primary)"/>
-<line x1="20" y1="2" x2="20" y2="38" stroke="var(--accent-primary)" stroke-width="0.5" stroke-dasharray="2 4"/>
-<line x1="2" y1="20" x2="38" y2="20" stroke="var(--accent-primary)" stroke-width="0.5" stroke-dasharray="2 4"/>
-<circle cx="20" cy="8" r="1.5" fill="var(--accent-secondary)"/>
-<circle cx="32" cy="20" r="1.5" fill="var(--accent-secondary)"/>
-<circle cx="20" cy="32" r="1.5" fill="var(--accent-secondary)"/>
-<circle cx="8" cy="20" r="1.5" fill="var(--accent-secondary)"/>
+<div class="logo" aria-label="GEO-INTEL">
+<svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+<rect x="2" y="2" width="24" height="24" rx="4" stroke="currentColor" stroke-width="1.5" fill="none"/>
+<circle cx="14" cy="14" r="6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+<line x1="14" y1="2" x2="14" y2="8" stroke="currentColor" stroke-width="1.5"/>
+<line x1="14" y1="20" x2="14" y2="26" stroke="currentColor" stroke-width="1.5"/>
+<line x1="2" y1="14" x2="8" y2="14" stroke="currentColor" stroke-width="1.5"/>
+<line x1="20" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1.5"/>
 </svg>
-<div class="logo-text">
-<span class="logo-primary">GEO-INTEL</span>
-<span class="logo-sub">CRISIS TRACKER</span>
+<span class="logo-text">GEO-INTEL</span>
 </div>
-</div>
-</div>
-<div class="header-center">
-<div class="threat-ticker">
-<span class="ticker-label">LIVE THREAT FEED</span>
-<div class="ticker-scroll">
-<span class="ticker-item critical">⚡ CRITICAL: Israeli F-35 sorties over Lebanon airspace</span>
-<span class="ticker-item high">▲ HIGH: IRGC Quds Force repositioning in Syria</span>
-<span class="ticker-item medium">● MEDIUM: US carrier strike group enters Persian Gulf</span>
-<span class="ticker-item high">▲ HIGH: Iranian ballistic missile test — Shahab-3 variant</span>
-<span class="ticker-item critical">⚡ CRITICAL: Hezbollah cross-border rocket barrage</span>
-<span class="ticker-item medium">● MEDIUM: Saudi ARAMCO heightens security posture</span>
-<span class="ticker-item low">◆ LOW: UAE diplomatic back-channel activated</span>
-<span class="ticker-item high">▲ HIGH: IDF Northern Command elevated to DEFCON-2 equivalent</span>
-</div>
-</div>
+<span class="header-subtitle">Iran · US · Israel · GCC Crisis Tracker</span>
 </div>
 <div class="header-right">
-<div class="status-indicators">
-<div class="status-pill active" id="live-indicator">
-<span class="pulse-dot"></span>
-<span>LIVE</span>
-</div>
-<div class="status-pill">
-<span class="clock" id="utc-clock">--:--:-- UTC</span>
-</div>
-<div class="threat-level-badge" id="global-threat-badge">
-<span class="badge-label">THREAT</span>
-<span class="badge-value" id="threat-value">CRITICAL</span>
-</div>
+<span class="last-updated">Updated Mar 2, 2026, 1:00 PM GST</span>
+<button data-theme-toggle aria-label="Switch to light mode" class="theme-btn">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+</svg>
+</button>
 </div>
 </div>
 </header>
-<!-- NAVIGATION -->
-<nav class="dashboard-nav">
-<button class="nav-tab active" data-panel="overview">OVERVIEW</button>
-<button class="nav-tab" data-panel="military">MILITARY OPS</button>
-<button class="nav-tab" data-panel="intelligence">INTELLIGENCE</button>
-<button class="nav-tab" data-panel="psyops">PSYOPS ANALYSIS</button>
-<button class="nav-tab" data-panel="economic">ECONOMIC WARFARE</button>
-<button class="nav-tab" data-panel="timeline">TIMELINE</button>
+
+<!-- TAB NAVIGATION -->
+<nav class="tab-nav" role="tablist" aria-label="Dashboard sections">
+<button role="tab" aria-selected="true" aria-controls="tab-situation" data-tab="situation" class="tab-btn active">Situation Overview</button>
+<button role="tab" aria-selected="false" aria-controls="tab-actors" data-tab="actors" class="tab-btn">Actor Profiles</button>
+<button role="tab" aria-selected="false" aria-controls="tab-psyops" data-tab="psyops" class="tab-btn">PSYOPS &amp; Info War</button>
+<button role="tab" aria-selected="false" aria-controls="tab-analysis" data-tab="analysis" class="tab-btn">Analytical Framework</button>
+<button role="tab" aria-selected="false" aria-controls="tab-context" data-tab="context" class="tab-btn">Deeper Context</button>
+<button role="tab" aria-selected="false" aria-controls="tab-sources" data-tab="sources" class="tab-btn">Key Sources</button>
 </nav>
+
 <!-- MAIN CONTENT -->
-<main class="dashboard-main">
-<!-- PANEL: OVERVIEW -->
-<section class="panel" id="panel-overview" aria-label="Overview Panel">
-<div class="panel-grid overview-grid">
-<!-- KPI ROW -->
-<div class="kpi-strip">
-<div class="kpi-card" data-severity="critical">
-<div class="kpi-icon">🎯</div>
-<div class="kpi-content">
-<div class="kpi-value" data-counter="247">247</div>
-<div class="kpi-label">Active Incidents</div>
-<div class="kpi-delta up">+18 (24h)</div>
-</div>
-</div>
-<div class="kpi-card" data-severity="high">
-<div class="kpi-icon">✈️</div>
-<div class="kpi-content">
-<div class="kpi-value" data-counter="89">89</div>
-<div class="kpi-label">Airspace Violations</div>
-<div class="kpi-delta up">+7 (24h)</div>
-</div>
-</div>
-<div class="kpi-card" data-severity="high">
-<div class="kpi-icon">🚢</div>
-<div class="kpi-content">
-<div class="kpi-value" data-counter="34">34</div>
-<div class="kpi-label">Naval Deployments</div>
-<div class="kpi-delta neutral">±0 (24h)</div>
-</div>
-</div>
-<div class="kpi-card" data-severity="medium">
-<div class="kpi-icon">💣</div>
-<div class="kpi-content">
-<div class="kpi-value" data-counter="156">156</div>
-<div class="kpi-label">Munitions Expended</div>
-<div class="kpi-delta up">+23 (24h)</div>
-</div>
-</div>
-<div class="kpi-card" data-severity="critical">
-<div class="kpi-icon">☢️</div>
-<div class="kpi-content">
-<div class="kpi-value" data-counter="3">3</div>
-<div class="kpi-label">Nuclear Readiness Events</div>
-<div class="kpi-delta up">+1 (24h)</div>
-</div>
-</div>
-<div class="kpi-card" data-severity="medium">
-<div class="kpi-icon">📡</div>
-<div class="kpi-content">
-<div class="kpi-value" data-counter="412">412</div>
-<div class="kpi-label">SIGINT Intercepts</div>
-<div class="kpi-delta up">+67 (24h)</div>
-</div>
-</div>
-</div>
-<!-- THREAT MAP -->
-<div class="map-card card">
-<div class="card-header">
-<h2 class="card-title">OPERATIONAL THEATER — MIDDLE EAST</h2>
-<div class="card-actions">
-<button class="btn-icon" title="Expand">⤢</button>
-<button class="btn-icon" title="Filter">⊞</button>
-</div>
-</div>
-<div class="map-container" id="theater-map" role="img" aria-label="Middle East operational theater map">
-<svg class="map-svg" viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-<!-- Background grid -->
-<defs>
-<pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-<path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(0,255,65,0.06)" stroke-width="0.5"/>
-</pattern>
-<filter id="glow">
-<feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-<feMerge>
-<feMergeNode in="coloredBlur"/>
-<feMergeNode in="SourceGraphic"/>
-</feMerge>
-</filter>
-<filter id="glow-strong">
-<feGaussianBlur stdDeviation="6" result="coloredBlur"/>
-<feMerge>
-<feMergeNode in="coloredBlur"/>
-<feMergeNode in="SourceGraphic"/>
-</feMerge>
-</filter>
-<radialGradient id="radarPulse" cx="50%" cy="50%" r="50%">
-<stop offset="0%" stop-color="var(--accent-primary)" stop-opacity="0.3"/>
-<stop offset="100%" stop-color="var(--accent-primary)" stop-opacity="0"/>
-</radialGradient>
-</defs>
-<rect width="900" height="500" fill="#050a0e"/>
-<rect width="900" height="500" fill="url(#grid)"/>
-<!-- Country shapes (simplified) -->
-<!-- Iran -->
-<polygon points="580,80 640,70 700,90 720,130 710,170 680,190 660,210 620,200 580,180 560,150 555,120" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.6)" stroke-width="1.5" class="country iran-territory"/>
-<text x="635" y="150" fill="#ff3c3c" font-size="11" font-family="var(--font-mono)" text-anchor="middle" font-weight="700">IRAN</text>
-<!-- Iraq -->
-<polygon points="520,100 560,90 580,80 580,180 560,210 530,220 505,200 490,170 500,130" fill="rgba(255,140,0,0.1)" stroke="rgba(255,140,0,0.4)" stroke-width="1"/>
-<text x="532" y="155" fill="#ff8c00" font-size="10" font-family="var(--font-mono)" text-anchor="middle">IRAQ</text>
-<!-- Syria -->
-<polygon points="460,80 510,75 520,100 500,130 490,140 460,130 440,110" fill="rgba(255,200,0,0.08)" stroke="rgba(255,200,0,0.3)" stroke-width="1"/>
-<text x="480" y="110" fill="#ffc800" font-size="9" font-family="var(--font-mono)" text-anchor="middle">SYRIA</text>
-<!-- Lebanon -->
-<polygon points="450,110 460,108 465,130 455,135 445,120" fill="rgba(0,200,255,0.1)" stroke="rgba(0,200,255,0.4)" stroke-width="1"/>
-<text x="455" y="125" fill="#00c8ff" font-size="7" font-family="var(--font-mono)" text-anchor="middle">LB</text>
-<!-- Israel -->
-<polygon points="440,130 453,128 455,155 445,165 432,155 430,140" fill="rgba(0,120,255,0.15)" stroke="rgba(0,120,255,0.7)" stroke-width="1.5" class="israel-territory"/>
-<text x="443" y="150" fill="#0078ff" font-size="8" font-family="var(--font-mono)" text-anchor="middle" font-weight="700">ISR</text>
-<!-- Saudi Arabia -->
-<polygon points="490,200 530,220 560,210 620,200 660,210 680,260 650,320 580,350 520,340 480,300 465,250" fill="rgba(0,255,150,0.06)" stroke="rgba(0,255,150,0.2)" stroke-width="1"/>
-<text x="565" y="275" fill="#00ff96" font-size="11" font-family="var(--font-mono)" text-anchor="middle">SAUDI ARABIA</text>
-<!-- UAE -->
-<polygon points="690,220 720,210 730,230 710,245 695,240" fill="rgba(0,255,150,0.08)" stroke="rgba(0,255,150,0.3)" stroke-width="1"/>
-<text x="710" y="233" fill="#00ff96" font-size="7" font-family="var(--font-mono)" text-anchor="middle">UAE</text>
-<!-- Yemen -->
-<polygon points="520,340 580,350 650,320 670,370 620,410 540,400 490,380 490,350" fill="rgba(255,60,60,0.08)" stroke="rgba(255,60,60,0.25)" stroke-width="1"/>
-<text x="575" y="375" fill="#ff6060" font-size="9" font-family="var(--font-mono)" text-anchor="middle">YEMEN</text>
-<!-- Persian Gulf -->
-<ellipse cx="680" cy="195" rx="35" ry="12" fill="rgba(0,100,200,0.15)" stroke="rgba(0,150,255,0.3)" stroke-width="0.5"/>
-<text x="680" y="199" fill="rgba(0,150,255,0.7)" font-size="7" font-family="var(--font-mono)" text-anchor="middle">PERSIAN GULF</text>
-<!-- Mediterranean -->
-<ellipse cx="390" cy="100" rx="45" ry="20" fill="rgba(0,80,180,0.2)" stroke="rgba(0,120,255,0.2)" stroke-width="0.5"/>
-<text x="390" y="104" fill="rgba(0,120,255,0.6)" font-size="7" font-family="var(--font-mono)" text-anchor="middle">MEDITERRANEAN</text>
-<!-- Red Sea -->
-<ellipse cx="470" cy="300" rx="18" ry="55" fill="rgba(0,80,180,0.15)" stroke="rgba(0,120,255,0.2)" stroke-width="0.5"/>
-<!-- MILITARY ASSETS -->
-<!-- US Carrier Strike Group -->
-<g class="asset-marker" data-type="naval" data-nation="us">
-<circle cx="380" cy="160" r="10" fill="rgba(0,120,255,0.2)" stroke="#0078ff" stroke-width="1.5" filter="url(#glow)"/>
-<circle cx="380" cy="160" r="4" fill="#0078ff"/>
-<text x="380" y="145" fill="#0078ff" font-size="8" font-family="var(--font-mono)" text-anchor="middle">CSG-12</text>
-<animateTransform attributeName="transform" type="translate" values="0,0; 2,1; 0,0" dur="4s" repeatCount="indefinite"/>
-</g>
-<!-- Israeli Air Sorties -->
-<g class="asset-marker" data-type="air" data-nation="israel">
-<polygon points="445,135 450,120 455,135 450,133" fill="#0078ff" stroke="#0078ff" stroke-width="0.5"/>
-<text x="445" y="118" fill="#0078ff" font-size="7" font-family="var(--font-mono)">F-35s</text>
-</g>
-<!-- IRGC Forces -->
-<g class="asset-marker" data-type="ground" data-nation="iran">
-<rect x="590" y="155" width="12" height="10" fill="rgba(255,60,60,0.3)" stroke="#ff3c3c" stroke-width="1"/>
-<text x="604" y="163" fill="#ff3c3c" font-size="7" font-family="var(--font-mono)">IRGC</text>
-</g>
-<!-- Iranian Missile Sites -->
-<g filter="url(#glow)">
-<polygon points="650,100 655,88 660,100" fill="#ff3c3c" stroke="none"/>
-<polygon points="680,110 685,98 690,110" fill="#ff3c3c" stroke="none"/>
-<polygon points="700,140 705,128 710,140" fill="#ff3c3c" stroke="none"/>
-</g>
-<!-- Strike vectors -->
-<line x1="448" y1="140" x2="590" y2="165" stroke="rgba(255,200,0,0.4)" stroke-width="1" stroke-dasharray="4 3">
-<animate attributeName="stroke-dashoffset" values="0;-14" dur="1s" repeatCount="indefinite"/>
-</line>
-<line x1="380" y1="160" x2="448" y2="135" stroke="rgba(0,120,255,0.5)" stroke-width="1" stroke-dasharray="3 3">
-<animate attributeName="stroke-dashoffset" values="0;-12" dur="1.5s" repeatCount="indefinite"/>
-</line>
-<!-- Hezbollah positions -->
-<g>
-<circle cx="453" cy="118" r="5" fill="rgba(255,60,60,0.3)" stroke="rgba(255,60,60,0.8)" stroke-width="1"/>
-<text x="462" y="116" fill="rgba(255,60,60,0.9)" font-size="6" font-family="var(--font-mono)">HZB</text>
-</g>
-<!-- Radar sweeps -->
-<circle cx="635" cy="148" r="30" fill="none" stroke="rgba(255,60,60,0.1)" stroke-width="0.5">
-<animate attributeName="r" values="5;50" dur="3s" repeatCount="indefinite"/>
-<animate attributeName="opacity" values="0.6;0" dur="3s" repeatCount="indefinite"/>
-</circle>
-<circle cx="443" cy="147" r="25" fill="none" stroke="rgba(0,120,255,0.1)" stroke-width="0.5">
-<animate attributeName="r" values="5;40" dur="2.5s" repeatCount="indefinite"/>
-<animate attributeName="opacity" values="0.6;0" dur="2.5s" repeatCount="indefinite"/>
-</circle>
-<!-- Legend -->
-<g transform="translate(20,420)">
-<rect width="250" height="60" rx="4" fill="rgba(0,0,0,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
-<circle cx="15" cy="15" r="5" fill="#0078ff"/>
-<text x="25" y="19" fill="#aaa" font-size="9" font-family="var(--font-mono)">US Navy (CSG)</text>
-<polygon points="15,35 20,25 25,35" fill="#ff3c3c"/>
-<text x="30" y="34" fill="#aaa" font-size="9" font-family="var(--font-mono)">Iranian Missiles</text>
-<rect x="10" y="43" width="10" height="8" fill="rgba(255,60,60,0.3)" stroke="#ff3c3c"/>
-<text x="25" y="50" fill="#aaa" font-size="9" font-family="var(--font-mono)">IRGC Ground Forces</text>
-</g>
-<!-- Scale bar -->
-<g transform="translate(750,460)">
-<line x1="0" y1="0" x2="100" y2="0" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-<line x1="0" y1="-5" x2="0" y2="5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-<line x1="100" y1="-5" x2="100" y2="5" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
-<text x="50" y="-8" fill="rgba(255,255,255,0.5)" font-size="8" font-family="var(--font-mono)" text-anchor="middle">500 KM</text>
-</g>
-</svg>
-</div>
-</div>
-<!-- ACTOR STATUS CARDS -->
-<div class="actors-grid">
-<div class="actor-card" data-nation="iran">
-<div class="actor-header">
-<div class="actor-flag iran-flag"></div>
-<div class="actor-info">
-<h3 class="actor-name">ISLAMIC REPUBLIC OF IRAN</h3>
-<div class="actor-role">Primary Adversary</div>
-</div>
-<div class="actor-threat-meter">
-<div class="meter-bar" style="--fill: 92%" data-value="92"></div>
-<span class="meter-value">92/100</span>
-</div>
-</div>
-<div class="actor-stats">
-<div class="stat-item">
-<span class="stat-label">IRGC Status</span>
-<span class="stat-value critical">ELEVATED</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Nuclear Program</span>
-<span class="stat-value critical">90% ENRICHMENT</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Proxy Activation</span>
-<span class="stat-value high">HEZBOLLAH / HAMAS / PMF</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Missile Readiness</span>
-<span class="stat-value critical">LAUNCH-READY</span>
-</div>
-</div>
-<div class="actor-recent">
-<div class="recent-label">Latest Intel</div>
-<div class="recent-item">Shahab-3 test firing — Semnan Province (18h ago)</div>
-<div class="recent-item">IRGC Quds Force redeployment — Syria border (6h ago)</div>
-</div>
-</div>
-<div class="actor-card" data-nation="us">
-<div class="actor-header">
-<div class="actor-flag us-flag"></div>
-<div class="actor-info">
-<h3 class="actor-name">UNITED STATES</h3>
-<div class="actor-role">Primary Deterrent Actor</div>
-</div>
-<div class="actor-threat-meter">
-<div class="meter-bar" style="--fill: 78%" data-value="78"></div>
-<span class="meter-value">78/100</span>
-</div>
-</div>
-<div class="actor-stats">
-<div class="stat-item">
-<span class="stat-label">CENTCOM Posture</span>
-<span class="stat-value high">FORCE PROTECTION CHARLIE</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Naval Presence</span>
-<span class="stat-value high">2× CSG IN-THEATER</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Air Assets</span>
-<span class="stat-value medium">B-52 DETACHMENT — DIEGO GARCIA</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Diplomatic Channel</span>
-<span class="stat-value medium">BACK-CHANNEL ACTIVE (OMAN)</span>
-</div>
-</div>
-<div class="actor-recent">
-<div class="recent-label">Latest Intel</div>
-<div class="recent-item">USS Gerald R. Ford enters Arabian Sea (12h ago)</div>
-<div class="recent-item">CENTCOM issues updated ROE guidance (3h ago)</div>
-</div>
-</div>
-<div class="actor-card" data-nation="israel">
-<div class="actor-header">
-<div class="actor-flag israel-flag"></div>
-<div class="actor-info">
-<h3 class="actor-name">STATE OF ISRAEL</h3>
-<div class="actor-role">Co-Protagonist / Ally</div>
-</div>
-<div class="actor-threat-meter">
-<div class="meter-bar" style="--fill: 88%" data-value="88"></div>
-<span class="meter-value">88/100</span>
-</div>
-</div>
-<div class="actor-stats">
-<div class="stat-item">
-<span class="stat-label">IDF Northern Command</span>
-<span class="stat-value critical">DEFCON-2 EQUIVALENT</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Air Force Sorties</span>
-<span class="stat-value critical">14 TODAY (LEBANON)</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Iron Dome Status</span>
-<span class="stat-value high">ACTIVE — NORTHERN GRID</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Dimona Facility</span>
-<span class="stat-value high">HEIGHTENED SECURITY</span>
-</div>
-</div>
-<div class="actor-recent">
-<div class="recent-label">Latest Intel</div>
-<div class="recent-item">F-35I sorties over southern Lebanon (2h ago)</div>
-<div class="recent-item">IDF reserves activation order issued (8h ago)</div>
-</div>
-</div>
-<div class="actor-card" data-nation="gcc">
-<div class="actor-header">
-<div class="actor-flag gcc-flag"></div>
-<div class="actor-info">
-<h3 class="actor-name">GCC COALITION</h3>
-<div class="actor-role">Regional Stakeholders</div>
-</div>
-<div class="actor-threat-meter">
-<div class="meter-bar" style="--fill: 65%" data-value="65"></div>
-<span class="meter-value">65/100</span>
-</div>
-</div>
-<div class="actor-stats">
-<div class="stat-item">
-<span class="stat-label">Saudi Posture</span>
-<span class="stat-value high">ARAMCO SECURITY ELEVATED</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">UAE Diplomacy</span>
-<span class="stat-value medium">BACK-CHANNEL ACTIVE</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Kuwait / Bahrain</span>
-<span class="stat-value medium">US BASE LOCKDOWN</span>
-</div>
-<div class="stat-item">
-<span class="stat-label">Strait of Hormuz</span>
-<span class="stat-value critical">NAVIGATION WARNINGS</span>
-</div>
-</div>
-<div class="actor-recent">
-<div class="recent-label">Latest Intel</div>
-<div class="recent-item">Saudi Patriot batteries repositioned (24h ago)</div>
-<div class="recent-item">UAE activates diplomatic back-channel to Iran (5h ago)</div>
-</div>
-</div>
-</div>
-<!-- ALERT FEED -->
-<div class="alert-feed card">
-<div class="card-header">
-<h2 class="card-title">INTELLIGENCE ALERT FEED</h2>
-<div class="feed-controls">
-<button class="filter-btn active" data-filter="all">ALL</button>
-<button class="filter-btn" data-filter="critical">CRITICAL</button>
-<button class="filter-btn" data-filter="high">HIGH</button>
-<button class="filter-btn" data-filter="medium">MEDIUM</button>
-</div>
-</div>
-<div class="alert-list" id="alert-list" role="feed" aria-live="polite">
-<div class="alert-item" data-severity="critical">
-<div class="alert-severity-tag critical">CRITICAL</div>
-<div class="alert-content">
-<div class="alert-title">IRGC Aerospace Force — ICBM-class vehicle spotted at Shahrud Space Center</div>
-<div class="alert-meta">
-<span class="alert-source">SOURCE: NSA SIGINT / GEOINT CROSSREF</span>
-<span class="alert-time">00:42 UTC</span>
-<span class="alert-conf">CONFIDENCE: HIGH</span>
-</div>
-</div>
-<div class="alert-actions">
-<button class="btn-tag">TAG</button>
-<button class="btn-expand">↗</button>
-</div>
-</div>
-<div class="alert-item" data-severity="critical">
-<div class="alert-severity-tag critical">CRITICAL</div>
-<div class="alert-content">
-<div class="alert-title">Hezbollah anti-air battery activation — 3 Kornet ATGM teams confirmed northern Israel border</div>
-<div class="alert-meta">
-<span class="alert-source">SOURCE: IDF NORTHERN CMD / SATELLITE</span>
-<span class="alert-time">01:17 UTC</span>
-<span class="alert-conf">CONFIDENCE: CONFIRMED</span>
-</div>
-</div>
-<div class="alert-actions">
-<button class="btn-tag">TAG</button>
-<button class="btn-expand">↗</button>
-</div>
-</div>
-<div class="alert-item" data-severity="high">
-<div class="alert-severity-tag high">HIGH</div>
-<div class="alert-content">
-<div class="alert-title">Strait of Hormuz — Iranian IRGCN fast boat swarm exercises (12 vessels, simulated blocking maneuver)</div>
-<div class="alert-meta">
-<span class="alert-source">SOURCE: US 5TH FLEET HUMINT</span>
-<span class="alert-time">02:05 UTC</span>
-<span class="alert-conf">CONFIDENCE: HIGH</span>
-</div>
-</div>
-<div class="alert-actions">
-<button class="btn-tag">TAG</button>
-<button class="btn-expand">↗</button>
-</div>
-</div>
-<div class="alert-item" data-severity="high">
-<div class="alert-severity-tag high">HIGH</div>
-<div class="alert-content">
-<div class="alert-title">US Senate Armed Services — closed session convened on Iran nuclear threshold assessment</div>
-<div class="alert-meta">
-<span class="alert-source">SOURCE: CONGRESSIONAL HUMINT</span>
-<span class="alert-time">03:30 UTC</span>
-<span class="alert-conf">CONFIDENCE: MEDIUM</span>
-</div>
-</div>
-<div class="alert-actions">
-<button class="btn-tag">TAG</button>
-<button class="btn-expand">↗</button>
-</div>
-</div>
-<div class="alert-item" data-severity="medium">
-<div class="alert-severity-tag medium">MEDIUM</div>
-<div class="alert-content">
-<div class="alert-title">Israeli PM security cabinet emergency session — agenda classified, duration 4h+</div>
-<div class="alert-meta">
-<span class="alert-source">SOURCE: MOSSAD LIAISON / OPEN SOURCE</span>
-<span class="alert-time">04:15 UTC</span>
-<span class="alert-conf">CONFIDENCE: CONFIRMED</span>
-</div>
-</div>
-<div class="alert-actions">
-<button class="btn-tag">TAG</button>
-<button class="btn-expand">↗</button>
-</div>
-</div>
-<div class="alert-item" data-severity="medium">
-<div class="alert-severity-tag medium">MEDIUM</div>
-<div class="alert-content">
-<div class="alert-title">Cyberspace — Iranian APT42 phishing campaign targeting IAEA inspectors (33 attempts blocked)</div>
-<div class="alert-meta">
-<span class="alert-source">SOURCE: CISA / CYBERCOM JOINT</span>
-<span class="alert-time">05:00 UTC</span>
-<span class="alert-conf">CONFIDENCE: HIGH</span>
-</div>
-</div>
-<div class="alert-actions">
-<button class="btn-tag">TAG</button>
-<button class="btn-expand">↗</button>
+<main id="main-content" class="main-content">
+
+<!-- ================================================
+TAB 1: SITUATION OVERVIEW
+================================================ -->
+<section id="tab-situation" role="tabpanel" class="tab-panel active" aria-labelledby="tab-situation-btn">
+
+<!-- STATUS CARDS -->
+<div class="status-cards">
+<div class="status-card status-critical">
+<div class="status-card-header">
+<span class="status-label">IRAN</span>
+<span class="status-badge badge-critical">KHAMENEI KILLED</span>
+</div>
+<h3 class="status-title">Supreme Leader Confirmed Dead</h3>
+<p class="status-body">40-day national mourning declared. Interim 3-member council (Pezeshkian + judiciary chief + Guardian Council jurist). IRGC continues operations under new commander Vahidi. <span class="num">900+</span> strikes across <span class="num">17–24</span> provinces. Succession unknown. <strong>Evening update:</strong> Fatwa for jihad issued by Grand Ayatollah Shirazi &amp; Hamedani. IDF now striking 'heart of Tehran.' Ayatollah Arafi named to interim council. <span class="num">43</span> border troops killed in Mehran. Iran Air Force conducting bombing ops against US bases. <strong>Day 3:</strong> Death toll rises to <span class="num">555</span> across <span class="num">131</span> cities (Red Crescent). IDF achieving 'aerial dominance over Tehran' — new wave of strikes in heart of capital. <span class="num">1,000+</span> total targets struck. <span class="num">9</span> Iranian warships sunk (Trump). B-2 bombers with 2,000-lb bombs hitting ballistic missile facilities. Succession accelerating — new leader potentially within 1–2 days (Araghchi). 4-member interim council (added Ghalibaf). Larijani denies any renewed talks with Washington.</p>
+</div>
+<div class="status-card status-critical">
+<div class="status-card-header">
+<span class="status-label">GCC STATES</span>
+<span class="status-badge badge-critical">THIRD DAY OF FIRE</span>
+</div>
+<h3 class="status-title">Second Wave of Iranian Strikes</h3>
+<p class="status-body">Dubai (Burj Al Arab, Jebel Ali, DXB), Abu Dhabi (<span class="num">1</span> killed, <span class="num">7</span> injured), Bahrain (5th Fleet evacuated), Qatar (Al Udeid hit), Kuwait (airport struck). OMAN HIT — Duqm port drone + SKYLIGHT tanker near Khasab. <strong>Evening update:</strong> IRGC 'large-scale' offensive — blasts in Riyadh, Dubai, Abu Dhabi, Doha, Manama. RAF Typhoon (UK-Qatar sqdn) intercepts &amp; destroys Iranian drone approaching Qatari airspace. <strong>Day 3:</strong> Hezbollah opens third front — rockets into northern Israel (first since 2024 ceasefire). Israel retaliates with strikes on Beirut (<span class="num">12+</span> explosions), evacuation orders to <span class="num">50</span> Lebanese villages. UAE: <span class="num">3</span> civilians killed (Pakistani, Nepali, Bangladeshi). French naval air base in Abu Dhabi hit by Iranian drone (Macron confirmed). US jets crash in Kuwait. Smoke at US Embassy Kuwait. Saudi Arabia intercepting drones at Ras Tanura.</p>
+</div>
+<div class="status-card status-critical">
+<div class="status-card-header">
+<span class="status-label">STRAIT OF HORMUZ</span>
+<span class="status-badge badge-critical">DE FACTO CLOSED</span>
+</div>
+<h3 class="status-title">Global Shipping Paralyzed</h3>
+<p class="status-body"><strong>Zero tanker traffic in main TSS lanes</strong> as of March 1 (S&amp;P Global). <span class="num">240</span> ships clustered near strait, most near Bandar Abbas. <span class="num">3+</span> tankers damaged in Gulf waters. MARAD advises against all navigation in Arabian Gulf, Gulf of Oman, North Arabian Sea &amp; Hormuz. BIMCO: insurance rates to increase 'manyfold.' Hapag-Lloyd, CMA CGM, NYK suspended. Houthis resuming Red Sea attacks. <strong>Day 3:</strong> War risk surcharge now active — Hapag-Lloyd $<span class="num">1,500</span>/TEU effective Mar 2. MSC suspends ALL cargo bookings. Insurance premiums surging <span class="num">50%</span>, cancellation notices effective Mar 5. Houthis resume Red Sea blockade — Maersk, CMA CGM re-rerouting to Cape of Good Hope. Jebel Ali resumed ops. Shipping stocks rising (Maersk +<span class="num">2.5%</span>, Hapag-Lloyd +<span class="num">5.5%</span>).</p>
+</div>
+<div class="status-card status-warning">
+<div class="status-card-header">
+<span class="status-label">MARKETS</span>
+<span class="status-badge badge-warning">EXTREME</span>
+</div>
+<h3 class="status-title">Oil Price Shock Incoming</h3>
+<p class="status-body">Brent surged <strong>~<span class="num">10%</span> to ~<span class="num">$80/bbl</span></strong> in off-exchange trading. OPEC+ agreed modest <span class="num">206,000</span> bpd increase for April (less than the <span class="num">411k–548k</span> discussed — will not offset Hormuz disruption). Oxford Economics worst case: <span class="num">$140</span>. Analysts warn <span class="num">$92–100+</span> if closure persists. <strong>Day 3:</strong> War-risk surcharges now active — Hapag-Lloyd $<span class="num">1,500</span>/TEU, reefers $<span class="num">3,500</span>. MSC suspends all cargo bookings. Maritime insurance premiums surging <span class="num">50%</span>. Shipping stocks up: Maersk +<span class="num">2.5%</span>, Hapag-Lloyd +<span class="num">5.5%</span> Monday AM.</p>
+</div>
+</div>
+
+<!-- KEY METRICS ROW -->
+<div class="key-metrics">
+<div class="metric-card metric-critical">
+<div class="metric-value">1,000+</div>
+<div class="metric-label">Strikes on Iran</div>
+</div>
+<div class="metric-card metric-critical">
+<div class="metric-value">555 Killed</div>
+<div class="metric-label">In Iran (Red Crescent)</div>
+</div>
+<div class="metric-card metric-critical">
+<div class="metric-value">131</div>
+<div class="metric-label">Iranian Cities Hit</div>
+</div>
+<div class="metric-card metric-warning">
+<div class="metric-value">$72→$80</div>
+<div class="metric-label">Brent Crude (off-exchange)</div>
 </div>
+<div class="metric-card metric-critical">
+<div class="metric-value">3 Killed</div>
+<div class="metric-label">US Troops KIA</div>
+</div>
+<div class="metric-card metric-critical">
+<div class="metric-value">9 Ships</div>
+<div class="metric-label">Iranian Navy Sunk (US claim)</div>
+</div>
+</div>
+
+<!-- ESCALATION TIMELINE -->
+<div class="section-block">
+<h2 class="section-heading">Escalation Timeline</h2>
+<p class="section-subhead">June 2025 — March 2, 2026</p>
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-date">Jun 2025</div>
+<div class="timeline-content">
+<div class="timeline-title">12-Day War</div>
+<div class="timeline-desc">US-Israel strike Iran nuclear sites. Significant damage to Natanz and Fordow. Iran fires limited missiles at US base in Qatar at conclusion.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">Sep 2025</div>
+<div class="timeline-content">
+<div class="timeline-title">UN Snapback Sanctions</div>
+<div class="timeline-desc">Full UN sanctions reimposed on Iran. Economic isolation deepens. Oil exports collapse through official channels.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">Nov 2025</div>
+<div class="timeline-content">
+<div class="timeline-title">Iran Cuts Fuel Subsidies</div>
+<div class="timeline-desc">Regime slashes fuel subsidies amid economic crisis. Immediate public backlash.</div>
+</div>
+</div>
+<div class="timeline-item timeline-critical">
+<div class="timeline-date">Dec 28, 2025</div>
+<div class="timeline-content">
+<div class="timeline-title">Massive Protests Begin</div>
+<div class="timeline-desc">Largest protests since 1979 Revolution. Millions take to streets. Regime imposes near-total internet blackout. Security forces shoot to kill. <span class="num">7,000+</span> killed, <span class="num">50,000</span> detained.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">Jan 28, 2026</div>
+<div class="timeline-content">
+<div class="timeline-title">Trump Announces "Armada"</div>
+<div class="timeline-desc">Largest US force projection since 2003. USS Abraham Lincoln and Gerald R. Ford carrier strike groups deployed to Persian Gulf.</div>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-date">Feb 6–17</div>
+<div class="timeline-content">
+<div class="timeline-title">Oman-Mediated Talks — Rounds 1&amp;2</div>
+<div class="timeline-desc">Witkoff/Kushner-led delegations in Muscat and Geneva. Initial framework discussed. Progress reported but gaps remain.</div>
+</div>
+</div>
+<div class="timeline-item timeline-warning">
+<div class="timeline-date">Feb 26</div>
+<div class="timeline-content">
+<div class="timeline-title">Round 3 — Geneva — No Deal</div>
+<div class="timeline-desc">Third round collapses. Iran demands immediate sanctions relief. US demands irreversible dismantlement. Both walk away.</div>
+</div>
+</div>
+<div class="timeline-item timeline-warning">
+<div class="timeline-date">Feb 27</div>
+<div class="timeline-content">
+<div class="timeline-title">Albusaidi Meets Vance — "Peace Within Reach"</div>
+<div class="timeline-desc">Oman FM meets VP Vance in DC for last-ditch effort. Declares deal "within reach." Vienna talks scheduled for following Monday. Strike date already set "weeks ago."</div>
+</div>
+</div>
+<div class="timeline-item timeline-critical">
+<div class="timeline-date">Feb 28</div>
+<div class="timeline-content">
+<div class="timeline-title">Operation Epic Fury / Roaring Lion — Day 1</div>
+<div class="timeline-desc">Strikes begin at 9:45 AM IRST. IAF: ~200 jets, 500 targets, 1,200+ bombs. CENTCOM: Tomahawks, ATACMS, Task Force Scorpion, B-2 bunker-busters. 900+ strikes in first 12 hours. Iran retaliates — missiles hit Dubai, Bahrain, Qatar, Kuwait, Abu Dhabi.</div>
+</div>
+</div>
+<div class="timeline-item timeline-critical">
+<div class="timeline-date">Mar 1 — AM</div>
+<div class="timeline-content">
+<div class="timeline-title">Khamenei Death Confirmed — Day 2</div>
+<div class="timeline-desc">Iranian state media confirms Supreme Leader killed in Feb 28 strikes. 40-day mourning declared. Interim 3-member council formed. IRGC launches second wave — Oman struck for first time (Duqm port + SKYLIGHT tanker).</div>
+</div>
+</div>
+<div class="timeline-item timeline-warning">
+<div class="timeline-date">Mar 1 — PM</div>
+<div class="timeline-content">
+<div class="timeline-title">OPEC+ Emergency Meeting + Hormuz De Facto Closed</div>
+<div class="timeline-desc">OPEC+ 8-member core convenes at 11:00 GMT. Agreed modest 206,000 bpd increase for April (below 411k–548k discussed). Hormuz traffic collapses — 40–50% drop by 7:30pm UTC Feb 28, near-zero by Mar 1. 240 ships anchored near Bandar Abbas. Houthis announce Red Sea attack resumption.</div>
+</div>
+</div>
+<div class="timeline-item timeline-critical">
+<div class="timeline-date">Mar 1 Eve</div>
+<div class="timeline-content">
+<div class="timeline-title">First US Casualties — IRGC Escalates</div>
+<div class="timeline-desc">Pentagon confirms <strong>3 US troops killed, 5 seriously wounded</strong> during Op Epic Fury — US Army installation in Kuwait among bases targeted. IRGC launches 'most ferocious offensive in history of Iranian armed forces' — blasts in Riyadh, Dubai, Abu Dhabi, Doha, Manama, Jerusalem, Tel Aviv. <strong>9 killed in Beit Shemesh, Israel.</strong> Grand Ayatollah Shirazi issues fatwa for global jihad. IDF strikes 'heart of Tehran.' Hormuz shipping fully halted — 240 vessels anchored. RAF Typhoon intercepts Iranian drone near Qatar.</div>
+</div>
+</div>
+<div class="timeline-item timeline-critical">
+<div class="timeline-date">Mar 2 — AM</div>
+<div class="timeline-content">
+<div class="timeline-title">Hezbollah Opens Third Front — War Reaches Europe</div>
+<div class="timeline-desc">Hezbollah fires rockets at northern Israel — first attack since 2024 ceasefire. Israel retaliates: strikes on Beirut, evacuation orders to <span class="num">50</span> villages. RAF Akrotiri (Cyprus) struck by Iranian drone — first attack on European NATO territory. Several US jets crash in Kuwait. Smoke at US Embassy Kuwait. Iran death toll: <span class="num">555</span> across <span class="num">131</span> cities. Trump: operation could last 'four weeks or less.' French naval base in UAE hit. IDF claims 'aerial dominance over Tehran.'</div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- PANEL: MILITARY OPS -->
-<section class="panel hidden" id="panel-military" aria-label="Military Operations Panel">
-<div class="panel-grid military-grid">
-<div class="card order-of-battle">
-<div class="card-header">
-<h2 class="card-title">ORDER OF BATTLE — ACTIVE FORCES</h2>
+
+<!-- ================================================
+TAB 2: ACTOR PROFILES
+================================================ -->
+<section id="tab-actors" role="tabpanel" class="tab-panel" hidden aria-labelledby="tab-actors-btn">
+<div class="actor-grid">
+
+<!-- IRAN -->
+<div class="actor-card actor-critical">
+<div class="actor-header">
+<h3 class="actor-name">Iran</h3>
+<span class="status-badge badge-critical">KHAMENEI DEAD</span>
 </div>
-<div class="oob-table-wrap">
-<table class="oob-table">
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Leadership</span>
+<span class="field-value">Khamenei KILLED Feb 28. Interim 3-member council (Pezeshkian + judiciary chief Mohseni-Eje'i + Guardian Council jurist). Vahidi named IRGC commander. Assembly of Experts to select permanent successor. <strong>Day 3:</strong> Araghchi: new leader 'within 1–2 days.' Council expanded to 4: Arafi + Pezeshkian + Mohseni-Eje'i + Speaker Ghalibaf. Larijani denies any negotiations with Washington despite Trump claiming openness to talks.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Succession Probability</span>
+<span class="field-value">
+<div class="succession-table-wrapper">
+<table class="succession-table">
+<thead><tr><th>Scenario</th><th>Probability</th></tr></thead>
+<tbody>
+<tr>
+<td>IRGC collective leadership consolidation</td>
+<td><div class="prob-bar-container"><div class="prob-bar"><div class="prob-bar-fill critical" style="width:35%"></div></div><span class="prob-pct">35%</span></div></td>
+</tr>
+<tr>
+<td>Prolonged factional struggle</td>
+<td><div class="prob-bar-container"><div class="prob-bar"><div class="prob-bar-fill warning" style="width:30%"></div></div><span class="prob-pct">30%</span></div></td>
+</tr>
+<tr>
+<td>Popular uprising uses vacuum</td>
+<td><div class="prob-bar-container"><div class="prob-bar"><div class="prob-bar-fill" style="width:25%"></div></div><span class="prob-pct">25%</span></div></td>
+</tr>
+<tr>
+<td>State collapse scenario</td>
+<td><div class="prob-bar-container"><div class="prob-bar"><div class="prob-bar-fill success" style="width:10%"></div></div><span class="prob-pct">10%</span></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Economy</span>
+<span class="field-value">Rial collapsed <span class="num">99.995%</span> since 1979 (<span class="num">1,660,000</span>/USD). Inflation <span class="num">62.2%</span>. Food inflation <span class="num">70%</span>.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Military</span>
+<span class="field-value">IRGC continues operations autonomously — 32 provincial units pre-designed to function post-decapitation. "No clear authority to decide when to cease" — Forbes. <span class="num">40+</span> officials killed including IRGC Commander Pakpour, Chief of Staff Mousavi, Defense Minister. <strong>Evening:</strong> IRGC announces 'most ferocious offensive in history of Iranian armed forces.' Iran Air Force conducting bombing operations against US bases in Gulf and Kurdistan. <strong>Day 3:</strong> <span class="num">555</span> killed, <span class="num">131</span> cities hit. IDF claims aerial dominance over Tehran — new strikes in capital center. B-2 bombers hitting ballistic missile facilities. <span class="num">9</span> warships sunk (US claim). Iraqi Shia militia conducting drone attacks on US troops at Baghdad airport.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Religious Escalation</span>
+<span class="field-value"><strong>Grand Ayatollah Makarem Shirazi</strong> (99 yrs, one of most senior clerics in Qom) issued fatwa declaring jihad against US/Israel — "religious duty of all Muslims worldwide to eliminate the evil of these criminals from the Earth." <strong>Ayatollah Nouri Hamedani:</strong> "mandatory for Muslims to avenge the blood." <strong>Ayatollah Arafi</strong> named to interim leadership council alongside Pezeshkian. President Pezeshkian: Khamenei's killing is "declaration of war against Muslims."</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Nuclear</span>
+<span class="field-value">Enrichment capacity hit by B-2 bunker-busters at Fordow, Natanz, Isfahan. Extent of destruction contested. IAEA cannot verify. Pre-strike: enough fissile material for weapon within one week.</span>
+</div>
+</div>
+</div>
+
+<!-- UNITED STATES -->
+<div class="actor-card actor-primary">
+<div class="actor-header">
+<h3 class="actor-name">United States</h3>
+<span class="status-badge badge-teal">OFFENSIVE OPERATIONS</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Strategy</span>
+<span class="field-value">Maximum pressure + explicit regime change rhetoric. "When we are finished, take over your government." <strong>CRITICAL UPDATE:</strong> Zero US casualties claim no longer valid — see Casualties below. <strong>Day 3:</strong> Trump: operation 'four weeks or less.' Claims <span class="num">9</span> warships sunk, naval HQ 'largely destroyed,' 'entire military command gone.' Says 'more casualties' likely. B-2 bombers striking ballistic missile facilities.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Casualties — CRITICAL</span>
+<span class="field-value"><strong style="color: var(--color-critical);">3 US service members killed in action, 5 seriously wounded</strong> during Operation Epic Fury (Pentagon confirmed Sunday evening). Additional troops sustained minor shrapnel injuries/concussions. <strong>US Army installation in Kuwait</strong> among bases targeted. Pentagon: "Major combat operations continue." <strong>Day 3:</strong> Several F-15E jets crashed in Kuwait (all crew survived). Smoke reported at US Embassy Kuwait.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Operations</span>
+<span class="field-value">Op Epic Fury: ATACMS, Tomahawks (TLAMs), Task Force Scorpion suicide drones, B-2 bombers with GBU-57 bunker-busters vs Fordow/Natanz/Isfahan. <span class="num">900+</span> strikes first 12 hrs. Day 2: 30+ new targets, Tehran Revolutionary Court destroyed.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Diplomacy</span>
+<span class="field-value">Witkoff/Kushner led talks (bypassing Rubio). 3 rounds failed. Strike date set "weeks ago" while Oman channel was active. US Ambassador Waltz listed no regime change objective at UNSC — contradicting Trump's public messaging.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Key Figures</span>
+<span class="field-value">Trump (Truth Social 2:30 AM video), Witkoff, Kushner, Rubio (sidelined), Gen. Caine (raised munitions sustainability concerns), VP Vance (met Albusaidi Feb 27).</span>
+</div>
+</div>
+</div>
+
+<!-- ISRAEL -->
+<div class="actor-card actor-primary">
+<div class="actor-header">
+<h3 class="actor-name">Israel</h3>
+<span class="status-badge badge-teal">ACTIVE OPERATIONS</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Operation</span>
+<span class="field-value">Op Roaring Lion (opening phase: Op Genesis). <span class="num">200</span> jets, <span class="num">500</span> targets, <span class="num">1,200+</span> bombs in 24 hrs — largest IAF combat sortie in history. <strong>Evening update:</strong> IDF announces strikes in <strong>center/heart of Tehran</strong> for first time (previously periphery). Claims 'achieved air superiority' and 'opened the path to Tehran.' IDF spokesman: "eliminated <span class="num">40</span> senior commanders, including Khamenei, in one minute in two different locations over a thousand miles from Israel in broad daylight." <span class="num">43</span> Iranian security forces killed at border regiment HQ in Mehran (near Iraq).</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Mobilization</span>
+<span class="field-value">Tens of thousands of reservists called up. Large-scale ground force reinforcement across all sectors. Special forces deployed for various offensive/defensive scenarios.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Messaging</span>
+<span class="field-value">Netanyahu's explicit Purim/Haman invocation. Ethnic segmentation: addressed Persians, Kurds, Azeris, Baluch, Ahwazis separately. "Pilots of the free world" civilizational framing.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Domestic</span>
+<span class="field-value">Netanyahu's legal challenges suspended during wartime. Attacking Iran "a point of consensus in Israeli politics" — Al Jazeera. Elections this year; national unity consolidates political position. <strong>Evening:</strong> <span class="num">9</span> killed in Beit Shemesh from Iranian missiles. IDF claims 'air superiority achieved.'</span>
+</div>
+</div>
+</div>
+
+<!-- SAUDI ARABIA -->
+<div class="actor-card actor-warning">
+<div class="actor-header">
+<h3 class="actor-name">Saudi Arabia</h3>
+<span class="status-badge badge-warning">STRATEGIC AMBIGUITY</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Sequential Messaging</span>
+<span class="field-value">Step 1 (pre-strike): MBS calls Pezeshkian, denies airspace → Islamic solidarity signal. Step 2 (during): Silence = tacit acquiescence. Step 3 (post-retaliation): "Brutal Iranian aggression" condemnation → alliance over solidarity.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Assessment</span>
+<span class="field-value">Saudi Arabia chose the US alliance structure over Muslim solidarity the moment Iranian missiles hit Arab soil. Years of Gulf-Iran détente (2023 China-brokered deal) reversed in 72 hours.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Pre-emptive Action</span>
+<span class="field-value">Surged oil exports to <span class="num">7.3M</span> bpd average in first 24 days of February — highest in nearly 3 years. Holds <span class="num">~1.8M</span> bpd spare capacity for market stabilization.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Mega-Deal</span>
+<span class="field-value">$1T investment pledge, Major Non-NATO Ally status, F-35s, 123 nuclear agreement — all contingent on current US relationship. Saudi Arabia cannot afford to alienate Washington.</span>
+</div>
+</div>
+</div>
+
+<!-- UAE -->
+<div class="actor-card actor-critical">
+<div class="actor-header">
+<h3 class="actor-name">UAE</h3>
+<span class="status-badge badge-critical">DIRECTLY HIT</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Scale of Attack</span>
+<span class="field-value">Iran fired <span class="num">137</span> ballistic missiles + <span class="num">209</span> drones. UAE intercepted <span class="num">195/209</span> drones; <span class="num">14</span> landed in UAE territory.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Damage</span>
+<span class="field-value">Burj Al Arab (facade fire). Fairmont Palm (<span class="num">4</span> injured, fire). Jebel Ali port (berth fire). DXB airport suspended (<span class="num">4</span> staff injured). Abu Dhabi Zayed Intl — <span class="num">1</span> killed, <span class="num">7</span> injured. Al Dhafra AB targeted. Schools remote Mon–Wed.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Strategic Exposure</span>
+<span class="field-value">Dubai airport + Jebel Ali port = <span class="num">~60%</span> of emirate revenues. Hub reputation as regional safe haven directly threatened. Abraham Accords intact but under extreme strain.</span>
+</div>
+</div>
+</div>
+
+<!-- OMAN -->
+<div class="actor-card actor-critical">
+<div class="actor-header">
+<h3 class="actor-name">Oman</h3>
+<span class="status-badge badge-critical">DIRECTLY HIT</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Duqm Port Strike</span>
+<span class="field-value">Two drones hit commercial port at Duqm (Al Wusta Governorate) — first attack on Omani soil. One foreign worker injured. Debris near fuel storage tanks. Bunkering suspended. US/UK naval facility adjacent.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">SKYLIGHT Tanker</span>
+<span class="field-value">MV SKYLIGHT (Palau-flagged) struck <span class="num">5nm</span> north of Khasab port, Musandam — at Hormuz entrance. <span class="num">4</span> crew injured of 20 total (<span class="num">15</span> Indian, <span class="num">5</span> Iranian nationals). First maritime strike in Strait of Hormuz.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">FM Albusaidi</span>
+<span class="field-value">"I am dismayed. Active and serious negotiations have yet again been undermined." — Condemned US-Israel strikes AND Iranian retaliation on GCC states. Oman now the ONLY actor to have condemned both sides.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Mediation Role</span>
+<span class="field-value">Track record destroyed: two data points (Jun 2025 + Feb 2026) of strikes mid-negotiation through Oman. Strike date set "several weeks ago" while Omani channel was active. Future Iranian regimes have structural reasons to distrust Oman-mediated processes.</span>
+</div>
+</div>
+</div>
+
+<!-- QATAR -->
+<div class="actor-card actor-critical">
+<div class="actor-header">
+<h3 class="actor-name">Qatar</h3>
+<span class="status-badge badge-critical">UNDER FIRE</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Al Udeid Strike</span>
+<span class="field-value"><span class="num">65</span> ballistic missiles + <span class="num">12</span> drones intercepted. <span class="num">2</span> missiles hit Al Udeid (largest US base in region). IRGC claims US radar "completely destroyed." <span class="num">8</span> injured. US CENTCOM: no casualties, minimal damage.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Aviation</span>
+<span class="field-value">Hamad International Airport closed. Qatar Airways suspended all operations. Update expected Mar 2 at 09:00 Doha time. <span class="num">41%</span> of Saturday flights cancelled.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Response</span>
+<span class="field-value">Summoned Iran's ambassador. Described attack as "flagrant violation of national sovereignty" and "unacceptable escalation." Continues Gaza mediation — diplomatic channels strained but intact.</span>
+</div>
+</div>
+</div>
+
+<!-- BAHRAIN -->
+<div class="actor-card actor-critical">
+<div class="actor-header">
+<h3 class="actor-name">Bahrain</h3>
+<span class="status-badge badge-critical">5TH FLEET TARGETED</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">NSA Bahrain Strike</span>
+<span class="field-value">Direct strikes on Naval Support Activity Bahrain — home of US 5th Fleet HQ and NAVCENT. Videos show drone striking radar inside white dome. Personnel evacuated to hotel accommodations. Crowne Plaza Manama struck on Day 2.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Intercepts</span>
+<span class="field-value"><span class="num">45</span> missiles + <span class="num">9</span> drones intercepted (incl. Shahed-136 type). Bahrain airport hit (material damage, no casualties). Khalifa Bin Salman port + Sitrah fully suspended.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Scale</span>
+<span class="field-value">NSA Bahrain hosts ~<span class="num">8,300</span> sailors and hundreds of military family members. DoD school cancelled in-person classes for the week. Described strikes as "treacherous attacks" — "clear violation of sovereignty."</span>
+</div>
+</div>
+</div>
+
+<!-- KUWAIT -->
+<div class="actor-card actor-critical">
+<div class="actor-header">
+<h3 class="actor-name">Kuwait</h3>
+<span class="status-badge badge-critical">US KIA — 3 KILLED</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Military</span>
+<span class="field-value">Ali Al-Salem Air Base targeted. Italian FM: "significant damage" to runway. <span class="num">3</span> Kuwaiti soldiers injured by shrapnel. <strong style="color: var(--color-critical);">3 US service members killed, 5 seriously wounded</strong> at US Army installation in Kuwait — Pentagon confirmed Sunday evening. First US KIA of the conflict. <strong>Day 3:</strong> Several US F-15E jets crashed near Ali Al Salem Air Base (all crew survived, evacuated to hospital in stable condition). Smoke reported at US Embassy Kuwait City — Embassy advised people to stay away.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Civilian</span>
+<span class="field-value">Drone struck Kuwait airport Terminal One — <span class="num">9</span> injured (stable). Terminals 1, 4, 5 evacuated. Shuaiba port fully suspended, vessels evacuated to anchorage.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Response</span>
+<span class="field-value">Condemned as "blatant violation of sovereignty." Summoned Iran ambassador. Kuwait Crown Prince received direct call from Trump. Universities switched to online. Refining/production (KNPC/KIPIC) proceeding normally.</span>
+</div>
+</div>
+</div>
+
+<!-- LEBANON / HEZBOLLAH -->
+<div class="actor-card actor-critical">
+<div class="actor-header">
+<h3 class="actor-name">Lebanon / Hezbollah</h3>
+<span class="status-badge badge-critical">THIRD FRONT OPENED</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">Attack</span>
+<span class="field-value">Rockets at northern Israel targeting missile defense site south of Haifa. First Hezbollah attack since November 2024 ceasefire. Stated motivation: "In retaliation for killing of Khamenei and repeated Israeli aggressions." IDF intercepted one rocket; several fell in open areas. No Israeli casualties reported.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Israel Response</span>
+<span class="field-value">IDF strikes on Beirut southern suburbs (Dahiyeh), <span class="num">12+</span> explosions at 3:00 AM. Evacuation orders to <span class="num">50</span> villages in Southern Lebanon and Beqaa Valley. Gen. Zamir: fighting "could extend many more days." Israel declared Hezbollah "fully accountable for any escalation."</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Assessment</span>
+<span class="field-value">2024 US-brokered ceasefire effectively collapsed. Opens third front for Israel alongside Iran ops and Gulf defense. Hezbollah's entry transforms this from a US-Israel vs. Iran bilateral conflict into a multi-front regional war — dramatically increasing Israeli force requirements and strategic exposure.</span>
+</div>
+</div>
+</div>
+
+<!-- UNITED KINGDOM -->
+<div class="actor-card actor-primary">
+<div class="actor-header">
+<h3 class="actor-name">United Kingdom</h3>
+<span class="status-badge badge-teal">DEFENSIVE OPERATIONS</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">RAF Akrotiri</span>
+<span class="field-value">Iranian drone struck RAF base in Cyprus at midnight Mar 2. Hit runway, no casualties. Families being evacuated, non-essential staff relocated. First attack on base since 1986 (Libya). Cyprus president: 'we do not participate in any military operation.'</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Policy</span>
+<span class="field-value">UK allowing US to use British bases (RAF Fairford, Diego Garcia) for 'defensive' strikes on Iranian missile sites. Not joining offensive operations. Starmer: drew lessons from 'mistakes of Iraq.'</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Military</span>
+<span class="field-value">RAF Typhoon from Qatar intercepted Iranian drone (Day 2). Counter-drone unit in Iraq neutralized drone heading for coalition base. <span class="num">200,000+</span> British nationals at risk in Gulf. Evacuation planning via Saudi Arabia.</span>
+</div>
+</div>
+</div>
+
+<!-- CHINA & RUSSIA -->
+<div class="actor-card actor-neutral">
+<div class="actor-header">
+<h3 class="actor-name">China &amp; Russia</h3>
+<span class="status-badge badge-muted">EXTERNAL POWERS</span>
+</div>
+<div class="actor-body">
+<div class="actor-field">
+<span class="field-label">UNSC Emergency Session</span>
+<span class="field-value">Convened Feb 28. No resolution — US veto blocks binding action. US assumed UNSC rotating presidency March 1, giving Washington structural procedural control for the month.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">Russia</span>
+<span class="field-value">"Premeditated and unprovoked act of armed aggression against a sovereign UN member state" — Lavrov. Language mirrors UN Charter Art. 2(4) prohibition. Deliberately parallels Russia's own NATO narratives. No military response.</span>
+</div>
+<div class="actor-field">
+<span class="field-label">China</span>
+<span class="field-value">WSJ: response will be "calibrated and rhetorical." Co-sponsored UNSC session but notably less forceful than Moscow. Did NOT use "unprovoked armed aggression" language. Preserving diplomatic optionality. VLCC New Vision transited Hormuz with apparent exemption.</span>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- ================================================
+TAB 3: PSYOPS & INFO WAR
+================================================ -->
+<section id="tab-psyops" role="tabpanel" class="tab-panel" hidden aria-labelledby="tab-psyops-btn">
+
+<p class="section-intro">An intelligence briefing on the parallel information war accompanying kinetic operations. Five competing narratives are contesting global primacy. The battlefield is not merely physical.</p>
+
+<!-- SECTION 1: NARRATIVE BATTLEFIELD -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="true">
+<h2 class="section-heading inline-heading">1. The Narrative Battlefield</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content">
+<div class="narrative-matrix">
+<table>
 <thead>
 <tr>
-<th>UNIT</th>
-<th>NATION</th>
-<th>TYPE</th>
-<th>LOCATION</th>
-<th>STATUS</th>
-<th>READINESS</th>
+<th>Narrative</th>
+<th>Pushed By</th>
+<th>Target Audience</th>
+<th>Staying Power</th>
 </tr>
 </thead>
 <tbody>
-<tr data-severity="critical">
-<td class="unit-name">IRGC Aerospace Force — Ballistic Div.</td>
-<td><span class="flag-tag iran">IR</span></td>
-<td>Missile</td>
-<td>Shahrud / Tabriz</td>
-<td class="status-cell critical">LAUNCH-READY</td>
-<td><div class="readiness-bar" style="--pct:95"></div></td>
+<tr>
+<td>Existential self-defense / nuclear prevention</td>
+<td>US, Israel, GCC</td>
+<td>Western publics, Israeli voters, Gulf states</td>
+<td><span class="staying-high">High in West</span> / Low in Global South</td>
 </tr>
-<tr data-severity="critical">
-<td class="unit-name">IDF 162nd Armored Division</td>
-<td><span class="flag-tag israel">IL</span></td>
-<td>Armored</td>
-<td>Northern Israel</td>
-<td class="status-cell critical">MOBILIZED</td>
-<td><div class="readiness-bar" style="--pct:92"></div></td>
+<tr>
+<td>Unprovoked aggression / war crime</td>
+<td>Russia, Iran, anti-war left, Turkey</td>
+<td>Global South, Muslim world, European left</td>
+<td><span class="staying-high">High in Muslim world</span></td>
 </tr>
-<tr data-severity="high">
-<td class="unit-name">USS Gerald R. Ford (CVN-78) CSG</td>
-<td><span class="flag-tag us">US</span></td>
-<td>Naval</td>
-<td>Arabian Sea</td>
-<td class="status-cell high">DEPLOYED</td>
-<td><div class="readiness-bar" style="--pct:88"></div></td>
+<tr>
+<td>Liberation of the Iranian people</td>
+<td>Trump admin, diaspora, Pahlavi</td>
+<td>US political base, Iranian diaspora</td>
+<td><span class="staying-mixed">Mixed — depends on Iran outcome</span></td>
 </tr>
-<tr data-severity="high">
-<td class="unit-name">IAF Squadron 140 (F-35I Adir)</td>
-<td><span class="flag-tag israel">IL</span></td>
-<td>Air</td>
-<td>Nevatim AFB</td>
-<td class="status-cell high">SORTIES ACTIVE</td>
-<td><div class="readiness-bar" style="--pct:85"></div></td>
+<tr>
+<td>Martyrdom and resistance</td>
+<td>Iran state, Hezbollah, Hamas remnants</td>
+<td>Shia communities, anti-imperialist movements</td>
+<td><span class="staying-high">High — theologically durable</span></td>
 </tr>
-<tr data-severity="high">
-<td class="unit-name">USAF B-52H Stratofortress Det.</td>
-<td><span class="flag-tag us">US</span></td>
-<td>Strategic Air</td>
-<td>Diego Garcia</td>
-<td class="status-cell high">ALERT POSTURE</td>
-<td><div class="readiness-bar" style="--pct:80"></div></td>
-</tr>
-<tr data-severity="high">
-<td class="unit-name">Hezbollah Radwan Force</td>
-<td><span class="flag-tag iran">PR</span></td>
-<td>Proxy / SOF</td>
-<td>South Lebanon</td>
-<td class="status-cell high">ACTIVATED</td>
-<td><div class="readiness-bar" style="--pct:75"></div></td>
-</tr>
-<tr data-severity="medium">
-<td class="unit-name">Saudi SANG — Eastern Province</td>
-<td><span class="flag-tag gcc">SA</span></td>
-<td>Guard</td>
-<td>Dhahran / ARAMCO</td>
-<td class="status-cell medium">ELEVATED</td>
-<td><div class="readiness-bar" style="--pct:70"></div></td>
-</tr>
-<tr data-severity="medium">
-<td class="unit-name">USS Dwight D. Eisenhower (CVN-69)</td>
-<td><span class="flag-tag us">US</span></td>
-<td>Naval</td>
-<td>Red Sea / Suez</td>
-<td class="status-cell medium">TRANSITING</td>
-<td><div class="readiness-bar" style="--pct:65"></div></td>
+<tr>
+<td>Diplomatic betrayal / deception</td>
+<td>Oman, EU left, critical media</td>
+<td>Diplomatic community, neutral states</td>
+<td><span class="staying-building">Building — will define post-war</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="card weapons-panel">
-<div class="card-header">
-<h2 class="card-title">WEAPONS SYSTEMS TRACKER</h2>
-</div>
-<div class="weapons-grid">
-<div class="weapon-card" data-nation="iran">
-<div class="weapon-header">
-<span class="weapon-name">Shahab-3 / Emad</span>
-<span class="weapon-range">1,300–2,000 km</span>
-</div>
-<div class="weapon-specs">
-<div class="spec-row"><span>Type:</span><span>MRBM</span></div>
-<div class="spec-row"><span>Warhead:</span><span>HE / CBW capable</span></div>
-<div class="spec-row"><span>CEP:</span><span>~190m</span></div>
-<div class="spec-row"><span>Status:</span><span class="critical">DEPLOYED</span></div>
-</div>
-<div class="weapon-threat-bar">
-<div class="threat-fill" style="--fill:90%"></div>
 </div>
 </div>
-<div class="weapon-card" data-nation="iran">
-<div class="weapon-header">
-<span class="weapon-name">Fattah-2 Hypersonic</span>
-<span class="weapon-range">1,400 km</span>
+
+<!-- SECTION 2: TRUMP NARRATIVE ARCHITECTURE -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">2. Trump's Narrative Architecture</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<p class="section-intro">An 8-minute Truth Social video at 2:30 AM EST on February 28, delivered while strikes were underway. Addressed Iranian people, IRGC, and US domestic audience simultaneously.</p>
+
+<div class="quote-callout quote-critical">
+<blockquote>"When we are finished, take over your government. It will be yours to take. This will probably be your only chance for generations."</blockquote>
+<div class="quote-attribution">— President Trump, Truth Social, Feb 28 2:30 AM EST</div>
 </div>
-<div class="weapon-specs">
-<div class="spec-row"><span>Type:</span><span>HGV</span></div>
-<div class="spec-row"><span>Speed:</span><span>Mach 13–15</span></div>
-<div class="spec-row"><span>Maneuver:</span><span>Terminal phase</span></div>
-<div class="spec-row"><span>Status:</span><span class="high">TESTING</span></div>
+
+<div class="quote-callout">
+<blockquote>"Lay down your weapons — total immunity — or face certain death."</blockquote>
+<div class="quote-attribution">— Trump to IRGC, same address</div>
 </div>
-<div class="weapon-threat-bar">
-<div class="threat-fill" style="--fill:85%"></div>
+
+<h3 style="font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; color: var(--color-text); margin: var(--space-5) 0 var(--space-3);">5-Layer Messaging Architecture</h3>
+<div class="messaging-table-wrapper">
+<table class="messaging-table">
+<thead>
+<tr><th>Layer</th><th>Target Audience</th><th>Core Message</th></tr>
+</thead>
+<tbody>
+<tr><td>Liberation / Humanitarian</td><td>Iranian people, diaspora</td><td>"We are freeing you from tyranny"</td></tr>
+<tr><td>Security Necessity</td><td>US domestic audience</td><td>"They were going nuclear — we had no choice"</td></tr>
+<tr><td>Strength / Deterrence</td><td>Regional adversaries</td><td>"America is back, willing to act"</td></tr>
+<tr><td>Defection Invitation</td><td>IRGC rank and file</td><td>"Defect now — immunity offered"</td></tr>
+<tr><td>Historical Legacy</td><td>Trump base</td><td>"I did what no president dared"</td></tr>
+</tbody>
+</table>
 </div>
+
+<div class="psyops-analysis" style="margin-top: var(--space-5);">
+<div class="psyops-analysis-label">Critical Contradiction</div>
+<p>US Ambassador Waltz at the UNSC the same day listed <strong>no regime change objective</strong> — a direct contradiction between presidential messaging and diplomatic messaging. These cannot both be true. A "limited lawful strike" does not call on a country's population to seize their government.</p>
 </div>
-<div class="weapon-card" data-nation="israel">
-<div class="weapon-header">
-<span class="weapon-name">F-35I Adir</span>
-<span class="weapon-range">2,200 km (ferry)</span>
+
+<h3 style="font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; color: var(--color-text); margin: var(--space-5) 0 var(--space-3);">Iraq 2003 Parallel</h3>
+<div class="parallel-table-wrapper">
+<table class="parallel-table">
+<thead>
+<tr><th>Element</th><th>Iraq 2003</th><th>Iran 2026</th></tr>
+</thead>
+<tbody>
+<tr><td>Threat framing</td><td>"Imminent WMD threat"</td><td>"Nuclear weapons imminent"</td></tr>
+<tr><td>Liberation claim</td><td>"Liberation of Iraqi people"</td><td>"Liberation from nuclear theocracy"</td></tr>
+<tr><td>UN position</td><td>Regime change denied at UNSC</td><td>Regime change denied at UNSC</td></tr>
+<tr><td>Public messaging</td><td>Regime change stated publicly</td><td>"Take over your government"</td></tr>
+<tr><td>Post-strike plan</td><td>None articulated</td><td>None articulated</td></tr>
+<tr><td>CFR assessment</td><td>N/A (post-facto)</td><td>"Objectives cannot be achieved by air power alone"</td></tr>
+</tbody>
+</table>
 </div>
-<div class="weapon-specs">
-<div class="spec-row"><span>Type:</span><span>Multirole Stealth</span></div>
-<div class="spec-row"><span>Payload:</span><span>8,160 kg</span></div>
-<div class="spec-row"><span>IOC:</span><span>2017</span></div>
-<div class="spec-row"><span>Status:</span><span class="critical">ACTIVE SORTIES</span></div>
-</div>
-<div class="weapon-threat-bar">
-<div class="threat-fill" style="--fill:88%"></div>
-</div>
-</div>
-<div class="weapon-card" data-nation="us">
-<div class="weapon-header">
-<span class="weapon-name">GBU-57 MOP</span>
-<span class="weapon-range">B-2 delivered</span>
-</div>
-<div class="weapon-specs">
-<div class="spec-row"><span>Type:</span><span>Bunker Buster</span></div>
-<div class="spec-row"><span>Weight:</span><span>13,600 kg</span></div>
-<div class="spec-row"><span>Penetration:</span><span>60m reinforced</span></div>
-<div class="spec-row"><span>Status:</span><span class="medium">PRE-POSITIONED</span></div>
-</div>
-<div class="weapon-threat-bar">
-<div class="threat-fill" style="--fill:75%"></div>
-</div>
-</div>
-<div class="weapon-card" data-nation="israel">
-<div class="weapon-header">
-<span class="weapon-name">Arrow-3 ABM</span>
-<span class="weapon-range">Exo-atmospheric</span>
-</div>
-<div class="weapon-specs">
-<div class="spec-row"><span>Type:</span><span>Ballistic Missile Defense</span></div>
-<div class="spec-row"><span>Intercept alt:</span><span>>100 km</span></div>
-<div class="spec-row"><span>P(kill):</span><span>~90%</span></div>
-<div class="spec-row"><span>Status:</span><span class="high">ACTIVE</span></div>
-</div>
-<div class="weapon-threat-bar">
-<div class="threat-fill" style="--fill:82%"></div>
+
+<div class="quote-callout" style="margin-top: var(--space-4);">
+<blockquote>"Diplomacy was weaponized as an instrument of deception."</blockquote>
+<div class="quote-attribution">— Drop Site News, Feb 28 2026</div>
 </div>
 </div>
-<div class="weapon-card" data-nation="iran">
-<div class="weapon-header">
-<span class="weapon-name">Shahed-136 UAS</span>
-<span class="weapon-range">2,500 km</span>
 </div>
-<div class="weapon-specs">
-<div class="spec-row"><span>Type:</span><span>Loitering Munition</span></div>
-<div class="spec-row"><span>Warhead:</span><span>50 kg HEAT</span></div>
-<div class="spec-row"><span>Cost:</span><span>~$20,000</span></div>
-<div class="spec-row"><span>Status:</span><span class="critical">PROLIFERATED</span></div>
 </div>
-<div class="weapon-threat-bar">
-<div class="threat-fill" style="--fill:78%"></div>
+
+<!-- SECTION 3: NETANYAHU PURIM -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">3. Netanyahu's Purim Invocation</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="quote-callout">
+<blockquote>"In two days we will celebrate the holiday of Purim. Two and a half thousand years ago, in ancient Persia, a tyrant rose against us... In those days of Purim, the lot fell, and the wicked Haman fell with it. Today as well, on Purim, the lot has fallen."</blockquote>
+<div class="quote-attribution">— Prime Minister Netanyahu, Feb 28 2026</div>
 </div>
+
+<div class="analysis-prose">
+<p>This is not a casual metaphor. Netanyahu has a documented pattern of invoking the Purim/Haman/Persia narrative specifically for Iran policy. The Book of Esther narrative: a Persian official named Haman plots genocide against the Jewish people; he is foiled and executed. Netanyahu's parallel is explicit: the Islamic Republic = modern Haman.</p>
+<h4>Netanyahu's Purim-Iran Rhetoric History</h4>
+<p><strong>2012:</strong> Brought a copy of the Book of Esther to his meeting with President Obama.</p>
+<p><strong>2015:</strong> Invoked Purim/Esther narrative explicitly in his Congress speech against the Iran nuclear deal.</p>
+<p><strong>2026:</strong> Drops all pretense and declares the strikes a Purim event explicitly. Israeli public was primed: Israel Hayom ran "Purim and Iran: This time we're not powerless" two days before strikes launched.</p>
+</div>
+
+<h3 style="font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; color: var(--color-text); margin: var(--space-5) 0 var(--space-3);">Ethnic Division Strategy</h3>
+<div class="quote-callout">
+<blockquote>"Persians, Kurds, Azeris, Baluch, Ahwazis — our forces are there, pilots of the free world, coming to your aid."</blockquote>
+<div class="quote-attribution">— Netanyahu, Feb 28 2026</div>
+</div>
+<div class="psyops-analysis">
+<div class="psyops-analysis-label">Information Warfare Analysis</div>
+<p>Netanyahu addressed Iran's minority ethnic groups separately from the Persian majority — a deliberate segmentation strategy amplifying internal division narratives. "Pilots of the free world" positions the operation as a multilateral civilizational intervention. This is classic information warfare targeting internal cohesion while appealing to Western civilizational frameworks simultaneously.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 4: IRAN MARTYRDOM FRAMING -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">4. Iran's Martyrdom Framing</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="quote-callout">
+<blockquote>"Unyielding mountain of Islamic guardianship who had savored the sweet, pure essence of martyrdom."</blockquote>
+<div class="quote-attribution">— Iranian state media on Khamenei's death</div>
+</div>
+
+<div class="analysis-prose">
+<p>The most powerful single messaging choice: framing Khamenei's death as <strong>martyrdom</strong> (شهادت, <em>shahādat</em>) rather than death-in-war. In Shia Islamic theology, martyrdom carries specific transformative weight — the martyr's blood inspires rather than extinguishes the cause. This is not merely rhetoric; it is a theological weapon.</p>
+
+<h4>State Media Activation</h4>
+<p>IRIB (state broadcaster) anchor broke down on air announcing Khamenei's death. Whether genuinely spontaneous or orchestrated, this served as an emotional authenticity signal — the regime's grief is total, the cause is existential, not merely political.</p>
+
+<h4>"Truthful Promise 4" — Narrative Continuity</h4>
+<p>By naming the retaliation "Truthful Promise 4," Iran positioned it in a narrative sequence (previous operations in 2024–2025), claiming consistency and follow-through against narratives of Iranian weakness or capitulation. The naming = the claim of agency.</p>
+</div>
+
+<div class="quote-callout quote-warning">
+<blockquote>"Trump has shifted 'America First' into 'Israel First' — always resulting in 'America Last'."</blockquote>
+<div class="quote-attribution">— Iranian FM Araghchi — crafted for US domestic consumption</div>
+</div>
+
+<div class="psyops-analysis">
+<div class="psyops-analysis-label">IRGC Gulf Messaging — Decoupling Attempt</div>
+<p>The IRGC told Gulf foreign ministers directly: <strong>"We have no intention to attack them [Gulf states]; we are actually attacking the American bases."</strong> This is sophisticated: Iran attempting to decouple GCC states from the US basing structure, delegitimize the American military presence on Arab territory, and avoid triggering full GCC-as-combatant status. The strategy failed — Gulf states chose the US alliance framing — but the attempt itself reveals Iran's preferred end-state: a Gulf free from US bases.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 5: SAUDI SEQUENTIAL AMBIGUITY -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">5. Saudi Arabia's Sequential Ambiguity</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="sequence-steps">
+<div class="sequence-step step-before">
+<div class="step-number">1</div>
+<div class="step-content">
+<div class="step-label">Pre-Strike</div>
+<div class="step-text">MBS calls Pezeshkian — denies Saudi airspace for US-Israeli strikes</div>
+<div class="step-subtext">Islamic solidarity signal. Positions Saudi Arabia as non-participant to Islamic world. Provides deniability. Saudi Arabia establishes public distance.</div>
+</div>
+</div>
+<div class="sequence-step step-during">
+<div class="step-number">2</div>
+<div class="step-content">
+<div class="step-label">During Strikes</div>
+<div class="step-text">Silence — no condemnation issued</div>
+<div class="step-subtext">Silence = tacit acquiescence. Diplomatic endorsement by omission. Saudi Arabia lets the strikes happen without protest. The Islamic solidarity signal of Step 1 was, in hindsight, theater.</div>
+</div>
+</div>
+<div class="sequence-step step-after">
+<div class="step-number">3</div>
+<div class="step-content">
+<div class="step-label">Post-Retaliation (Iranian Missiles Hit Arab Soil)</div>
+<div class="step-text">"Brutal Iranian aggression" — condemnation of Iran in strongest terms</div>
+<div class="step-subtext">Once Iranian missiles hit GCC territory, Saudi Arabia drops all ambiguity. GCC territorial integrity overrides Islamic fraternal solidarity. The US alliance structure wins over Muslim solidarity.</div>
+</div>
+</div>
+</div>
+
+<div class="psyops-analysis" style="margin-top: var(--space-5);">
+<div class="psyops-analysis-label">Strategic Analysis</div>
+<p><strong>Saudi Arabia chose the US alliance structure over Muslim solidarity the moment Iranian missiles hit Arab soil.</strong> This sequence is not contradictory — it is sequentially rational strategic ambiguity. But it will be read in Tehran for years as evidence that Gulf détente was never genuine, and that GCC states will always choose the US-Israel axis over Islamic solidarity under pressure. The 2023 China-brokered Iran-Saudi normalization is effectively reversed in 72 hours.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 6: GCC FRAMING CHOICE -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">6. GCC Framing Choice — The Binary Decision</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="framing-binary">
+<div class="framing-option rejected">
+<div class="framing-option-label">Rejected</div>
+<div class="framing-option-text">"US Provocation That Iran Responded To"</div>
+<div class="framing-option-implication">Questions legitimacy of US military presence in the Gulf. Aligns with Russia/Iran narrative. Implies GCC states are complicit in attack on Muslim nation. Undermines US basing agreements.</div>
+</div>
+<div class="framing-option chosen">
+<div class="framing-option-label">Chosen — All GCC States</div>
+<div class="framing-option-text">"Iranian Aggression Against Sovereign States"</div>
+<div class="framing-option-implication">Justifies US alliance structure. Justifies US military bases. Frames Iran as the aggressor. Provides domestic legitimacy for continued US presence. Aligns with Western framing.</div>
+</div>
+</div>
+<div class="framing-verdict">
+<p><strong>All major GCC states (UAE, Bahrain, Qatar, Kuwait, Jordan) condemned Iran's retaliatory strikes without issuing a strong condemnation of the initial US-Israel operation.</strong> This framing choice is not accidental — it is a strategic alignment that deepens the Sunni-Shia sectarian dimension of the conflict while providing regional legitimacy for continued US military presence. The Oman exception (condemned both sides) underscores that the choice was a choice, not an inevitability.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 7: WESTERN MEDIA vs AL JAZEERA -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">7. Western Media vs Al Jazeera — Framing Comparison</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<p class="section-intro">The same events are being described in structurally different language. These are not merely different perspectives — they constitute different operational realities affecting protest mobilization, diplomatic pressure, and long-term legitimacy.</p>
+<div class="comparison-highlight">
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th class="col-western">Western Outlets (BBC / Reuters / AP / CNN)</th>
+<th class="col-aljazeera">Al Jazeera / Middle East Eye</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operation terminology</td>
+<td class="col-western">"strikes," "operation"</td>
+<td class="col-aljazeera">"attacks," "bombing campaign," "war of aggression"</td>
+</tr>
+<tr>
+<td>Iran government label</td>
+<td class="col-western">"regime" (consistently)</td>
+<td class="col-aljazeera">"government," "state" — sovereignty emphasized</td>
+</tr>
+<tr>
+<td>Strike legality</td>
+<td class="col-western">Generally neutral; presents US/Israel justifications</td>
+<td class="col-aljazeera">Explicitly challenges legality; references UN Charter</td>
+</tr>
+<tr>
+<td>Historical context</td>
+<td class="col-western">Limited; some 1979 context</td>
+<td class="col-aljazeera">Extensive; 1953 CIA coup against Mosaddegh prominently cited</td>
+</tr>
+<tr>
+<td>Iraq 2003 parallel</td>
+<td class="col-western">Rarely invoked explicitly</td>
+<td class="col-aljazeera">Invoked explicitly and repeatedly</td>
+</tr>
+<tr>
+<td>Regime change framing</td>
+<td class="col-western">Covered, but not emphasized</td>
+<td class="col-aljazeera">Central framing of all coverage</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="quote-callout quote-warning" style="margin-top: var(--space-4);">
+<blockquote>"Iran is seldom referred to as a nation; it is labeled a regime... Western media: a framework not designed to reveal truth but to create justification for violence."</blockquote>
+<div class="quote-attribution">— Al Jazeera opinion, June 2025 (directly applicable)</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 8: PURIM-RAMADAN INTERSECTION -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">8. The Purim–Ramadan Intersection</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="symbolic-intersection">
+<div class="symbolic-side side-jewish">
+<div class="symbolic-side-label">Jewish Calendar</div>
+<div class="symbolic-side-title">Purim</div>
+<div class="symbolic-side-date">Begins evening of March 2, 2026<br><span style="font-size: var(--text-xs); color: var(--color-text-muted);">14 Adar II, 5786 — 2 days after strikes</span></div>
+</div>
+<div class="symbolic-intersection-symbol">×</div>
+<div class="symbolic-side side-islamic">
+<div class="symbolic-side-label">Islamic Calendar</div>
+<div class="symbolic-side-title">11th of Ramadan 1447</div>
+<div class="symbolic-side-date">Strikes on February 28, 2026<br><span style="font-size: var(--text-xs); color: var(--color-text-muted);">Holiest month of the Islamic year</span></div>
+</div>
+</div>
+
+<div class="analysis-prose" style="margin-top: var(--space-5);">
+<h4>Netanyahu Left No Ambiguity</h4>
+<p>The Prime Minister explicitly connected the timing: "In two days we will celebrate the holiday of Purim... Today as well, on Purim, the lot has fallen." CNN reported the timing was "symbolically meaningful in Judaism." Israel Hayom ran "Purim and Iran: This time we're not powerless" two days before the strikes — the Israeli public was already consuming the frame before operations began.</p>
+
+<h4>Islamic World Reception — Four Dimensions</h4>
+<p><strong>1. Desecration of Ramadan:</strong> Strikes during the holiest month frame the war as a religious war against Islam itself — not a security operation against Iran's government. Three Ramadan Fridays fall during the current escalation; mosque-based political mobilization is maximum.</p>
+<p><strong>2. The Purim-Persia Civilizational Claim:</strong> Netanyahu's "ancient Persia" language is read as Israel asserting a civilizational-theological war against Persia. This resonates with apocalyptic narratives in some Islamic theological traditions that have ready-made frameworks for this framing.</p>
+<p><strong>3. Ramadan Solidarity Mobilization:</strong> The timing maximizes political amplification across the Muslim world simultaneously.</p>
+<p><strong>4. Blood Moon (March 3):</strong> Noted in Christian prophetic circles and amplified in some Islamic social media contexts as a divine sign — adding an apocalyptic dimension to the information environment.</p>
+</div>
+
+<div class="psyops-analysis">
+<div class="psyops-analysis-label">PSYOPS Assessment</div>
+<p>The Purim timing is <strong>the single most explosive symbolic element of this conflict for global Muslim audiences.</strong> Netanyahu's explicit invocation has handed Iran's information warfare apparatus almost unlimited mobilization content: strikes by Israel (framed as Jewish state) on Persia during Ramadan, with the Israeli PM explicitly celebrating it as a Purim victory. The theological and civilizational framing is maximally polarizing and impossible to walk back.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 9: OMAN BETRAYAL NARRATIVE -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">9. The Oman Betrayal Narrative</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<p class="section-intro">The most consequential long-term diplomatic story of this conflict — directly undermining the infrastructure of future de-escalation. Two data points now establish a pattern.</p>
+
+<div class="sequence-steps">
+<div class="sequence-step step-before">
+<div class="step-number">1</div>
+<div class="step-content">
+<div class="step-label">June 2025 — Data Point 1</div>
+<div class="step-text">Israeli strikes on Iran came while Omani-mediated negotiations were in progress</div>
+<div class="step-subtext">Oman expressed frustration but absorbed it. Treated as an anomaly.</div>
+</div>
+</div>
+<div class="sequence-step step-during">
+<div class="step-number">2</div>
+<div class="step-content">
+<div class="step-label">Feb 27, 2026</div>
+<div class="step-text">FM Albusaidi meets VP Vance — reports "significant progress" — "peace is within our reach"</div>
+<div class="step-subtext">Vienna technical talks scheduled for the following Monday. Strike date already fixed "several weeks ago."</div>
+</div>
+</div>
+<div class="sequence-step step-after">
+<div class="step-number">3</div>
+<div class="step-content">
+<div class="step-label">Feb 27–28 (overnight)</div>
+<div class="step-text">US-Israel strikes launched while Albusaidi was still in Washington</div>
+<div class="step-subtext">Israeli sources confirmed strike date was set "several weeks ago." Either Vance was conducting deliberate deception — or Vance himself was not fully briefed on operational timing and was unknowingly conducting theater. Both interpretations are damaging.</div>
+</div>
+</div>
+</div>
+
+<div class="quote-callout quote-warning" style="margin-top: var(--space-5);">
+<blockquote>"I am dismayed. Active and serious negotiations have yet again been undermined."</blockquote>
+<div class="quote-attribution">— Omani FM Badr al-Busaidi, Feb 28 2026</div>
+</div>
+
+<div class="psyops-analysis">
+<div class="psyops-analysis-label">Credibility Destruction for Future Mediation</div>
+<p>Oman had been uniquely positioned: no US military bases, formal neutrality doctrine, trusted by both Iran and the US, track record with 2015 JCPOA groundwork and multiple prisoner releases. If the Oman betrayal narrative consolidates, it eliminates the most credible potential mediator for any future ceasefire. <strong>Qatar has US bases. Turkey has a political agenda. Switzerland lacks Middle East ties.</strong> The diplomatic infrastructure for de-escalation has been significantly damaged. Future Iranian regimes have structural reasons to distrust any Omani-mediated process where the US is also engaged.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 10: DISINFORMATION TRACKER -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">10. Disinformation Tracker</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="disinfo-table-wrapper">
+
+<div class="disinfo-section">
+<div class="disinfo-label label-false">Confirmed False</div>
+<div class="disinfo-items">
+<div class="disinfo-item">
+<div class="disinfo-icon">✗</div>
+<div class="disinfo-text"><strong>AI-generated F-35 shootdown videos:</strong> <span class="num">100M+</span> views before X labeling applied. Most viral AI disinformation event in conflict history. Documented by BBC Verify.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">✗</div>
+<div class="disinfo-text"><strong>Arma 3 video game footage:</strong> Presented as live strike footage. Recurring pattern from Ukraine and Gaza, now Iran. Spread on X, Telegram, and TikTok.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">✗</div>
+<div class="disinfo-text"><strong>Recycled 2019 protest footage:</strong> Misattributed as current celebrations of Khamenei's death. Multiple confirmed instances.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">✗</div>
+<div class="disinfo-text"><strong>Deepfake officials issuing statements:</strong> Multiple fabricated videos of Iranian officials, military commanders, and GCC leaders. Several achieved significant reach before debunking.</div>
+</div>
+</div>
+</div>
+
+<div class="disinfo-section">
+<div class="disinfo-label label-contested">Contested / Unverified</div>
+<div class="disinfo-items">
+<div class="disinfo-item">
+<div class="disinfo-icon">?</div>
+<div class="disinfo-text"><strong>Minab girls' school casualties:</strong> Reports range from <span class="num">85</span> to <span class="num">148</span> killed. Iranian FM condemned as "blatant crime." Some opposition accounts allege misfired IRGC rocket. CENTCOM investigating. No independent verification.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">?</div>
+<div class="disinfo-text"><strong>Nuclear facility destruction extent:</strong> US claims "significant degradation." Iran claims facilities "mostly intact." Satellite imagery analysis ongoing. Both sides have incentives to misrepresent.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">?</div>
+<div class="disinfo-text"><strong>"30 IRGC commanders killed in first 30 seconds":</strong> Israeli Channel 12 claim. No independent confirmation. Possible exaggeration for deterrence effect.</div>
+</div>
+</div>
+</div>
+
+<div class="disinfo-section">
+<div class="disinfo-label label-fog">Fog of War</div>
+<div class="disinfo-items">
+<div class="disinfo-item">
+<div class="disinfo-icon">~</div>
+<div class="disinfo-text"><strong>Khamenei's location during initial strikes:</strong> Reuters reported "secure location." Others: "targeted directly." Resolved March 1 — confirmed dead.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">~</div>
+<div class="disinfo-text"><strong>Scope of Iranian retaliation:</strong> Initial reports exaggerated, then walked back. Total GCC casualty figures vary significantly by source. Still developing as of March 1.</div>
+</div>
+</div>
+</div>
+
+<div class="disinfo-section">
+<div class="disinfo-label label-psyops">State PSYOPS — Both Sides</div>
+<div class="disinfo-items">
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>US/Israel — Diplomatic cover as operational concealment:</strong> Negotiations through Oman used while strike date was fixed. Trump's pre-strike "fake news" denial was deliberate. Strike announcement timed for 2:30 AM EST = prime time US East Coast evening news.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>Iran — "Goebbels big lie" framing:</strong> Iranian officials citing Nazi propaganda frameworks to dismiss entire Western narrative on nuclear program. State TV anchor breakdown — possibly staged for emotional authenticity.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>Iran — IRGC Gulf framing:</strong> Insisting all Gulf strikes targeted "only American bases" while missiles visibly hit civilian infrastructure. Attempting to decouple GCC states from their own experience of being attacked.</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 11: SOCIAL MEDIA & BOT ACTIVITY -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">11. Social Media &amp; Bot Activity</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="psyops-analysis" style="margin-bottom: var(--space-5);">
+<div class="psyops-analysis-label">Platform Record</div>
+<p>X (formerly Twitter) hit an <strong>all-time usage record on March 1, 2026</strong> — confirmed by Elon Musk as "the biggest day in platform history." "Khamenei" trended for <span class="num">22+</span> consecutive hours. The conflict is driving unprecedented global platform engagement simultaneously in Farsi, Arabic, Hebrew, and English.</p>
+</div>
+
+<div class="bot-activity">
+<div class="bot-card">
+<div class="bot-card-header">
+<div class="bot-card-title">Iranian State Bot Network</div>
+<span class="bot-badge state">State Actor</span>
+</div>
+<p>Network documented by Cyabra went dormant after June 2025 strikes. Reactivated with pro-Iran, pro-martyrdom messaging when conflict resumed Feb 28. Confirms state-level information warfare capacity with pre-positioned infrastructure. Dormancy-reactivation pattern is sophisticated operational security.</p>
+</div>
+<div class="bot-card">
+<div class="bot-card-header">
+<div class="bot-card-title">Pro-Israel Influence Operation</div>
+<span class="bot-badge influence">Influence Op</span>
+</div>
+<p>Citizen Lab (October 2025) documented <span class="num">50+</span> fake X accounts pushing Reza Pahlavi and Israeli government messaging. Infrastructure was pre-positioned months before February 2026 strikes — confirming deliberate advance preparation for this information environment.</p>
+</div>
+<div class="bot-card">
+<div class="bot-card-header">
+<div class="bot-card-title">AI Disinformation — F-35 Videos</div>
+<span class="bot-badge ai">AI-Generated</span>
+</div>
+<p>AI-generated videos of F-35 fighters shot down by Iranian air defenses — most viral had <span class="num">100M+</span> views before X Community Notes labeling was applied. Speed-to-audience ratio outpaces correction mechanism. This establishes AI video as the dominant disinformation vector for near-peer conflicts going forward.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 12: JIHAD FATWA — THEOLOGICAL ESCALATION -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">12. Jihad Fatwa — Theological Escalation</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<p class="section-intro">Evening March 1 — the conflict crossed from political-military into religious mobilization. Two of the most senior clerics in the Shia world issued formal fatwas declaring jihad against the United States and Israel.</p>
+
+<div class="quote-callout quote-critical">
+<blockquote>"The religious duty of all Muslims worldwide to eliminate the evil of these criminals from the Earth."</blockquote>
+<div class="quote-attribution">— Grand Ayatollah Makarem Shirazi (age 99, one of the most senior Marja in Qom), fatwa issued March 1, 2026 — <a href="https://www.telegraph.co.uk/world-news/2026/03/01/iran-declares-jihad-anti-us-riots-spread-middle-east/" target="_blank" rel="noopener noreferrer">The Telegraph</a></div>
+</div>
+
+<div class="quote-callout quote-critical">
+<blockquote>"It is mandatory for Muslims to avenge the blood."</blockquote>
+<div class="quote-attribution">— Ayatollah Nouri Hamedani, fatwa issued March 1, 2026 — <a href="https://www.inkl.com/news/avenge-the-blood-iran-s-top-clerics-issue-fatwa-to-muslims-worldwide-after-khamenei-deaths" target="_blank" rel="noopener noreferrer">CNN/Tasnim</a></div>
+</div>
+
+<div class="psyops-analysis" style="margin-top: var(--space-5);">
+<div class="psyops-analysis-label">Strategic Significance</div>
+<p>These fatwas carry enormous weight in Shia communities globally — a formal religious obligation issued by the highest jurisprudential authorities. This is not political rhetoric; it is a binding theological edict for devout Shia Muslims worldwide.</p>
+<p>Ayatollah Arafi has now been named to the interim leadership council alongside Pezeshkian, giving clerical hardliners a formal seat in governance. The fatwas <strong>structurally constrain any near-term diplomatic concession</strong> — any negotiated settlement during the 40-day mourning period (or shortly after) would require overriding a formal fatwa obligation.</p>
+<p>President Pezeshkian's framing that Khamenei's killing is "declaration of war against Muslims" — not just against Iran — deliberately broadens the conflict's religious dimension from Shia-specific to pan-Islamic. This is a calculated escalation of the mobilization frame beyond Iran's borders.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 13: PROTESTS AS INFORMATION WARFARE -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">13. Protests as Information Warfare</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<p class="section-intro">Anti-US protests spreading across the Muslim world validate Iran's martyrdom framing — Khamenei's death is producing exactly the "significant uprising" Iran's SNSC predicted. Real-world mobilization from information warfare is now documented with casualties.</p>
+
+<div class="disinfo-table-wrapper">
+<div class="disinfo-section">
+<div class="disinfo-label label-false">Pakistan</div>
+<div class="disinfo-items">
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>9 killed at US Consulate in Karachi:</strong> Protesters breached outer wall of US Consulate in attempted overrun. Deadliest single protest incident of the conflict. Hundreds at Lahore consulate simultaneously.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>UN office burned in Skardu (Gilgit-Baltistan):</strong> Hatred extending beyond US/Israel to international institutions themselves — the UN as symbol of Western-dominated world order.</div>
+</div>
+</div>
+</div>
+
+<div class="disinfo-section">
+<div class="disinfo-label label-contested">Iraq</div>
+<div class="disinfo-items">
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>Green Zone breach attempt:</strong> Black-clad protesters attempted to breach the Green Zone and US Embassy in Baghdad. Iraq declared 3-day national mourning for Khamenei. US Embassy advised citizens to shelter in place.</div>
+</div>
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>2 drones intercepted over Erbil:</strong> Expanding threat in Iraqi Kurdistan beyond Baghdad-based protest activity.</div>
+</div>
+</div>
+</div>
+
+<div class="disinfo-section">
+<div class="disinfo-label label-psyops">Iran (Domestic)</div>
+<div class="disinfo-items">
+<div class="disinfo-item">
+<div class="disinfo-icon">⚡</div>
+<div class="disinfo-text"><strong>Pro-government demonstrations:</strong> Chanting "Death to America" — notable because Iran has historically seen anti-government protests during crises. State is successfully channeling grief into nationalism, at least in this initial phase.</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="psyops-analysis" style="margin-top: var(--space-5);">
+<div class="psyops-analysis-label">PSYOPS Assessment</div>
+<p>The protests demonstrate that Iran's martyrdom/jihad messaging is achieving real-world mobilization — not just social media engagement. The US Consulate breach in Karachi with 9 killed is a direct kinetic consequence of information warfare. Iran's SNSC predicted a "significant uprising" — the events of March 1 evening validate that projection.</p>
+<p>The burning of the UN office in Skardu is analytically significant: it signals that some of the mobilized population is directing anger at the entire international institutional order, not just the US and Israel. This is the "civilizational war" framing taking hold at the grassroots.</p>
+<p>Source: <a href="https://www.telegraph.co.uk/world-news/2026/03/01/iran-declares-jihad-anti-us-riots-spread-middle-east/" target="_blank" rel="noopener noreferrer">The Telegraph</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 14: RHETORICAL MIRRORING — LARIJANI ECHOES TRUMP -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">14. Rhetorical Mirroring — Larijani Echoes Trump</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="quote-callout quote-warning">
+<blockquote>"Today we will hit them with a force that they have never experienced before."</blockquote>
+<div class="quote-attribution">— Ali Larijani (former Speaker of Iranian Parliament), posted March 1, 2026 — Source: <a href="https://www.cbsnews.com/live-updates/us-iran-war-israel-supreme-leader-khamenei-funeral-day-2/" target="_blank" rel="noopener noreferrer">CBS News live</a></div>
+</div>
+
+<div class="psyops-analysis">
+<div class="psyops-analysis-label">PSYOPS Analysis — Deliberate Lexical Appropriation</div>
+<p>This is a sophisticated information warfare move. Larijani's exact phrasing deliberately echoes Trump's own earlier threat verbatim — using the adversary's language back against them. The strategic goals are multiple:</p>
+<p><strong>1. Claim of equivalence:</strong> By using Trump's own words, Iran signals "we are responding in kind, on your own terms." It reframes Iranian retaliation as symmetrical rather than disproportionate, undercutting the US narrative of Iranian aggression.</p>
+<p><strong>2. Domestic deterrence:</strong> Iran demonstrates to its domestic audience that the leadership can match the rhetorical confidence of the US President — projecting strength during a moment of maximum vulnerability (Supreme Leader just killed).</p>
+<p><strong>3. Global south signaling:</strong> For audiences skeptical of US power, the mirroring suggests that Iran sees itself as a peer adversary — not a country being bombed into submission. This has mobilizing power in anti-hegemonic discourse globally.</p>
+<p><strong>4. Provocation potential:</strong> The appropriation of Trump's exact language may be calculated to provoke an emotional reaction — Trump has responded to perceived mockery with escalated rhetoric and action historically.</p>
+<p>This is the most sophisticated single piece of messaging from Iran during Day 2 — more tactically intelligent than the IRGC's unverified carrier-strike claim (Pentagon: "missiles didn't even come close"), which damaged Iranian credibility.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SECTION 15: JOINT WESTERN STATEMENT — ALLIANCE SIGNALING -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">15. Joint Western Statement — Alliance Signaling</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="quote-callout quote-critical">
+<blockquote>"The Islamic Republic's actions represent a dangerous escalation that violates the sovereignty of multiple states and threatens regional stability."</blockquote>
+<div class="quote-attribution">— Joint statement by US, UK, France and allies — March 2, 2026</div>
+</div>
+
+<div class="psyops-analysis">
+<div class="psyops-analysis-label">PSYOPS Analysis — Framing by Omission</div>
+<p>The joint statement frames Iran as sole aggressor — "targeting of civilians and of countries not engaged in hostilities is reckless and destabilizing." This deliberately omits any reference to the initial US-Israeli strikes that triggered Iranian retaliation. The framing choice — condemning response while omitting provocation — mirrors the GCC framing analyzed in Section 6.</p>
+<p>Macron's separate statement was more balanced ("unprecedented regional escalation" caused by US-Israeli strikes; Iran's response "wholly disproportionate and indiscriminate") — revealing a gap between the joint statement and individual European positions.</p>
+<p>The UK position is the most carefully calibrated: allowing US to use bases for "defensive" strikes while explicitly not joining offensive operations, invoking "lessons of Iraq" — the most self-aware Western positioning in this conflict.</p>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+<section id="tab-analysis" role="tabpanel" class="tab-panel" hidden aria-labelledby="tab-analysis-btn">
+
+<!-- WHO BENEFITS, WHO LOSES -->
+<div class="section-block">
+<h2 class="section-heading">The Chessboard — Who Benefits, Who Loses</h2>
+<div class="analysis-matrix">
+<div class="matrix-cell matrix-win-short">
+<div class="matrix-label">Winners — Short Term</div>
+<ul class="matrix-list">
+<li>Israel — nuclear/missile threat significantly degraded</li>
+<li>US defense industry — surge in orders and deployments</li>
+<li>Non-Gulf oil producers — price spike = revenue windfall</li>
+<li>Hawkish factions in Washington and Tel Aviv</li>
+<li>Saudi Arabia — ARAMCO revenues rising, OPEC+ leverage maximized</li>
+</ul>
+</div>
+<div class="matrix-cell matrix-lose-short">
+<div class="matrix-label">Losers — Short Term</div>
+<ul class="matrix-list">
+<li>Iran — devastating strikes, economic collapse, succession crisis</li>
+<li>GCC states — missile damage, hub reputation destroyed</li>
+<li>Oman — mediation role obliterated, directly attacked</li>
+<li>Global shipping and energy markets — extreme disruption</li>
+<li>Global aviation — 19,000+ flights disrupted</li>
+</ul>
+</div>
+<div class="matrix-cell matrix-win-long">
+<div class="matrix-label">Winners — Long Term</div>
+<ul class="matrix-list">
+<li>China — weakened Iran = more economic leverage, dependency</li>
+<li>Russia — US distracted from Ukraine, arms sales increase</li>
+<li>Non-state actors — power vacuum creates opportunity</li>
+<li>Turkey — positioned as mediator if war ends</li>
+</ul>
+</div>
+<div class="matrix-cell matrix-lose-long">
+<div class="matrix-label">Losers — Long Term</div>
+<ul class="matrix-list">
+<li>Nonproliferation regime — precedent of military strikes on signatories</li>
+<li>Regional stability — decades of reconstruction, radicalization</li>
+<li>Global energy security — Hormuz chokepoint permanently riskier</li>
+<li>International law and multilateral institutions</li>
+<li>Oman's mediator role — potentially irrecoverably damaged</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- PSYOPS CONTRADICTION -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">The PSYOPS Contradiction</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="analysis-prose">
+<p>Trump and Netanyahu's operation rests on a fundamentally incompatible dual narrative:</p>
+<p><strong>To the UN and diplomatic community:</strong> "This is a limited, lawful operation against nuclear and proxy infrastructure — not regime change."</p>
+<p><strong>To the Iranian people and US domestic base:</strong> "Take over your government. This is your only chance for generations."</p>
+<p>These cannot both be true. A "limited lawful strike" does not call on a country's population to seize their government. Regime change cannot be achieved by air strikes alone. The gap between stated objectives and the available military instrument (air power vs. political endgame) is the same structural flaw that produced the Iraq catastrophe.</p>
+<p>CFR's assessment: "Most of Trump's objectives cannot be achieved by air power alone." The mismatch between declared goals and actual instrument is the defining strategic vulnerability of this operation — and the one most likely to define its legacy.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- MEDIATION INFRASTRUCTURE BROKEN -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">The Mediation Infrastructure Is Broken</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="analysis-prose">
+<p>Any ceasefire or negotiated settlement requires a trusted third-party mediator and functional diplomatic infrastructure. The architecture for de-escalation has been systematically destroyed over 72 hours:</p>
+<p><strong>Oman:</strong> Diplomatic credibility severely damaged. Two data points of strikes mid-negotiation. Future Iranian regimes have structural reasons to distrust any Omani channel where the US is also engaged.</p>
+<p><strong>E3 (France, Germany, UK):</strong> Le Monde: "more marginalized than ever." France's Macron reportedly learned of strike timing from news. E3 not warned despite ongoing diplomatic coordination — a structural defeat for European foreign policy architecture.</p>
+<p><strong>UN Security Council:</strong> Structurally paralyzed by US veto. US assumed rotating presidency March 1 — structural procedural control for the month. Any resolution critical of the strikes faces near-certain veto.</p>
+<p><strong>Russia and China:</strong> Rhetorically opposed but have no leverage over the US. China preserving optionality, not applying pressure. Russia focused on Ukraine.</p>
+<p>The question of who can broker a ceasefire — if and when both sides want one — has no clear answer.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SUCCESSION AS CRITICAL UNKNOWN -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">Iran's Succession — The Critical Unknown</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="analysis-prose">
+<p>The single most consequential unknown is whether Iran's interim leadership will consolidate around the IRGC's war logic or seek a face-saving off-ramp.</p>
+<p>The martyrdom framing of Khamenei's death structurally constrains any near-term diplomatic concession — any negotiated outcome in the next <span class="num">40</span> days of mourning would be politically toxic inside Iran. The 40-day mourning period is simultaneously a time of maximum risk (escalation pressure) and minimum diplomatic flexibility. <strong>Evening update:</strong> Ayatollah Arafi has now been named specifically to the interim council alongside Pezeshkian, giving clerical hardliners formal representation. Grand Ayatollah Shirazi's fatwa for jihad adds a further structural constraint: even after the mourning period, any negotiated settlement must navigate overriding a formal binding fatwa from one of the most senior Marja in Qom. The diplomatic pathway narrows further with each theological escalation.</p>
+<p>The IRGC's institutional structure — 32 autonomous provincial units pre-designed to function post-decapitation — means missiles continue to fly without a Supreme Leader directing them. Forbes: "No clear authority to decide when to cease missile operations" for 60–90 days before any new power center can negotiate. This is not a feature; it is a structural escalation risk built into Iran's command architecture.</p>
+<p>Forbes probability assessment: 35% IRGC consolidation / 30% factional struggle / 25% popular uprising / 10% state collapse. Each scenario produces a different negotiating partner — or no partner at all.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- AVIATION & SHIPPING CRISIS -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">Aviation &amp; Shipping Crisis</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<h3 style="font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: var(--space-3);">Airport Status (as of Mar 1)</h3>
+<div class="aviation-table-wrapper">
+<table class="aviation-table">
+<thead>
+<tr><th>Airport</th><th>Status</th><th>Incident</th><th>Casualties</th></tr>
+</thead>
+<tbody>
+<tr><td>Dubai DXB</td><td><span class="badge-suspended">Suspended</span></td><td>Concourse damage; mass evacuation</td><td>4 staff injured</td></tr>
+<tr><td>Dubai DWC</td><td><span class="badge-suspended">Suspended</span></td><td>—</td><td>—</td></tr>
+<tr><td>Abu Dhabi AUH</td><td><span class="badge-suspended">Suspended</span></td><td>Drone debris strike</td><td>1 killed, 7 injured</td></tr>
+<tr><td>Doha DOH</td><td><span class="badge-suspended">Suspended</span></td><td>Missile intercepts over Doha</td><td>None from airport</td></tr>
+<tr><td>Bahrain BAH</td><td><span class="badge-suspended">Suspended</span></td><td>Drone strike — material damage</td><td>None</td></tr>
+<tr><td>Kuwait KWI</td><td><span class="badge-suspended">Suspended</span></td><td>Drone strike Terminal 1</td><td>9 injured</td></tr>
+<tr><td>All Iranian airports</td><td><span class="badge-closed">Closed</span></td><td>Airspace fully closed</td><td>N/A</td></tr>
+<tr><td>Ben Gurion TLV</td><td><span class="badge-restricted">Restricted</span></td><td>Airspace restricted; sirens</td><td>1 killed, 21+ injured (city)</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 style="font-family: var(--font-body); font-size: var(--text-sm); font-weight: 600; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin: var(--space-6) 0 var(--space-3);">Shipping Carrier Suspension</h3>
+<div class="aviation-table-wrapper">
+<table class="aviation-table">
+<thead>
+<tr><th>Carrier</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>Hapag-Lloyd</td><td>Suspended all Hormuz transits; also rerouting Suez/Red Sea to Cape of Good Hope</td></tr>
+<tr><td>CMA CGM</td><td>All ships in/en route to Gulf ordered to "take shelter"; all Suez transits suspended</td></tr>
+<tr><td>Maersk</td><td>Rerouting east-west services to Cape of Good Hope</td></tr>
+<tr><td>NYK (Nippon Yusen)</td><td>Entire fleet ordered not to navigate Hormuz</td></tr>
+<tr><td>Chinese vessels</td><td>Continuing to transit — VLCC New Vision through Hormuz at 02:30 March 1</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SAUDI 123 AGREEMENT -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">Saudi 123 Nuclear Agreement — The Next Proliferation Crisis</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="analysis-prose">
+<p>The US-Saudi nuclear cooperation agreement (Section 123) lacks "Gold Standard" safeguards included in the UAE's equivalent deal. Saudi Arabia has not committed to forswearing enrichment and reprocessing — capabilities that provide a direct pathway to weapons-grade material.</p>
+<p>If Iran's nuclear program is destroyed by military action, the strategic calculus shifts: Saudi Arabia obtains nuclear capability without rigorous oversight, justified by the removal of its primary regional rival's program. MBS explicitly stated he would pursue nuclear weapons if Iran did so.</p>
+<p>The paradox: destroying Iran's program may <em>accelerate</em> proliferation rather than prevent it, as Saudi Arabia, Turkey, and Egypt all recalibrate their nuclear ambitions in a post-Iran vacuum. The 123 agreement, negotiated as part of the $1T mega-deal, becomes the vehicle for this proliferation cascade.</p>
+<p>Key risk: The agreement includes provisions for US-origin enrichment technology transfer. Without Gold Standard safeguards, this creates a latent proliferation capability that could be activated within years, not decades.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- THE OMAN PARADOX -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">The Oman Paradox</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="analysis-prose">
+<p>Hours before US-Israeli strikes began, Oman's Foreign Minister Albusaidi declared a breakthrough was "within reach." Intelligence reporting suggests Iran had agreed to "zero stockpiling, full verification" — terms that would have satisfied the stated objectives of the military campaign.</p>
+<p>The strikes were planned weeks in advance. This creates two possible interpretations:</p>
+<p><strong>Interpretation 1: The diplomatic track was genuine but overridden.</strong> The military timeline was locked in regardless of diplomatic progress. The Muscat channel operated in a parallel universe from the military planning, and the military track had irreversible momentum.</p>
+<p><strong>Interpretation 2: The diplomatic track was pretext.</strong> Talks provided international cover ("we tried diplomacy") while military preparations completed. The Muscat channel was, from the start, a clock rather than a negotiation.</p>
+<p>Either interpretation is devastating for Oman's credibility as a mediator, for the concept of good-faith diplomacy in the region, and for any future attempt to negotiate with Iran. The message received in Tehran: diplomatic concessions do not prevent military action.</p>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- ================================================
+TAB 5: DEEPER CONTEXT
+================================================ -->
+<section id="tab-context" role="tabpanel" class="tab-panel" hidden aria-labelledby="tab-context-btn">
+
+<!-- QURANIC FRAMEWORK -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="true">
+<h2 class="section-heading inline-heading">Quranic Framework</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content">
+<div class="context-grid">
+<div class="context-card">
+<h4>Surah Al-Isra (17:4-8)</h4>
+<p>The Quranic passage describing two corruptions of Bani Israel is widely invoked by contemporary scholars. The second corruption is interpreted by many as a reference to the modern Zionist project. These readings are theologically contested but politically influential across the Muslim world.</p>
+</div>
+<div class="context-card">
+<h4>Fasad fil Ard — "Corruption on Earth"</h4>
+<p>Grand Ayatollah Shirazi issued a fatwa in July 2025 declaring Trump and Netanyahu "muharib" (those who wage war against God's order). This classification carries significant jurisprudential weight in Shia Islam and provides religious authorization for resistance.</p>
+</div>
+<div class="context-card">
+<h4>IUMS April 2025 Fatwa</h4>
+<p>The International Union of Muslim Scholars declared jihad against Israel as fard ayn (individual obligation). The fatwa explicitly forbids Muslim states from supplying Israel with fuel, intelligence, or logistics — creating a religious-legal framework against Gulf cooperation with the US-Israeli campaign.</p>
+</div>
+<div class="context-card">
+<h4>Eschatological Readings</h4>
+<p>"Malhamat al-Kubra" (the Great Battle) framing is increasingly applied to current events in popular discourse. Scholarly authorities urge caution against over-mapping prophecy to politics, but the narrative has significant mobilizing power at the grassroots level. Blood moon March 3 amplified in prophetic circles.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CIVILIZATIONAL LENSES -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">Civilizational Lenses</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="context-grid">
+<div class="context-card">
+<h4>Ibn Khaldun's Asabiyyah</h4>
+<p>The GCC's artificial solidarity — built on wealth distribution and external security guarantees — is declining as both pillars erode. A new anti-hegemonic asabiyyah is forming across the region, cutting across traditional Sunni-Shia lines and driven by shared opposition to Western military intervention.</p>
+</div>
+<div class="context-card">
+<h4>Sykes-Picot Legacy</h4>
+<p>Post-colonial borders drawn by Britain and France are actively fracturing. Syria's state has dissolved post-Assad. Yemen remains partitioned. Palestine exists as a concept without sovereignty. Iraq's sovereignty is nominal. The colonial architecture of the modern Middle East is under terminal stress.</p>
+</div>
+<div class="context-card">
+<h4>Huntington's Clash Thesis</h4>
+<p>Partially validated but insufficient: the current crisis shows that state interests consistently override civilizational identity. Saudi Arabia's simultaneous condemnation of Iran while tacitly accepting the US operation demonstrates that realpolitik trumps civilizational affinity.</p>
+</div>
+<div class="context-card">
+<h4>Carnegie's Diagnosis</h4>
+<p>"The tragedy of Middle Eastern politics is the inability to build a stable regional order." Each attempt at order — Ottoman, colonial, Cold War bipolar, American unipolarity — has collapsed. The current crisis may be the death throes of the American-guaranteed regional order.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- HISTORICAL PARALLELS -->
+<div class="section-block">
+<div class="expandable">
+<button class="expand-trigger" aria-expanded="false">
+<h2 class="section-heading inline-heading">Historical Parallels</h2>
+<svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+</button>
+<div class="expand-content" hidden>
+<div class="comparison-table-wrapper">
+<table class="comparison-table">
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Cold War (1947–1991)</th>
+<th>Current Crisis (2025–2026)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power Structure</td>
+<td>Bipolar — US vs. USSR</td>
+<td>Multipolar — US/Israel vs. Iran; China/Russia as spoilers</td>
+</tr>
+<tr>
+<td>Proxy Wars</td>
+<td>Korea, Vietnam, Afghanistan</td>
+<td>Gaza, Lebanon, Yemen, Syria, now direct conflict</td>
+</tr>
+<tr>
+<td>Nuclear Risk</td>
+<td>MAD doctrine, arms control treaties</td>
+<td>No mutual deterrence; asymmetric — only one side nuclear</td>
+</tr>
+<tr>
+<td>Economic Weapon</td>
+<td>Trade embargoes, technology denial</td>
+<td>Sanctions, oil weapon, Hormuz chokepoint, SWIFT exclusion</td>
+</tr>
+<tr>
+<td>Ideology</td>
+<td>Capitalism vs. Communism</td>
+<td>No clean binary — nationalism, religion, democracy, authoritarianism</td>
+</tr>
+<tr>
+<td>Escalation Control</td>
+<td>Hotlines, arms treaties, back channels</td>
+<td>Oman channel destroyed. No functional de-escalation mechanism exists</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="analysis-prose" style="margin-top: var(--space-6);">
+<h4>Ottoman Governance vs. GCC Monarchies</h4>
+<p>The Ottoman model governed through acknowledged diversity — the millet system allowed religious communities self-governance within imperial structure. Modern GCC monarchies govern through resource distribution (rentier model) and external security guarantees. As oil revenues plateau and the American security umbrella proves conditional, the legitimacy model frays.</p>
+<h4>Rentier State Dynamics</h4>
+<p>The social contract — citizens receive welfare in exchange for political quiescence — is under stress across the Gulf. Iran's 2025 subsidy cuts and resulting revolution are a preview of what happens when the rentier contract breaks. The GCC watches with existential anxiety.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- PANEL: INTELLIGENCE -->
-<section class="panel hidden" id="panel-intelligence" aria-label="Intelligence Panel">
-<div class="panel-grid intel-grid">
-<div class="card sigint-card">
-<div class="card-header">
-<h2 class="card-title">SIGINT / HUMINT INTERCEPTS</h2>
-<span class="classification-tag ts-sci">TS//SCI//NOFORN</span>
+
+<!-- ================================================
+TAB 6: KEY SOURCES
+================================================ -->
+<section id="tab-sources" role="tabpanel" class="tab-panel" hidden aria-labelledby="tab-sources-btn">
+<div class="sources-intro">
+<p>Curated intelligence sources organized by category. All links open in a new tab.</p>
 </div>
-<div class="intercepts-list">
-<div class="intercept-item" data-class="ts-sci">
-<div class="intercept-header">
-<span class="intercept-id">INT-2026-0247</span>
-<span class="intercept-class ts-sci">TOP SECRET // SCI</span>
-<span class="intercept-time">02:14 UTC</span>
+<div class="sources-grid">
+
+<div class="source-category">
+<h3 class="source-cat-title">Think Tanks &amp; Research</h3>
+<ul class="source-list">
+<li><a href="https://www.csis.org/" target="_blank" rel="noopener noreferrer">Center for Strategic and International Studies (CSIS)</a></li>
+<li><a href="https://www.chathamhouse.org/" target="_blank" rel="noopener noreferrer">Chatham House — Royal Institute of International Affairs</a></li>
+<li><a href="https://carnegieendowment.org/" target="_blank" rel="noopener noreferrer">Carnegie Endowment for International Peace</a></li>
+<li><a href="https://www.brookings.edu/" target="_blank" rel="noopener noreferrer">Brookings Institution</a></li>
+<li><a href="https://www.cfr.org/" target="_blank" rel="noopener noreferrer">Council on Foreign Relations (CFR)</a></li>
+<li><a href="https://www.stimson.org/" target="_blank" rel="noopener noreferrer">Stimson Center</a></li>
+<li><a href="https://thesoufancenter.org/" target="_blank" rel="noopener noreferrer">The Soufan Center</a></li>
+</ul>
 </div>
-<div class="intercept-body">
-<div class="intercept-summary">IRGC High Command — encrypted comms burst indicating Operational Planning Cycle activation for "Exercise Zulfiqar-9". Assessment: cover designation for offensive pre-positioning.</div>
-<div class="intercept-assessment">ANALYST NOTE: Pattern matches pre-April 2024 attack preparation sequence. Elevated confidence based on 3 corroborating HUMINT sources.</div>
+
+<div class="source-category">
+<h3 class="source-cat-title">Media &amp; Journalism</h3>
+<ul class="source-list">
+<li><a href="https://www.aljazeera.com/" target="_blank" rel="noopener noreferrer">Al Jazeera</a></li>
+<li><a href="https://www.reuters.com/" target="_blank" rel="noopener noreferrer">Reuters</a></li>
+<li><a href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer">BBC News</a></li>
+<li><a href="https://www.nytimes.com/" target="_blank" rel="noopener noreferrer">New York Times</a></li>
+<li><a href="https://www.middleeasteye.net/" target="_blank" rel="noopener noreferrer">Middle East Eye</a></li>
+<li><a href="https://www.iranintl.com/en" target="_blank" rel="noopener noreferrer">Iran International</a></li>
+<li><a href="https://www.dropsitenews.com/" target="_blank" rel="noopener noreferrer">Drop Site News</a></li>
+</ul>
 </div>
-<div class="intercept-conf">
-<div class="conf-bar" style="--conf:85"></div>
-<span>85% confidence</span>
+
+<div class="source-category">
+<h3 class="source-cat-title">Government &amp; Official</h3>
+<ul class="source-list">
+<li><a href="https://home.treasury.gov/" target="_blank" rel="noopener noreferrer">US Department of the Treasury</a></li>
+<li><a href="https://www.whitehouse.gov/" target="_blank" rel="noopener noreferrer">The White House</a></li>
+<li><a href="https://www.gcc-sg.org/en-us/" target="_blank" rel="noopener noreferrer">GCC Secretariat General</a></li>
+<li><a href="https://www.state.gov/" target="_blank" rel="noopener noreferrer">US Department of State</a></li>
+<li><a href="https://www.iaea.org/" target="_blank" rel="noopener noreferrer">International Atomic Energy Agency (IAEA)</a></li>
+</ul>
 </div>
+
+<div class="source-category">
+<h3 class="source-cat-title">Conflict Tracking</h3>
+<ul class="source-list">
+<li><a href="https://www.criticalthreats.org/" target="_blank" rel="noopener noreferrer">Critical Threats Project (AEI / ISW)</a></li>
+<li><a href="https://understandingwar.org/" target="_blank" rel="noopener noreferrer">Institute for the Study of War (ISW)</a></li>
+<li><a href="https://breakingdefense.com/" target="_blank" rel="noopener noreferrer">Breaking Defense</a></li>
+<li><a href="https://www.defenseone.com/" target="_blank" rel="noopener noreferrer">Defense One</a></li>
+<li><a href="https://www.stripes.com/" target="_blank" rel="noopener noreferrer">Stars and Stripes</a></li>
+</ul>
 </div>
-<div class="intercept-item" data-class="secret">
-<div class="intercept-header">
-<span class="intercept-id">INT-2026-0251</span>
-<span class="intercept-class secret">SECRET</span>
-<span class="intercept-time">03:45 UTC</span>
+
+<div class="source-category">
+<h3 class="source-cat-title">Shipping &amp; Energy</h3>
+<ul class="source-list">
+<li><a href="https://www.lloydslist.com/" target="_blank" rel="noopener noreferrer">Lloyd's List — maritime intelligence</a></li>
+<li><a href="https://www.argusmedia.com/" target="_blank" rel="noopener noreferrer">Argus Media — energy markets</a></li>
+<li><a href="https://shipandbunker.com/" target="_blank" rel="noopener noreferrer">Ship &amp; Bunker — bunkering data</a></li>
+<li><a href="https://www.tankertrackinggroup.com/" target="_blank" rel="noopener noreferrer">TankerTrackers.com — vessel tracking</a></li>
+<li><a href="https://oilprice.com/" target="_blank" rel="noopener noreferrer">OilPrice.com — energy analysis</a></li>
+</ul>
 </div>
-<div class="intercept-body">
-<div class="intercept-summary">Israeli Unit 8200 SIGINT — Hezbollah Radwan Force communications indicate cross-border tunnel reconnaissance activity, Metula sector.</div>
-<div class="intercept-assessment">ANALYST NOTE: Consistent with escalation ladder preparation. IDF Northern Command notified. 72h window assessed as critical.</div>
+
+<div class="source-category">
+<h3 class="source-cat-title">Data &amp; Monitoring</h3>
+<ul class="source-list">
+<li><a href="https://www.marinetraffic.com/" target="_blank" rel="noopener noreferrer">MarineTraffic — vessel tracking</a></li>
+<li><a href="https://www.flightradar24.com/" target="_blank" rel="noopener noreferrer">Flightradar24 — air traffic monitoring</a></li>
+<li><a href="https://flightaware.com/" target="_blank" rel="noopener noreferrer">FlightAware — flight disruption data</a></li>
+<li><a href="https://ioda.inetintel.cc.gatech.edu/" target="_blank" rel="noopener noreferrer">IODA — Internet Outage Detection</a></li>
+<li><a href="https://netblocks.org/" target="_blank" rel="noopener noreferrer">NetBlocks — internet disruption monitoring</a></li>
+<li><a href="https://tradingeconomics.com/" target="_blank" rel="noopener noreferrer">Trading Economics — macro data</a></li>
+</ul>
 </div>
-<div class="intercept-conf">
-<div class="conf-bar" style="--conf:78"></div>
-<span>78% confidence</span>
+
+<div class="source-category">
+<h3 class="source-cat-title">Academic &amp; Analytical</h3>
+<ul class="source-list">
+<li><a href="https://www.armscontrol.org/" target="_blank" rel="noopener noreferrer">Arms Control Association</a></li>
+<li><a href="https://pomeps.org/" target="_blank" rel="noopener noreferrer">Project on Middle East Political Science (POMEPS)</a></li>
+<li><a href="https://www.crisisgroup.org/" target="_blank" rel="noopener noreferrer">International Crisis Group</a></li>
+<li><a href="https://www.sipri.org/" target="_blank" rel="noopener noreferrer">Stockholm International Peace Research Institute (SIPRI)</a></li>
+<li><a href="https://citizenlab.ca/" target="_blank" rel="noopener noreferrer">Citizen Lab — influence operations research</a></li>
+</ul>
 </div>
+
+<div class="source-category">
+<h3 class="source-cat-title">Islamic Scholarly</h3>
+<ul class="source-list">
+<li><a href="https://iumsonline.org/" target="_blank" rel="noopener noreferrer">International Union of Muslim Scholars (IUMS)</a></li>
+<li>Grand Ayatollah Shirazi — official channels (critical analysis)</li>
+<li>Al-Azhar — statements on regional conflict</li>
+<li>Qom Seminary — theological positioning on current events</li>
+</ul>
 </div>
-<div class="intercept-item" data-class="confidential">
-<div class="intercept-header">
-<span class="intercept-id">INT-2026-0255</span>
-<span class="intercept-class confidential">CONFIDENTIAL</span>
-<span class="intercept-time">05:22 UTC</span>
-</div>
-<div class="intercept-body">
-<div class="intercept-summary">NSA PRISM — Iranian nuclear negotiation backchannel communications. Rouhani-adjacent team discussing "final status" language. Possible diplomatic offramp signal.</div>
-<div class="intercept-assessment">ANALYST NOTE: Low confidence diplomatic signal. May be deliberate disinformation to create space for military action.</div>
-</div>
-<div class="intercept-conf">
-<div class="conf-bar" style="--conf:40"></div>
-<span>40% confidence</span>
-</div>
-</div>
-</div>
-</div>
-<div class="card scenario-card">
-<div class="card-header">
-<h2 class="card-title">SCENARIO PROBABILITY MATRIX</h2>
-</div>
-<div class="scenario-list">
-<div class="scenario-item" data-prob="high">
-<div class="scenario-header">
-<span class="scenario-name">Israeli Preemptive Strike — Iranian Nuclear Sites</span>
-<span class="scenario-prob">68%</span>
-</div>
-<div class="scenario-bar">
-<div class="scenario-fill" style="--prob:68"></div>
-</div>
-<div class="scenario-detail">T-window: 14-21 days. Natanz / Fordow primary targets. Requires US green-light or tacit approval. Arrow-3/David's Sling pre-positioned for Iranian retaliation.</div>
-</div>
-<div class="scenario-item" data-prob="medium">
-<div class="scenario-header">
-<span class="scenario-name">Iranian Proxy Escalation — Multi-Front Attack</span>
-<span class="scenario-prob">54%</span>
-</div>
-<div class="scenario-bar">
-<div class="scenario-fill" style="--prob:54"></div>
-</div>
-<div class="scenario-detail">Hezbollah northern front + Houthi Red Sea + PMF Iraq = coordinated multi-vector. Overwhelm IDF Iron Dome capacity (est. 5,000–8,000 rockets).</div>
-</div>
-<div class="scenario-item" data-prob="medium">
-<div class="scenario-header">
-<span class="scenario-name">US Direct Strike — IRGC Infrastructure</span>
-<span class="scenario-prob">41%</span>
-</div>
-<div class="scenario-bar">
-<div class="scenario-fill" style="--prob:41"></div>
-</div>
-<div class="scenario-detail">Tomahawk + B-2 strike package targeting IRGC command nodes and Shahrud launch infrastructure. Triggered by Iranian crossing of red lines on nuclear threshold.</div>
-</div>
-<div class="scenario-item" data-prob="low">
-<div class="scenario-header">
-<span class="scenario-name">Nuclear Threshold Crossing — Iranian Weaponization</span>
-<span class="scenario-prob">23%</span>
-</div>
-<div class="scenario-bar">
-<div class="scenario-fill" style="--prob:23"></div>
-</div>
-<div class="scenario-detail">Iran achieves sufficient HEU stockpile for device assembly within 90-day window. IAEA safeguards agreement collapse. Triggers automatic Israeli/US military response.</div>
-</div>
-<div class="scenario-item" data-prob="low">
-<div class="scenario-header">
-<span class="scenario-name">Diplomatic Resolution — Renewed JCPOA</span>
-<span class="scenario-prob">12%</span>
-</div>
-<div class="scenario-bar">
-<div class="scenario-fill" style="--prob:12"></div>
-</div>
-<div class="scenario-detail">Oman back-channel produces framework agreement. Requires US sanctions relief concessions. Low probability given current IRGC escalation trajectory.</div>
-</div>
-</div>
-</div>
+
 </div>
 </section>
-<!-- PANEL: PSYOPS -->
-<section class="panel hidden" id="panel-psyops" aria-label="PSYOPS Analysis Panel">
-<div class="psyops-panel">
-<div class="psyops-header">
-<div class="psyops-title-block">
-<div class="psyops-classification">CLASSIFIED // PSYOPS ANALYSIS UNIT</div>
-<h2 class="psyops-main-title">INFORMATION WARFARE & PSYCHOLOGICAL OPERATIONS TRACKER</h2>
-<div class="psyops-subtitle">Real-time narrative analysis · Influence campaign detection · Counter-narrative assessment</div>
-</div>
-<div class="psyops-threat-meter">
-<div class="psyops-meter-label">INFO-WAR INTENSITY</div>
-<div class="psyops-gauge">
-<div class="gauge-fill" style="--gauge:87"></div>
-<div class="gauge-value">87/100</div>
-</div>
-</div>
-</div>
-<div class="psyops-grid">
-<div class="narrative-wars-card">
-<h3 class="card-section-title">ACTIVE NARRATIVE CAMPAIGNS</h3>
-<div class="narrative-list">
-<div class="narrative-item" data-actor="iran">
-<div class="narrative-header">
-<span class="narrative-actor iran">IRAN / IRGC</span>
-<span class="narrative-intensity critical">CRITICAL INTENSITY</span>
-</div>
-<div class="narrative-title">"Zionist Aggression" Framework — Al-Aqsa Flood Successor Narrative</div>
-<div class="narrative-channels">
-<span class="channel-tag">Press TV</span>
-<span class="channel-tag">Tasnim</span>
-<span class="channel-tag">Telegram</span>
-<span class="channel-tag">X/Twitter bots</span>
-</div>
-<div class="narrative-metrics">
-<div class="metric-item"><span class="metric-label">Reach:</span><span class="metric-value">~180M impressions/day</span></div>
-<div class="metric-item"><span class="metric-label">Velocity:</span><span class="metric-value">+340% (7d)</span></div>
-<div class="metric-item"><span class="metric-label">Sentiment Shift:</span><span class="metric-value critical">−12pts Western sympathy</span></div>
-</div>
-</div>
-<div class="narrative-item" data-actor="us-israel">
-<div class="narrative-header">
-<span class="narrative-actor us-israel">US / ISRAEL</span>
-<span class="narrative-intensity high">HIGH INTENSITY</span>
-</div>
-<div class="narrative-title">"Nuclear Existential Threat" — Preemptive Action Justification</div>
-<div class="narrative-channels">
-<span class="channel-tag">CNN</span>
-<span class="channel-tag">NYT</span>
-<span class="channel-tag">WSJ</span>
-<span class="channel-tag">Israeli state media</span>
-</div>
-<div class="narrative-metrics">
-<div class="metric-item"><span class="metric-label">Reach:</span><span class="metric-value">~450M impressions/day</span></div>
-<div class="metric-item"><span class="metric-label">Policy Impact:</span><span class="metric-value">3 allied nations signaled support</span></div>
-<div class="metric-item"><span class="metric-label">UN Council framing:</span><span class="metric-value high">Favorable for US/IL (+7pts)</span></div>
-</div>
-</div>
-<div class="narrative-item" data-actor="russia-china">
-<div class="narrative-header">
-<span class="narrative-actor russia-china">RUSSIA / CHINA</span>
-<span class="narrative-intensity medium">MEDIUM INTENSITY</span>
-</div>
-<div class="narrative-title">"Western Imperialism" Counter-narrative — BRICS Bloc Solidarity</div>
-<div class="narrative-channels">
-<span class="channel-tag">RT</span>
-<span class="channel-tag">CGTN</span>
-<span class="channel-tag">Global Times</span>
-<span class="channel-tag">Weibo amplification</span>
-</div>
-<div class="narrative-metrics">
-<div class="metric-item"><span class="metric-label">Reach:</span><span class="metric-value">~290M impressions/day</span></div>
-<div class="metric-item"><span class="metric-label">Global South impact:</span><span class="metric-value medium">+18% favorable framing</span></div>
-<div class="metric-item"><span class="metric-label">UN vote influence:</span><span class="metric-value">12 nations shifted</span></div>
-</div>
-</div>
-</div>
-</div>
-<div class="deepfake-tracker">
-<h3 class="card-section-title">SYNTHETIC MEDIA / DEEPFAKE INCIDENTS</h3>
-<div class="deepfake-list">
-<div class="deepfake-item critical">
-<div class="deepfake-header">
-<span class="deepfake-id">DF-2026-089</span>
-<span class="deepfake-severity critical">CRITICAL</span>
-<span class="deepfake-time">DETECTED: 6h ago</span>
-</div>
-<div class="deepfake-desc">AI-generated video: Israeli PM Netanyahu ordering "first strike" against Iranian nuclear facilities. Circulating on Telegram with 2.3M views before detection.</div>
-<div class="deepfake-actors">
-<span class="deepfake-source">Origin: Iranian state-adjacent (IP cluster: Tehran)</span>
-<span class="deepfake-status detected">STATUS: DETECTED / FLAGGING IN PROGRESS</span>
-</div>
-</div>
-<div class="deepfake-item high">
-<div class="deepfake-header">
-<span class="deepfake-id">DF-2026-091</span>
-<span class="deepfake-severity high">HIGH</span>
-<span class="deepfake-time">DETECTED: 11h ago</span>
-</div>
-<div class="deepfake-desc">Synthetic audio: US SecDef ordering military strike against Iranian oil infrastructure. Used in Arabic-language Telegram channels targeting GCC audiences.</div>
-<div class="deepfake-actors">
-<span class="deepfake-source">Origin: Unknown (VPN chain — likely Russian infrastructure)</span>
-<span class="deepfake-status investigating">STATUS: INVESTIGATING</span>
-</div>
-</div>
-<div class="deepfake-item medium">
-<div class="deepfake-header">
-<span class="deepfake-id">DF-2026-094</span>
-<span class="deepfake-severity medium">MEDIUM</span>
-<span class="deepfake-time">DETECTED: 18h ago</span>
-</div>
-<div class="deepfake-desc">Fabricated IAEA report claiming Iranian weapons-grade enrichment complete. PDF-format disinformation distributed via academic mailing lists.</div>
-<div class="deepfake-actors">
-<span class="deepfake-source">Origin: Unknown — possibly Israeli op or false flag</span>
-<span class="deepfake-status contained">STATUS: CONTAINED (98% platforms removed)</span>
-</div>
-</div>
-</div>
-</div>
-<div class="influence-network">
-<h3 class="card-section-title">BOT NETWORK ACTIVITY MAP</h3>
-<div class="bot-network-viz" id="bot-network">
-<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<filter id="node-glow">
-<feGaussianBlur stdDeviation="2" result="blur"/>
-<feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-</filter>
-</defs>
-<!-- Network edges -->
-<line x1="300" y1="150" x2="100" y2="80" stroke="rgba(255,60,60,0.3)" stroke-width="1.5"/>
-<line x1="300" y1="150" x2="150" y2="220" stroke="rgba(255,60,60,0.3)" stroke-width="1.5"/>
-<line x1="300" y1="150" x2="500" y2="80" stroke="rgba(0,120,255,0.3)" stroke-width="1.5"/>
-<line x1="300" y1="150" x2="450" y2="230" stroke="rgba(0,120,255,0.3)" stroke-width="1.5"/>
-<line x1="300" y1="150" x2="300" y2="40" stroke="rgba(200,200,200,0.2)" stroke-width="1"/>
-<line x1="100" y1="80" x2="60" y2="140" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
-<line x1="100" y1="80" x2="80" y2="30" stroke="rgba(255,60,60,0.15)" stroke-width="1"/>
-<line x1="500" y1="80" x2="560" y2="130" stroke="rgba(0,120,255,0.15)" stroke-width="1"/>
-<line x1="500" y1="80" x2="530" y2="30" stroke="rgba(0,120,255,0.15)" stroke-width="1"/>
-<!-- Main nodes -->
-<circle cx="300" cy="150" r="18" fill="rgba(255,200,0,0.2)" stroke="#ffc800" stroke-width="2" filter="url(#node-glow)"/>
-<text x="300" y="154" fill="#ffc800" font-size="7" text-anchor="middle" font-family="var(--font-mono)">COORD</text>
-<circle cx="100" cy="80" r="14" fill="rgba(255,60,60,0.2)" stroke="#ff3c3c" stroke-width="1.5" filter="url(#node-glow)"/>
-<text x="100" y="84" fill="#ff3c3c" font-size="6" text-anchor="middle" font-family="var(--font-mono)">IR-NET</text>
-<circle cx="500" cy="80" r="14" fill="rgba(0,120,255,0.2)" stroke="#0078ff" stroke-width="1.5" filter="url(#node-glow)"/>
-<text x="500" y="84" fill="#0078ff" font-size="6" text-anchor="middle" font-family="var(--font-mono)">US-NET</text>
-<circle cx="150" cy="220" r="10" fill="rgba(255,60,60,0.15)" stroke="rgba(255,60,60,0.6)" stroke-width="1"/>
-<circle cx="450" cy="230" r="10" fill="rgba(0,120,255,0.15)" stroke="rgba(0,120,255,0.6)" stroke-width="1"/>
-<circle cx="300" cy="40" r="10" fill="rgba(200,200,200,0.1)" stroke="rgba(200,200,200,0.4)" stroke-width="1"/>
-<text x="300" y="44" fill="rgba(200,200,200,0.7)" font-size="6" text-anchor="middle" font-family="var(--font-mono)">RU/CN</text>
-<!-- Bot nodes -->
-<circle cx="60" cy="140" r="6" fill="rgba(255,60,60,0.3)" stroke="rgba(255,60,60,0.8)" stroke-width="0.5"/>
-<circle cx="80" cy="30" r="6" fill="rgba(255,60,60,0.3)" stroke="rgba(255,60,60,0.8)" stroke-width="0.5"/>
-<circle cx="560" cy="130" r="6" fill="rgba(0,120,255,0.3)" stroke="rgba(0,120,255,0.8)" stroke-width="0.5"/>
-<circle cx="530" cy="30" r="6" fill="rgba(0,120,255,0.3)" stroke="rgba(0,120,255,0.8)" stroke-width="0.5"/>
-<!-- Stats -->
-<text x="10" y="270" fill="rgba(255,60,60,0.8)" font-size="9" font-family="var(--font-mono)">IRAN CLUSTER: 12,400 accounts | 4.2M posts/day</text>
-<text x="10" y="285" fill="rgba(0,120,255,0.8)" font-size="9" font-family="var(--font-mono)">US/IL CLUSTER: 8,700 accounts | 2.8M posts/day</text>
-<text x="10" y="257" fill="rgba(200,200,200,0.5)" font-size="9" font-family="var(--font-mono)">RU/CN AMPLIFIERS: 6,200 accounts | 1.9M posts/day</text>
-</svg>
-</div>
-</div>
-<div class="counter-narrative">
-<h3 class="card-section-title">COUNTER-NARRATIVE EFFECTIVENESS</h3>
-<div class="counter-list">
-<div class="counter-item">
-<div class="counter-header">
-<span class="counter-topic">Nuclear Threat Legitimacy</span>
-<span class="counter-score high">74% effective</span>
-</div>
-<div class="counter-bar"><div class="counter-fill" style="--score:74"></div></div>
-<div class="counter-note">IAEA verification reports cited; Western media coverage consolidated.</div>
-</div>
-<div class="counter-item">
-<div class="counter-header">
-<span class="counter-topic">Civilian Casualty Framing</span>
-<span class="counter-score medium">41% effective</span>
-</div>
-<div class="counter-bar"><div class="counter-fill" style="--score:41"></div></div>
-<div class="counter-note">Losing narrative battle in Global South. Arabic/Farsi reach insufficient.</div>
-</div>
-<div class="counter-item">
-<div class="counter-header">
-<span class="counter-topic">Proxy Attribution (Hezbollah/Houthis)</span>
-<span class="counter-score high">68% effective</span>
-</div>
-<div class="counter-bar"><div class="counter-fill" style="--score:68"></div></div>
-<div class="counter-note">US Treasury designations + financial tracking effective in Western discourse.</div>
-</div>
-<div class="counter-item">
-<div class="counter-header">
-<span class="counter-topic">Deepfake Attribution Campaigns</span>
-<span class="counter-score low">29% effective</span>
-</div>
-<div class="counter-bar"><div class="counter-fill" style="--score:29"></div></div>
-<div class="counter-note">CRITICAL GAP: Attribution too slow. Content spreads before takedowns.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- PANEL: ECONOMIC WARFARE -->
-<section class="panel hidden" id="panel-economic" aria-label="Economic Warfare Panel">
-<div class="panel-grid economic-grid">
-<div class="card markets-card">
-<div class="card-header">
-<h2 class="card-title">COMMODITY & MARKET IMPACT</h2>
-</div>
-<div class="markets-grid">
-<div class="market-item" data-trend="up">
-<div class="market-name">Brent Crude</div>
-<div class="market-value">$127.40</div>
-<div class="market-change up">+$8.20 (+6.9%)</div>
-<div class="market-bar"><div class="market-fill" style="--fill:85%"></div></div>
-</div>
-<div class="market-item" data-trend="up">
-<div class="market-name">WTI Crude</div>
-<div class="market-value">$122.15</div>
-<div class="market-change up">+$7.80 (+6.8%)</div>
-<div class="market-bar"><div class="market-fill" style="--fill:82%"></div></div>
-</div>
-<div class="market-item" data-trend="up">
-<div class="market-name">Gold Spot</div>
-<div class="market-value">$3,847</div>
-<div class="market-change up">+$124 (+3.3%)</div>
-<div class="market-bar"><div class="market-fill" style="--fill:90%"></div></div>
-</div>
-<div class="market-item" data-trend="down">
-<div class="market-name">S&P 500</div>
-<div class="market-value">4,892</div>
-<div class="market-change down">−187 (−3.7%)</div>
-<div class="market-bar"><div class="market-fill down" style="--fill:35%"></div></div>
-</div>
-<div class="market-item" data-trend="up">
-<div class="market-name">Natural Gas (Henry Hub)</div>
-<div class="market-value">$9.84</div>
-<div class="market-change up">+$1.12 (+12.8%)</div>
-<div class="market-bar"><div class="market-fill" style="--fill:78%"></div></div>
-</div>
-<div class="market-item" data-trend="down">
-<div class="market-name">EUR/USD</div>
-<div class="market-value">1.0412</div>
-<div class="market-change down">−0.0187 (−1.8%)</div>
-<div class="market-bar"><div class="market-fill down" style="--fill:40%"></div></div>
-</div>
-</div>
-</div>
-<div class="card sanctions-card">
-<div class="card-header">
-<h2 class="card-title">SANCTIONS & FINANCIAL WARFARE</h2>
-</div>
-<div class="sanctions-list">
-<div class="sanction-item" data-severity="critical">
-<div class="sanction-target">IRGC Quds Force Financial Network</div>
-<div class="sanction-type">OFAC SDN Designation</div>
-<div class="sanction-impact">
-<span class="impact-label">Assets Frozen:</span>
-<span class="impact-value">$2.4B</span>
-</div>
-<div class="sanction-status active">ACTIVE — 847 entities</div>
-</div>
-<div class="sanction-item" data-severity="high">
-<div class="sanction-target">Iranian Central Bank SWIFT Exclusion</div>
-<div class="sanction-type">Multilateral Financial</div>
-<div class="sanction-impact">
-<span class="impact-label">Oil Revenue Impact:</span>
-<span class="impact-value">−$45B/year</span>
-</div>
-<div class="sanction-status active">ACTIVE — Coordinated G7</div>
-</div>
-<div class="sanction-item" data-severity="high">
-<div class="sanction-target">Hezbollah Financial Architecture</div>
-<div class="sanction-type">FinCEN / Treasury / EU</div>
-<div class="sanction-impact">
-<span class="impact-label">Disrupted Flows:</span>
-<span class="impact-value">$800M/year est.</span>
-</div>
-<div class="sanction-status active">ACTIVE — partial effectiveness</div>
-</div>
-<div class="sanction-item" data-severity="medium">
-<div class="sanction-target">Iranian Petrochemical Sector</div>
-<div class="sanction-type">Secondary Sanctions</div>
-<div class="sanction-impact">
-<span class="impact-label">Export Reduction:</span>
-<span class="impact-value">−60% volume</span>
-</div>
-<div class="sanction-status partial">PARTIAL — China circumvention ongoing</div>
-</div>
-</div>
-</div>
-<div class="card hormuz-card">
-<div class="card-header">
-<h2 class="card-title">STRAIT OF HORMUZ — CHOKE POINT STATUS</h2>
-</div>
-<div class="hormuz-status">
-<div class="hormuz-stat">
-<div class="h-stat-value">21.5M</div>
-<div class="h-stat-label">bbl/day transiting</div>
-</div>
-<div class="hormuz-stat">
-<div class="h-stat-value">34%</div>
-<div class="h-stat-label">global seaborne oil</div>
-</div>
-<div class="hormuz-threat">
-<div class="threat-label">CLOSURE THREAT LEVEL</div>
-<div class="hormuz-gauge">
-<div class="h-gauge-fill" style="--gauge:78"></div>
-<span class="h-gauge-value">HIGH (78%)</span>
-</div>
-</div>
-<div class="hormuz-scenarios">
-<div class="h-scenario">
-<span class="h-s-name">Partial Closure (mining)</span>
-<span class="h-s-prob">42%</span>
-</div>
-<div class="h-scenario">
-<span class="h-s-name">Full Closure (naval blockade)</span>
-<span class="h-s-prob">18%</span>
-</div>
-<div class="h-scenario">
-<span class="h-s-name">IRGCN Harassment / Seizures</span>
-<span class="h-s-prob">67%</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- PANEL: TIMELINE -->
-<section class="panel hidden" id="panel-timeline" aria-label="Crisis Timeline Panel">
-<div class="timeline-panel">
-<div class="timeline-header">
-<h2>CRISIS ESCALATION TIMELINE</h2>
-<div class="timeline-controls">
-<button class="tl-btn active" data-range="30d">30D</button>
-<button class="tl-btn" data-range="90d">90D</button>
-<button class="tl-btn" data-range="1y">1Y</button>
-</div>
-</div>
-<div class="timeline-track">
-<div class="timeline-axis"></div>
-<div class="timeline-events">
-<div class="tl-event" data-severity="critical" data-date="2025-10-07">
-<div class="tl-dot critical"></div>
-<div class="tl-content">
-<div class="tl-date">OCT 7, 2025</div>
-<div class="tl-title">Hamas Second Offensive — Operation Al-Aqsa Storm II</div>
-<div class="tl-detail">Coordinated rocket barrage + ground infiltration attempt. IDF responds with Northern and Southern Front simultaneous operations.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="critical" data-date="2025-10-14">
-<div class="tl-dot critical"></div>
-<div class="tl-content">
-<div class="tl-date">OCT 14, 2025</div>
-<div class="tl-title">Iranian Direct Retaliation — Ballistic Missile Salvo</div>
-<div class="tl-detail">IRGC launches 180+ ballistic missiles toward Israeli territory. Arrow-3 and David's Sling intercept ~94%. 7 impacts — 3 casualties.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="critical" data-date="2025-10-26">
-<div class="tl-dot critical"></div>
-<div class="tl-content">
-<div class="tl-date">OCT 26, 2025</div>
-<div class="tl-title">Israeli Strike — Iranian Air Defense & Drone Infrastructure</div>
-<div class="tl-detail">IAF strikes S-300 sites, Shahed production facilities, and IRGC logistics nodes in 4 Iranian provinces.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="high" data-date="2025-11-03">
-<div class="tl-dot high"></div>
-<div class="tl-content">
-<div class="tl-date">NOV 3, 2025</div>
-<div class="tl-title">US Deploys Second CSG — Deterrence Posture</div>
-<div class="tl-detail">USS Gerald R. Ford carrier strike group ordered to Arabian Sea. USS Eisenhower begins Red Sea transit.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="high" data-date="2025-11-18">
-<div class="tl-dot high"></div>
-<div class="tl-content">
-<div class="tl-date">NOV 18, 2025</div>
-<div class="tl-title">Hezbollah Full Activation — Northern Front</div>
-<div class="tl-detail">Radwan Force cross-border operations. 3,200 rocket barrage into northern Israel. IDF ground incursion into southern Lebanon.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="high" data-date="2025-12-01">
-<div class="tl-dot high"></div>
-<div class="tl-content">
-<div class="tl-date">DEC 1, 2025</div>
-<div class="tl-title">IRGC Announces 90% Uranium Enrichment Achievement</div>
-<div class="tl-detail">IAEA access denied at Fordow facility. Emergency UN Security Council session. US/Israel begin joint planning for nuclear strike option.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="medium" data-date="2026-01-14">
-<div class="tl-dot medium"></div>
-<div class="tl-content">
-<div class="tl-date">JAN 14, 2026</div>
-<div class="tl-title">Oman Back-Channel — First Contact</div>
-<div class="tl-detail">US National Security Advisor meets Iranian Deputy FM in Muscat. No agreement. Both sides use talks to buy time for military positioning.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="critical" data-date="2026-02-22">
-<div class="tl-dot critical"></div>
-<div class="tl-content">
-<div class="tl-date">FEB 22, 2026</div>
-<div class="tl-title">Strait of Hormuz Incident — IRGCN Fast Boat Attack</div>
-<div class="tl-detail">IRGC Navy attacks Marshall Islands-flagged tanker. USS Thomas Hudner DDG responds. 2 IRGCN vessels sunk. Oil price spikes $18/barrel.</div>
-</div>
-</div>
-<div class="tl-event" data-severity="critical" data-date="2026-03-01">
-<div class="tl-dot critical pulse-event"></div>
-<div class="tl-content current-event">
-<div class="tl-date">MAR 1, 2026 — CURRENT</div>
-<div class="tl-title">⚡ ACTIVE: IRGC Zulfiqar-9 Pre-Positioning Detected</div>
-<div class="tl-detail">NSA SIGINT confirms operational planning cycle activation. IDF Northern Command moves to DEFCON-2 equivalent. US National Security Council emergency session convened.</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
-<!-- FOOTER -->
-<footer class="app-footer">
-<div class="footer-content">
-<div class="footer-left">
-<span class="footer-classification">UNCLASSIFIED // FOR EDUCATIONAL & ANALYTICAL PURPOSES ONLY</span>
-</div>
-<div class="footer-center">
-<span class="footer-brand">GEO-INTEL CRISIS TRACKER v2.4.1</span>
-</div>
-<div class="footer-right">
-<span class="footer-disclaimer">All data is fictional and for simulation/informational purposes only</span>
-</div>
-</div>
+
+<!-- Footer -->
+<footer class="site-footer">
+<p>This dashboard aggregates open-source intelligence for executive situational awareness. It does not represent classified information. Analysis reflects editorial judgment, not official policy.</p>
+<p class="footer-meta">GEO-INTEL Crisis Tracker · March 2, 2026 — Day 3 Morning Update · For informational purposes only</p>
 </footer>
 </main>
+
 <script src="./app.js" defer></script>
 </body>
 </html>

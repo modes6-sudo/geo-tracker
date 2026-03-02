@@ -3,6 +3,8 @@
 (function() {
   'use strict';
 
+  var CGI_BIN = '__CGI_BIN__';
+
   // ============================================
   // THEME TOGGLE
   // ============================================
@@ -29,7 +31,6 @@
   var tabPanels = document.querySelectorAll('.tab-panel');
 
   function switchTab(targetTab) {
-    // Deactivate all tabs
     tabButtons.forEach(function(btn) {
       btn.classList.remove('active');
       btn.setAttribute('aria-selected', 'false');
@@ -39,7 +40,6 @@
       panel.classList.remove('active');
     });
 
-    // Activate target
     var activeBtn = document.querySelector('[data-tab="' + targetTab + '"]');
     var activePanel = document.getElementById('tab-' + targetTab);
 
@@ -49,7 +49,6 @@
       activePanel.hidden = false;
       activePanel.classList.add('active');
 
-      // Scroll main content to top
       var mainContent = document.querySelector('.main-content');
       if (mainContent) {
         mainContent.scrollTop = 0;
@@ -63,7 +62,6 @@
       switchTab(tab);
     });
 
-    // Keyboard navigation
     btn.addEventListener('keydown', function(e) {
       var tabs = Array.from(tabButtons);
       var index = tabs.indexOf(this);
@@ -110,7 +108,6 @@
     });
   });
 
-  // Initialize: show expanded content for items that start expanded
   expandTriggers.forEach(function(trigger) {
     if (trigger.getAttribute('aria-expanded') === 'true') {
       var content = trigger.nextElementSibling;
@@ -120,16 +117,137 @@
     }
   });
 
-})();
+  // ============================================
+  // TOAST NOTIFICATION
+  // ============================================
+  var toastEl = null;
+  var toastTimer = null;
 
-// Refresh button
-const refreshBtn = document.getElementById('refresh-btn');
-if (refreshBtn) {
-  refreshBtn.addEventListener('click', () => {
-    refreshBtn.classList.add('spinning');
-    refreshBtn.setAttribute('disabled', 'true');
-    setTimeout(() => {
-      location.reload(true);
-    }, 600);
-  });
-}
+  function createToast() {
+    if (toastEl) return;
+    toastEl = document.createElement('div');
+    toastEl.className = 'refresh-toast';
+    toastEl.setAttribute('role', 'status');
+    toastEl.setAttribute('aria-live', 'polite');
+    document.body.appendChild(toastEl);
+  }
+
+  function showToast(message, type) {
+    createToast();
+    if (toastTimer) clearTimeout(toastTimer);
+    toastEl.className = 'refresh-toast';
+    var icon = type === 'success' ? '\u2713' : type === 'error' ? '\u2715' : '\u21BB';
+    toastEl.innerHTML = '<span class="refresh-toast-icon">' + icon + '</span> ' + message;
+    if (type) toastEl.classList.add('toast-' + type);
+    void toastEl.offsetWidth;
+    toastEl.classList.add('visible');
+    toastTimer = setTimeout(function() {
+      toastEl.classList.remove('visible');
+    }, type === 'error' ? 5000 : 3500);
+  }
+
+  // ============================================
+  // REFRESH INTEL
+  // ============================================
+  var refreshBtn = document.getElementById('refresh-btn');
+  var isRefreshing = false;
+
+  function checkForUpdates() {
+    if (isRefreshing) return;
+    isRefreshing = true;
+
+    if (refreshBtn) {
+      refreshBtn.classList.add('refreshing');
+      refreshBtn.setAttribute('disabled', 'true');
+    }
+    showToast('Checking for intel updates...', null);
+
+    var apiUrl = CGI_BIN + '/refresh.py/status';
+
+    if (apiUrl.indexOf('__CGI') === 0) {
+      showToast('Refreshing page...', null);
+      setTimeout(function() {
+        location.reload(true);
+      }, 800);
+      return;
+    }
+
+    fetch(apiUrl, { method: 'GET', cache: 'no-store' })
+      .then(function(res) {
+        if (!res.ok) throw new Error('API error ' + res.status);
+        return res.json();
+      })
+      .then(function(data) {
+        if (data.latest_run) {
+          var lastUpdate = data.latest_run.timestamp;
+          showToast('Latest intel: ' + lastUpdate + ' — Reloading...', 'success');
+          setTimeout(function() {
+            location.reload(true);
+          }, 1500);
+        } else {
+          showToast('No new intel available. Monitoring runs every 4 hours.', 'error');
+          resetRefreshBtn();
+        }
+      })
+      .catch(function() {
+        showToast('Refreshing page...', null);
+        setTimeout(function() {
+          location.reload(true);
+        }, 800);
+      });
+  }
+
+  function resetRefreshBtn() {
+    isRefreshing = false;
+    if (refreshBtn) {
+      refreshBtn.classList.remove('refreshing');
+      refreshBtn.removeAttribute('disabled');
+    }
+  }
+
+  if (refreshBtn) {
+    refreshBtn.addEventListener('click', checkForUpdates);
+  }
+
+  // ============================================
+  // PULL-TO-REFRESH (mobile)
+  // ============================================
+  var mainContent = document.querySelector('.main-content');
+  var pullStartY = 0;
+  var pullDist = 0;
+  var isPulling = false;
+  var PULL_THRESHOLD = 80;
+
+  if (mainContent && 'ontouchstart' in window) {
+    mainContent.addEventListener('touchstart', function(e) {
+      if (mainContent.scrollTop <= 0 && !isRefreshing) {
+        pullStartY = e.touches[0].clientY;
+        isPulling = true;
+      }
+    }, { passive: true });
+
+    mainContent.addEventListener('touchmove', function(e) {
+      if (!isPulling) return;
+      pullDist = e.touches[0].clientY - pullStartY;
+      if (pullDist > 10 && mainContent.scrollTop <= 0) {
+        var progress = Math.min(pullDist / PULL_THRESHOLD, 1);
+        if (refreshBtn) {
+          refreshBtn.style.transform = 'rotate(' + (progress * 180) + 'deg)';
+        }
+      }
+    }, { passive: true });
+
+    mainContent.addEventListener('touchend', function() {
+      if (!isPulling) return;
+      isPulling = false;
+      if (refreshBtn) {
+        refreshBtn.style.transform = '';
+      }
+      if (pullDist >= PULL_THRESHOLD && mainContent.scrollTop <= 0) {
+        checkForUpdates();
+      }
+      pullDist = 0;
+    }, { passive: true });
+  }
+
+})();

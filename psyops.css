@@ -923,15 +923,84 @@
 @media (max-width: 768px) {
   .key-metrics {
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
   }
 
   .bot-activity {
     grid-template-columns: 1fr;
+  }
+
+  .narrative-matrix table,
+  .messaging-table,
+  .parallel-table,
+  .succession-table,
+  .aviation-table {
+    min-width: 400px;
+    font-size: var(--text-xs);
+  }
+
+  .psyops-section-title {
+    font-size: 10px;
+  }
+
+  .sequence-step {
+    padding: var(--space-3);
+    gap: var(--space-3);
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+    font-size: var(--text-xs);
+  }
+
+  .disinfo-item {
+    padding: var(--space-2) var(--space-3);
   }
 }
 
 @media (max-width: 500px) {
   .key-metrics {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .metric-card {
+    padding: var(--space-3);
+  }
+
+  .metric-value {
+    font-size: var(--text-base);
+  }
+
+  .metric-label {
+    font-size: 10px;
+  }
+
+  .quote-callout {
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .quote-callout blockquote {
+    font-size: var(--text-sm);
+  }
+
+  .psyops-analysis {
+    padding: var(--space-3);
+  }
+
+  .psyops-analysis p {
+    font-size: var(--text-xs);
+  }
+
+  .framing-option {
+    padding: var(--space-3);
+  }
+
+  .framing-option-text {
+    font-size: var(--text-sm);
+  }
+
+  .symbolic-side {
+    padding: var(--space-3);
   }
 }

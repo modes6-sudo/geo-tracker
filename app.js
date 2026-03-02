@@ -121,3 +121,15 @@
   });
 
 })();
+
+// Refresh button
+const refreshBtn = document.getElementById('refresh-btn');
+if (refreshBtn) {
+  refreshBtn.addEventListener('click', () => {
+    refreshBtn.classList.add('spinning');
+    refreshBtn.setAttribute('disabled', 'true');
+    setTimeout(() => {
+      location.reload(true);
+    }, 600);
+  });
+}

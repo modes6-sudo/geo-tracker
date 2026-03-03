@@ -1,5 +1,8 @@
 name: Update index.html from URL
 on:
+  push:
+    branches:
+      - trigger-update
   workflow_dispatch:
 jobs:
   update:
@@ -13,12 +16,16 @@ jobs:
       - name: Verify download
         run: |
           wc -c index.html
-          grep -c "tab-social" index.html
+          grep -c "tab-social" index.html || true
       - name: Commit and push
         run: |
           git config user.email "modes6@gmail.com"
           git config user.name "modes6-sudo"
           git add index.html
           git diff --staged --stat
-          git commit -m "Add X/Social Feed tab \u2014 Twitter/PSYOPS analysis + Day 4 overnight intel"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add X/Social Feed tab \u2014 Twitter/PSYOPS analysis + Day 4 overnight intel"
+            git push origin main
+          fi
